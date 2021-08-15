@@ -17,8 +17,9 @@ export const { styled, css, global, keyframes, getCssString, theme } = createCss
       neutralLight: 'hsla(192, 5%, 91%, 1)',
       neutralLightest: 'hsla(0, 0%, 100%, 1)',
 
-
-      loadingGradient: 'linear-gradient(180deg, rgba(2,0,36,1) 0%, rgba(9,9,121,1) 100%)',
+      // https://cssgradient.io/
+      loadingGradient: '180deg, rgba(2,0,36,1) 0%, rgba(9,9,121,1) 100%',
+      loadedGradient: '180deg, rgba(2,0,36,1) 0%, rgba(177,158,54,1) 100%',
       bg_default: '$white',
     },
     space: {
@@ -102,6 +103,7 @@ export const { styled, css, global, keyframes, getCssString, theme } = createCss
       icon_xl: '$13',
       icon_xxl: '$16',
       full: '100%',
+      fullVh: '100vh',
       logo: '112px',
     },
     borderWidths: {
@@ -132,5 +134,26 @@ export const { styled, css, global, keyframes, getCssString, theme } = createCss
     },
     zIndices: {},
     transitions: {},
+  },
+  utils: {
+    // A property to apply linear gradient
+    linearGradient: (config) => (value) => ({
+      backgroundImage: `linear-gradient(${value})`,
+    }),
+    childrenAtCenter:
+      (config) =>
+      (value = 'column') => ({
+        display: 'flex',
+        alignItems: 'center',
+        justifyContent: 'center',
+        flexDirection: value,
+      }),
+    alignSelfCenter: (config) => (value) => ({
+      display: 'flex',
+      alignSelf: 'center',
+    }),
+    mW: (config) => (value) => ({
+      maxWidth: value,
+    }),
   },
 })
