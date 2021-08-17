@@ -1,7 +1,7 @@
-import React from 'react'
 import { H1, P } from './basics'
 // import BodyBackground from '@/components/BodyBackground'
 import { styled } from '../stiches.config'
+import HeadphoneIcon from '@/components/Icons/Headphone/HeadphoneIcon'
 
 type LoadingScreenProps = {
   stage: string
@@ -30,6 +30,7 @@ const LoadingScreen: React.FC<LoadingScreenProps> = ({ stage = 'loading' }) => {
       <Container>
         {stage === 'loading' ? (
           <>
+            <HeadphoneIcon />
             <H1 text="Use headphones for the best experience" />
             <P
               text="Here the deepest feeling are explored: 

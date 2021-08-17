@@ -1,14 +1,6 @@
-import React, { useState, useRef } from 'react'
-// https://codesandbox.io/s/github/gilbarbara/react-inlinesvg/tree/master/demo?file=/src/index.tsx
-// https://github.com/gilbarbara/react-inlinesvg
-import SVG, { Props as SVGProps } from 'react-inlinesvg'
+import React, { useState } from 'react'
 import { styled } from 'stiches.config'
-
-/* eslint-disable */
-const LogoFile = React.forwardRef<SVGElement, SVGProps>((props, ref) => (
-  <SVG innerRef={ref} title="MyLogo" {...props} />
-))
-/* eslint-enable */
+import SVG from '@/components/SVG/SVG'
 
 // import useRAF from '@/hooks/raf.hook'
 // const anime = require('animejs')
@@ -33,7 +25,6 @@ const LogoContainer = styled('div', {
 // https://css-tricks.com/svg-line-animation-works/
 // https://codepen.io/juliangarnier/pen/dwKGoW
 const Logo: React.FC = () => {
-  const logo = useRef<SVGElement>(null)
   const [shouldAnimate, setShouldAnimate] = useState<boolean>(false)
 
   const handleLogoHover = (hovering: boolean) => {
@@ -41,8 +32,8 @@ const Logo: React.FC = () => {
   }
 
   return (
-    <LogoContainer onMouseEnter={() => handleLogoHover(true)} onMouseLeave={() => handleLogoOver(false)}>
-      <LogoFile ref={logo} src={`/carlota-sounds-6.svg`} className={`logo ${shouldAnimate ? 'in' : ''}`} />
+    <LogoContainer onMouseEnter={() => handleLogoHover(true)} onMouseLeave={() => handleLogoHover(false)}>
+      <SVG src="/carlota-sounds-6.svg" className={`logo ${shouldAnimate ? 'in' : ''}`} />
     </LogoContainer>
   )
 }

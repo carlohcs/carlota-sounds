@@ -1,0 +1,9 @@
+.icon {
+  &.headphone {
+    path,
+    circle {
+      fill: #fff;
+      stroke: #fff;
+    }
+  }
+}

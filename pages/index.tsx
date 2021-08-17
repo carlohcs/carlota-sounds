@@ -14,10 +14,10 @@ const Home: NextPage = () => {
   // https://dev.to/gabrielrufino/react-hook-usestate-in-typescript-4mn6
   const [stage, setStage] = useState<string>('loading')
 
-  const changeBg = setTimeout(() => {
-    setStage('loaded')
-    clearTimeout(changeBg)
-  }, 3000)
+  // const changeBg = setTimeout(() => {
+  //   setStage('loaded')
+  //   clearTimeout(changeBg)
+  // }, 3000)
 
   // https://blog.logrocket.com/how-to-use-svgs-in-react/
   return (
