@@ -34,3 +34,10 @@ body * {
   flex-direction: column;
   flex-basis: initial;
 }
+
+svg {
+  width: 100%;
+  height: 100%;
+}
+
+/* @import url('../styles/Logo.module.css'); */

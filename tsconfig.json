@@ -15,9 +15,10 @@
     "jsx": "preserve",
     "baseUrl": ".",
     "paths": {
+      "@/hooks/*": ["hooks/*"],
       "@/components/*": ["components/*"]
     }
   },
-  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", "stiches.config"],
+  "include": ["next-env.d.ts", "custom.d.ts", "**/*.ts", "**/*.tsx", "stiches.config"],
   "exclude": ["node_modules"]
 }

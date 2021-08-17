@@ -1,10 +1,12 @@
 import { useState } from 'react'
 import type { NextPage } from 'next'
 import Head from 'next/head'
+import Image from 'next/image'
 // import Image from 'next/image'
 // import styles from '../styles/Home.module.css'
 import LoadingScreen from '@/components/LoadingScreen'
 import { styled } from '../stiches.config'
+import Logo from '@/components/Logo/Logo'
 
 const Main = styled('div', {})
 
@@ -17,6 +19,7 @@ const Home: NextPage = () => {
     clearTimeout(changeBg)
   }, 3000)
 
+  // https://blog.logrocket.com/how-to-use-svgs-in-react/
   return (
     <>
       <Head>
@@ -26,6 +29,7 @@ const Home: NextPage = () => {
       </Head>
 
       <Main className="main">
+        <Logo />
         <LoadingScreen stage={stage} />
       </Main>
     </>
