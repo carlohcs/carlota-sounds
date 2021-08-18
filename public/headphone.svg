@@ -1,4 +1,5 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 240 240">
-	<path d="M184.45,109.66a65.29,65.29,0,0,0-129.4,0,25.83,25.83,0,0,0-24.8,25.86v13.33a25.91,25.91,0,0,0,21,25.49v-44.9h4.11v45.35c.23,0,.44.07.68.07h7.27V119.75h.05c0-.23-.05-.48-.05-.75a56.41,56.41,0,1,1,112.82,0c0,.27,0,.52,0,.75h0v55.11h7.29c.23,0,.44-.06.67-.07V129.44h4.11v44.94a25.91,25.91,0,0,0,21-25.49V135.57A25.83,25.83,0,0,0,184.45,109.66Z" />
-	<circle cx="119.88" cy="120.12" r="117.88" style="fill:none;stroke:currentColor;stroke-miterlimit:10;stroke-width:2px" />
+	<path class="animate fade-in-infinite" d="M184.45,109.66a65.29,65.29,0,0,0-129.4,0,25.83,25.83,0,0,0-24.8,25.86v13.33a25.91,25.91,0,0,0,21,25.49v-44.9h4.11v45.35c.23,0,.44.07.68.07h7.27V119.75h.05c0-.23-.05-.48-.05-.75a56.41,56.41,0,1,1,112.82,0c0,.27,0,.52,0,.75h0v55.11h7.29c.23,0,.44-.06.67-.07V129.44h4.11v44.94a25.91,25.91,0,0,0,21-25.49V135.57A25.83,25.83,0,0,0,184.45,109.66Z" />
+	<circle class="headphone__circle-background" cx="119.88" cy="120.12" r="117.88" style="fill:none;stroke:currentColor;stroke-miterlimit:10;stroke-width:4px" />
+	<circle class="headphone__circle-spinner" cx="119.88" cy="120.12" r="117.88" style="fill:none;stroke:currentColor;stroke-miterlimit:10;stroke-width:4px" />
 </svg>

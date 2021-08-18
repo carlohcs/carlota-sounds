@@ -4,18 +4,7 @@ import React, { useRef } from 'react'
 import SVG, { Props as SVGProps } from 'react-inlinesvg'
 
 /* eslint-disable */
-const SVGFile = React.forwardRef<SVGElement, SVGProps>((props, ref) => <SVG innerRef={ref} {...props} />)
+const InlineSVG = React.forwardRef<SVGElement, SVGProps>((props, ref) => <SVG innerRef={ref} {...props} />)
 /* eslint-enable */
-
-type FileType = {
-  src: string
-  className?: string
-}
-
-const InlineSVG: React.FC<FileType> = ({ src, className }) => {
-  const currentRef = useRef<SVGElement>(null)
-
-  return <SVGFile ref={currentRef} src={src} className={className} />
-}
 
 export default InlineSVG

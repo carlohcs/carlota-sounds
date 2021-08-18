@@ -42,3 +42,5 @@ svg {
 }
 
 /* @import url('../styles/Logo.module.css'); */
+
+@import url('../styles/keyframes.css')

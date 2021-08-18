@@ -1,0 +1,54 @@
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes wiggleWiggle {
+  20%,
+  100% {
+    transform: translate(0, 2px);
+  }
+
+  0% {
+    transform: translate(0, 0px);
+  }
+  10% {
+    transform: translate(0, 2px);
+  }
+}
+
+@keyframes fadeOutHover {
+  from {
+    opacity: 0.7;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes strokeDashOffsetCircular {
+  to {
+    stroke-dasharray: 1000;
+    stroke-dashoffset: 1000;
+  }
+}
+
+.animate {
+  &.fade-in-infinite {
+    opacity: 0;
+    animation-name: fadeIn;
+    animation-duration: 2s;
+    animation-timing-function: linear;
+    animation-delay: 2s;
+    animation-iteration-count: infinite;
+    animation-direction: alternate;
+  }
+
+  &.rotate-stroke {
+    transition: strokeDashOffsetCircular 2s infinite linear;
+  }
+}
