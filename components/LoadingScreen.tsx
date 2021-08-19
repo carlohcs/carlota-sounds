@@ -2,6 +2,7 @@ import { H1, P } from './basics'
 // import BodyBackground from '@/components/BodyBackground'
 import { styled } from '../stiches.config'
 import HeadphoneIcon from '@/components/Icons/Headphone/HeadphoneIcon'
+import DandelionIcon from '@/components/Icons/Dandelion/DandelionIcon'
 
 type LoadingScreenProps = {
   stage: string
@@ -43,6 +44,7 @@ May the reflection of these be with you."
           ''
         )}
       </Container>
+      <DandelionIcon />
     </BodyBackground>
   )
 }

@@ -1,18 +1,19 @@
 @import url('../../../styles/keyframes.css');
 
 .icon {
-  &.headphone {
-    path {
+  &.dandelion {
+    path,
+    circle {
       fill: #fff;
     }
 
     circle:nth-of-type(1) {
       /* stroke: #8f8f8f !important; */
-      stroke: transparent !important;
+      /* stroke: transparent !important; */
     }
 
     circle:nth-of-type(2) {
-      stroke: #fff !important;
+      /* stroke: #fff !important; */
     }
   }
 }
