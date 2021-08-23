@@ -55,7 +55,7 @@ const DandelionIcon = () => {
   return (
     <div>
       <DandelionIconContainer>
-        <SVG src="/dandelion.svg" className={`${style.icon} ${style.dandelion}`} />
+        <SVG src="/dandelion-0.svg" className={`animate scale  ${style.icon} ${style.dandelion}`} />
       </DandelionIconContainer>
     </div>
   )

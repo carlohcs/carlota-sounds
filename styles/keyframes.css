@@ -37,6 +37,12 @@
   }
 }
 
+@keyframes scale {
+  to {
+    transform: scale(1);
+  }
+}
+
 .animate {
   &.fade-in-infinite {
     opacity: 0;
@@ -51,4 +57,62 @@
   &.rotate-stroke {
     transition: strokeDashOffsetCircular 2s infinite linear;
   }
+
+  &.scale {
+    path {
+      
+    }
+  }
+}
+
+.scale path {
+  fill: #8A58D6 !important;
+}
+.scale line:nth-of-type(1n) {
+  transform-origin: center center;
+  stroke: #B962D6 !important;
+  transform: scale(0.3);
+  stroke-width: 2px;
+  animation: scale 3s alternate infinite;
+}
+
+.scale line:nth-of-type(2n) {
+  transform-origin: center center;
+  stroke: #DC5CBA !important;
+  transform: scale(0.7);
+  stroke-width: 2px;
+  animation: scale 3s alternate infinite;
+}
+
+.scale line:nth-of-type(3n) {
+  transform-origin: center center;
+  stroke: #DC4972 !important;
+  transform: scale(0.9);
+  stroke-width: 2px;
+  animation: scale 3s alternate infinite;
+}
+
+
+.scale circle:nth-of-type(1n) {
+  transform-origin: center center;
+  
+  transform: scale(0.7);
+  fill: #B962D6 !important;
+  animation: scale 1s alternate infinite;
+}
+
+.scale circle:nth-of-type(2n) {
+  transform-origin: center center;
+  
+  transform: scale(0.3);
+  fill: #DC5CBA !important;
+  animation: scale 2s alternate infinite;
+}
+
+.scale circle:nth-of-type(3n) {
+  transform-origin: center center;
+  
+  transform: scale(0.8);
+  fill: #DC4972 !important;
+  animation: scale 3s alternate infinite;
 }

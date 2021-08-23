@@ -8,6 +8,7 @@ import LoadingScreen from '@/components/LoadingScreen'
 import { styled } from '../stiches.config'
 import Logo from '@/components/Logo/Logo'
 
+// https://css-tricks.com/scale-svg/
 const Main = styled('div', {})
 
 const Home: NextPage = () => {
