@@ -3,6 +3,8 @@ import { H1, P } from './basics'
 import { styled } from '../stiches.config'
 import HeadphoneIcon from '@/components/Icons/Headphone/HeadphoneIcon'
 import DandelionIcon from '@/components/Icons/Dandelion/DandelionIcon'
+// import DandelionLineIcon from '@/components/Icons/Dandelion/DandelionLineIcon'
+import { DandelionLineIcon, DandelionLineIconItems } from '@/components/Icons/Dandelion/DandelionLineIcon'
 
 type LoadingScreenProps = {
   stage: string
@@ -10,10 +12,15 @@ type LoadingScreenProps = {
 
 const BodyBackground: React.FC<LoadingScreenProps> = ({ children, stage = 'loading' }) => {
   const BodyBackgroundStyled = styled('div', {
-    linearGradient: stage === 'loading' ? '$loadingGradient' : '$loadedGradient',
+    // linearGradient: stage === 'loading' ? '$loadingGradient' : '$loadedGradient',
     height: '$full',
+    // backgroundColor: 'rgba(0, 0, 0, .9)'
   })
-  return <BodyBackgroundStyled className="main__content">{children}</BodyBackgroundStyled>
+  return (
+    <BodyBackgroundStyled className={`${stage === 'loading' ? 'animate loading-background' : ''} main__content`}>
+      {children}
+    </BodyBackgroundStyled>
+  )
 }
 
 const Container = styled('div', {
@@ -22,6 +29,7 @@ const Container = styled('div', {
   childrenAtCenter: 'column',
   padding: '$xxs',
   mW: '740px',
+  zIndex: 2,
 })
 
 // https://stackoverflow.com/questions/61184591/how-to-implement-loading-screen-in-next-js
@@ -45,6 +53,7 @@ May the reflection of these be with you."
         )}
       </Container>
       <DandelionIcon />
+      <DandelionLineIconItems />
     </BodyBackground>
   )
 }

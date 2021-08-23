@@ -22,8 +22,8 @@ const strokeDashOffsetCircular = keyframes({
 // https://www.carlrippon.com/react-children-with-typescript/
 // https://css-tricks.com/almanac/properties/s/stroke-dashoffset/
 const DandelionIconContainer = styled('div', {
-  width: '200px',
-  height: '200px',
+  width: '290px',
+  height: '290px',
   position: 'absolute',
   left: 0,
   bottom: 0,
