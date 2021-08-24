@@ -12,11 +12,18 @@ const animate = keyframes({
     opacity: 0.3,
   },
   '100%': {
-    bottom: '100%',
-    left: '100%',
+    bottom: '94%',
+    left: '94%',
     opacity: 0,
   },
 })
+
+const animateRotate = keyframes({
+  to: {
+    transform: `rotate(${Math.random() / 2}deg)`,
+  }
+})
+
 
 const DandelionLineIconContainer = styled('div', {
   width: '50px',
@@ -26,7 +33,7 @@ const DandelionLineIconContainer = styled('div', {
   bottom: '200px',
   zIndex: 1,
   transform: 'rotate(45deg)',
-  animation: `${animate} 10s linear infinite`,
+  animation: `${animate} 10s linear infinite forwards, ${animateRotate} 120s linear infinite forwards`,
   opacity: 0,
   'circle, line': {
     fill: 'currentColor !important',
@@ -42,19 +49,18 @@ export const DandelionLineIcon = ({
   color = 'rgba(255, 255, 255, .5)',
 }) => {
   return (
-    <div>
-      <DandelionLineIconContainer
-        style={{
-          left: `${left}px`,
-          bottom: `${bottom}px`,
-          animationDelay: `${delay}s`,
-          transform: `rotate(${rotate}deg)`,
-          color: color,
-        }}
-      >
-        <SVG src="/dandelion-line.svg" />
-      </DandelionLineIconContainer>
-    </div>
+    <DandelionLineIconContainer
+      style={{
+        left: `${left}px`,
+        bottom: `${bottom}px`,
+        animationDelay: `${delay}s`,
+        transform: `rotate(${rotate}deg)`,
+        color: color,
+        zIndex: 1,
+      }}
+    >
+      <SVG src="/dandelion-line.svg" />
+    </DandelionLineIconContainer>
   )
 }
 
@@ -68,8 +74,8 @@ export const DandelionLineIconItems = () => {
   }
 
   return (
-    <div>
-      {new Array(200).fill('').map((value, index) => (
+    <>
+      {new Array(150).fill('').map((value, index) => (
         <DandelionLineIcon
           bottom={(index % 2 === 0 ? 200 : 300) - Math.random() * index}
           left={(index % 2 === 0 ? 200 : 300) - Math.random() * index}
@@ -79,6 +85,6 @@ export const DandelionLineIconItems = () => {
           key={index}
         />
       ))}
-    </div>
+    </>
   )
 }

@@ -6,19 +6,6 @@ import { keyframes } from '@stitches/react'
 
 // https://github.com/typescript-cheatsheets/react#reacttypescript-cheatsheets
 
-const circleDegre = 740.6618840103296
-
-const strokeDashOffsetCircular = keyframes({
-  from: {
-    strokeDashoffset: circleDegre,
-    // strokeDasharray: ,
-  },
-  to: {
-    strokeDashoffset: 0,
-    // strokeDasharray: ,
-  },
-})
-
 // https://www.carlrippon.com/react-children-with-typescript/
 // https://css-tricks.com/almanac/properties/s/stroke-dashoffset/
 const DandelionIconContainer = styled('div', {
@@ -27,20 +14,13 @@ const DandelionIconContainer = styled('div', {
   position: 'absolute',
   left: 0,
   bottom: 0,
-  'circle:nth-of-type(2)': {
-    /* calculate using: (2 * PI * R) */
-    // circleDegre
-    // strokeDashoffset: circleDegre,
-    // strokeDasharray: circleDegre,
-    // animation: `${strokeDashOffsetCircular} 2s linear alternate infinite`,
-  },
 })
 
-const DandelionIconStyled = styled('div', {
-  position: 'absolute',
-})
+type BasicElementProps = {
+  className?: string
+}
 
-const DandelionIcon = () => {
+const DandelionIcon: React.FC<BasicElementProps> = ({ className }) => {
   // https://medium.com/@teh_builder/ref-objects-inside-useeffect-hooks-eb7c15198780
   // https://reactjs.org/docs/hooks-faq.html#how-can-i-measure-a-dom-node
   // const containerElementRef = useCallback<CallbackType>(
@@ -53,9 +33,9 @@ const DandelionIcon = () => {
   //  ref={containerElementRef}
 
   return (
-    <div>
+    <div className={className}>
       <DandelionIconContainer>
-        <SVG src="/dandelion-0.svg" className={`animate scale  ${style.icon} ${style.dandelion}`} />
+        <SVG src="/dandelion-0.svg" className={`animate scale ${style.icon} ${style.dandelion}`} />
       </DandelionIconContainer>
     </div>
   )

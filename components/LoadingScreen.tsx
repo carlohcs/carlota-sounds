@@ -11,49 +11,42 @@ type LoadingScreenProps = {
 }
 
 const BodyBackground: React.FC<LoadingScreenProps> = ({ children, stage = 'loading' }) => {
-  const BodyBackgroundStyled = styled('div', {
-    // linearGradient: stage === 'loading' ? '$loadingGradient' : '$loadedGradient',
-    height: '$full',
-    // backgroundColor: 'rgba(0, 0, 0, .9)'
-  })
   return (
-    <BodyBackgroundStyled className={`${stage === 'loading' ? 'animate loading-background' : ''} main__content`}>
+    <div
+      className={`${
+        stage === 'loading' ? 'animate loading-background' : ''
+      } main__content h-screen flex flex-initial flex-col self-center items-center p-xxxs`}
+    >
       {children}
-    </BodyBackgroundStyled>
+    </div>
   )
 }
-
-const Container = styled('div', {
-  height: '$fullVh',
-  alignSelfCenter: true,
-  childrenAtCenter: 'column',
-  padding: '$xxs',
-  mW: '740px',
-  zIndex: 2,
-})
 
 // https://stackoverflow.com/questions/61184591/how-to-implement-loading-screen-in-next-js
 const LoadingScreen: React.FC<LoadingScreenProps> = ({ stage = 'loading' }) => {
   return (
     <BodyBackground stage={stage}>
-      <Container>
+      <div className="h-screen flex flex-initial self-center items-center flex-col justify-center z-10">
         {stage === 'loading' ? (
           <>
-            <HeadphoneIcon />
-            <H1 text="Use headphones for the best experience" />
-            <P
-              text="Here the deepest feeling are explored: 
-from loneliness, euphoria to the widest reflections.
-
-May the reflection of these be with you."
-            />
+            <div className="z-20 flex flex-col items-center space-y-6">
+              <HeadphoneIcon />
+              <H1 text="Use headphones for the best experience" className="text-3xl font-medium max-w-xl" />
+              <P
+                text="Here the deepest feeling are explored: from loneliness, euphoria to the widest reflections."
+                className="text-lg max-w-lg"
+              />
+              <P text="May the reflection of these be with you." className="text-lg max-w-lg" />
+            </div>
+            <div className="hidden lg:block z-10">
+              <DandelionIcon />
+              <DandelionLineIconItems />
+            </div>
           </>
         ) : (
           ''
         )}
-      </Container>
-      <DandelionIcon />
-      <DandelionLineIconItems />
+      </div>
     </BodyBackground>
   )
 }

@@ -1,5 +1,23 @@
-@import url('normalize.css');
-@import url('../public/fonts/milliard/style.css');
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* @import url('normalize.css'); */
+/* @import url('../public/fonts/milliard/style.css'); */
+
+@layer base {
+  @font-face {
+    font-family: Milliard Medium;
+    font-weight: 400;
+    font-display: swap;
+    src: url(/fonts/milliard/using/Rene_Bieder_Milliard_Medium.woff) format("woff");
+  }
+  @font-face {
+    font-family: Milliard ExtraLight;
+    font-weight: 100;
+    src: url(/fonts/milliard/using/Rene_Bieder_Milliard_ExtraLight.woff) format("woff");
+  }
+}
 
 * {
   box-sizing: border-box;
@@ -28,8 +46,7 @@ body * {
 }
 
 #__next,
-.main,
-.main__content {
+.main {
   height: 100vh;
   display: flex;
   flex-direction: column;

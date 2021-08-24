@@ -9,7 +9,7 @@ import { styled } from '../stiches.config'
 import Logo from '@/components/Logo/Logo'
 
 // https://css-tricks.com/scale-svg/
-const Main = styled('div', {})
+// const Main = styled('div', {})
 
 const Home: NextPage = () => {
   // https://dev.to/gabrielrufino/react-hook-usestate-in-typescript-4mn6
@@ -29,10 +29,10 @@ const Home: NextPage = () => {
         <link rel="icon" href="/favicon.ico" />
       </Head>
 
-      <Main className="main">
+      <main className="h-screen">
         <Logo />
         <LoadingScreen stage={stage} />
-      </Main>
+      </main>
     </>
   )
 }
