@@ -45,13 +45,13 @@
 
 @keyframes loadingBackground {
   0% {
-    background-position: 82% 0%;
+    background-position: 0, 82% 0%;
   }
   50% {
-    background-position: 19% 100%;
+    background-position: 0, 19% 100%;
   }
   100% {
-    background-position: 82% 0%;
+    background-position: 0, 82% 0%;
   }
 }
 
@@ -83,8 +83,12 @@
     /* background: linear-gradient(207deg, #001219ff, #005f73ff, #0a9396ff, #94d2bdff, #e9d8a6ff, #ee9b00ff, #ca6702ff, #bb3e03ff, #ae2012ff, #9b2226ff); */
 
     /* https://coolors.co/b7094c-a01a58-892b64-723c70-5c4d7d-455e89-2e6f95-1780a1-0091ad */
-    background: linear-gradient(45deg, #b7094cff, #a01a58ff, #892b64ff, #723c70ff, #5c4d7dff, #455e89ff, #2e6f95ff, #1780a1ff, #0091adff);
-    background-size: 400% 400%;
+    /* background: linear-gradient(45deg, #b7094cff, #a01a58ff, #892b64ff, #723c70ff, #5c4d7dff, #455e89ff, #2e6f95ff, #1780a1ff, #0091adff); */
+    background-size: auto, 400% 400%;
+    background-color: #004f8c;
+/* This is mostly intended for prototyping; please download the pattern and re-host for production environments. Thank you! */
+    background-image: url("/carbon-fibre-v2.png"), linear-gradient(45deg, #b7094cff, #a01a58ff, #892b64ff, #723c70ff, #5c4d7dff, #455e89ff, #2e6f95ff, #1780a1ff, #0091adff);
+/* This is mostly intended for prototyping; please download the pattern and re-host for production environments. Thank you! */
 
     animation: loadingBackground 15s linear infinite;
   }
