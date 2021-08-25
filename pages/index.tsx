@@ -7,6 +7,7 @@ import Image from 'next/image'
 import LoadingScreen from '@/components/LoadingScreen'
 import { styled } from '../stiches.config'
 import Logo from '@/components/Logo/Logo'
+import Canvas from '@/components/Canvas/Canvas'
 
 // https://css-tricks.com/scale-svg/
 // const Main = styled('div', {})
@@ -31,8 +32,8 @@ const Home: NextPage = () => {
 
       <main className="w-screen h-screen">
         <Logo />
-        <div>
-          WELCOME TO APPLICATION!
+        <div className="absolute w-screen h-screen">
+          <Canvas />
         </div>
       </main>
     </>

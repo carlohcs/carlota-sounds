@@ -8,7 +8,7 @@ const BodyBackground: React.FC<LoadingScreenProps> = ({ children, stage = 'loadi
   const currentClassName = stage === 'loading' ? 'loading-background' : 'loading-background loaded-background'
   return (
     <div
-      className={`animate ${currentClassName} main__content w-screen h-screen flex flex-initial flex-col self-center items-center p-xxxs`}
+      className={`animate ${currentClassName} main__content fade-in w-screen h-screen flex flex-initial flex-col self-center items-center p-xxxs`}
     >
       {children}
     </div>
