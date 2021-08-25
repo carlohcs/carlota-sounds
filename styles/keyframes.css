@@ -66,6 +66,10 @@
     animation-direction: alternate;
   }
 
+  &.fade-in {
+    animation: fadeIn 5s 1 linear;
+  }
+
   &.rotate-stroke {
     transition: strokeDashOffsetCircular 2s infinite linear;
   }
@@ -86,11 +90,26 @@
     /* background: linear-gradient(45deg, #b7094cff, #a01a58ff, #892b64ff, #723c70ff, #5c4d7dff, #455e89ff, #2e6f95ff, #1780a1ff, #0091adff); */
     background-size: auto, 400% 400%;
     background-color: #004f8c;
-/* This is mostly intended for prototyping; please download the pattern and re-host for production environments. Thank you! */
-    background-image: url("/carbon-fibre-v2.png"), linear-gradient(45deg, #b7094cff, #a01a58ff, #892b64ff, #723c70ff, #5c4d7dff, #455e89ff, #2e6f95ff, #1780a1ff, #0091adff);
-/* This is mostly intended for prototyping; please download the pattern and re-host for production environments. Thank you! */
+    /* This is mostly intended for prototyping; please download the pattern and re-host for production environments. Thank you! */
+    background-image: url('/carbon-fibre-v2.png'),
+      linear-gradient(
+        45deg,
+        #b7094cff,
+        #a01a58ff,
+        #892b64ff,
+        #723c70ff,
+        #5c4d7dff,
+        #455e89ff,
+        #2e6f95ff /* #1780a1ff, */ /* #0091adff */
+      );
+    /* This is mostly intended for prototyping; please download the pattern and re-host for production environments. Thank you! */
 
     animation: loadingBackground 15s linear infinite;
+  }
+
+  &.loaded-background {
+    animation-iteration-count: 1 !important;
+    animation-fill-mode: forwards !important;
   }
 }
 
@@ -143,4 +162,23 @@
   transform: scale(0.8);
   fill: #dc4972 !important;
   animation: scale 3s alternate infinite;
+}
+
+/* Transition between components */
+.fade-enter {
+  opacity: 0;
+}
+.fade-exit {
+  opacity: 1;
+}
+.fade-enter-active {
+  opacity: 1;
+}
+.fade-exit-active {
+  opacity: 0;
+}
+.fade-enter-active,
+.fade-exit-active {
+  /* transition: opacity 500ms; */
+  transition: opacity 2s;
 }

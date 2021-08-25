@@ -1,13 +1,18 @@
-// import React from 'react'
-// import { styled } from '../stiches.config'
+import React from 'react'
 
-// const BodyBackgroundStyled = styled('div', {
-//   linearGradient: '$loadingGradient',
-//   height: '$full',
-// })
+type LoadingScreenProps = {
+  stage?: string
+}
 
-// const BodyBackground: React.FC = ({ children }) => {
-//   return <BodyBackgroundStyled className="main__content">{children}</BodyBackgroundStyled>
-// }
+const BodyBackground: React.FC<LoadingScreenProps> = ({ children, stage = 'loading' }) => {
+  const currentClassName = stage === 'loading' ? 'loading-background' : 'loading-background loaded-background'
+  return (
+    <div
+      className={`animate ${currentClassName} main__content w-screen h-screen flex flex-initial flex-col self-center items-center p-xxxs`}
+    >
+      {children}
+    </div>
+  )
+}
 
-// export default BodyBackground
+export default BodyBackground
