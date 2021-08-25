@@ -1,8 +1,32 @@
 import React from 'react'
 import SVG from '@/components/SVG/SVG'
-// import style from '@/components/Icons/Dandelion/Dandelion.module.css'
 import { styled } from 'stiches.config'
 import { keyframes } from '@stitches/react'
+import dynamic from 'next/dynamic'
+
+const changeColor = () => {
+  const colours = ['#B962D6', '#DC5CBA', '#DC4972']
+
+  const colorIndex = Math.floor(Math.random() * colours.length)
+
+  return colours[colorIndex]
+}
+
+function generateProps() {
+  const properties = []
+
+  for (let index = 0; index < 150; index++) {
+    properties.push({
+      bottom: (index % 2 === 0 ? 200 : 300) - Math.random() * index,
+      left: (index % 2 === 0 ? 200 : 300) - Math.random() * index,
+      delay: (index % 2 === 0 ? 10 : 5) * Math.random(),
+      rotate: `${Math.random() * index * 100}`,
+      color: changeColor(),
+    })
+  }
+
+  return properties
+}
 
 const animate = keyframes({
   from: {
@@ -21,9 +45,8 @@ const animate = keyframes({
 const animateRotate = keyframes({
   to: {
     transform: `rotate(${Math.random() / 2}deg)`,
-  }
+  },
 })
-
 
 const DandelionLineIconContainer = styled('div', {
   width: '50px',
@@ -41,14 +64,17 @@ const DandelionLineIconContainer = styled('div', {
   },
 })
 
-export const DandelionLineIcon = ({
-  bottom = 200,
-  left = 200,
-  delay = 100,
-  rotate = '45deg',
-  color = 'rgba(255, 255, 255, .5)',
-}) => {
+type DandelionLineIconProps = {
+  bottom?: number
+  left?: number
+  delay?: number
+  rotate?: string
+  color?: string
+}
+export const DandelionLineIcon = ({ bottom, left, delay, rotate, color }: DandelionLineIconProps) => {
   return (
+    // <div
+    // w-50 h-50 absolute z-10 left-200 bottom-200
     <DandelionLineIconContainer
       style={{
         left: `${left}px`,
@@ -64,24 +90,18 @@ export const DandelionLineIcon = ({
   )
 }
 
+const properties = generateProps()
+
 export const DandelionLineIconItems = () => {
-  const changeColor = () => {
-    const colours = ['#B962D6', '#DC5CBA', '#DC4972']
-
-    const colorIndex = Math.floor(Math.random() * colours.length)
-
-    return colours[colorIndex]
-  }
-
   return (
     <>
-      {new Array(150).fill('').map((value, index) => (
+      {properties.map((currentPropertie, index) => (
         <DandelionLineIcon
-          bottom={(index % 2 === 0 ? 200 : 300) - Math.random() * index}
-          left={(index % 2 === 0 ? 200 : 300) - Math.random() * index}
-          delay={(index % 2 === 0 ? 10 : 5) * Math.random()}
-          rotate={`${Math.random() * index * 100}`}
-          color={changeColor()}
+          bottom={currentPropertie.bottom}
+          left={currentPropertie.left}
+          delay={currentPropertie.delay}
+          rotate={currentPropertie.rotate}
+          color={currentPropertie.color}
           key={index}
         />
       ))}

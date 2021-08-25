@@ -46,11 +46,9 @@ const HeadphoneIcon = () => {
   //  ref={containerElementRef}
 
   return (
-    <div>
-      <HeadphoneIconContainer>
-        <SVG src="/headphone.svg" className={`${style.icon} ${style.headphone}`} />
-      </HeadphoneIconContainer>
-    </div>
+    <HeadphoneIconContainer>
+      <SVG src="/headphone.svg" className={`${style.icon} ${style.headphone}`} />
+    </HeadphoneIconContainer>
   )
 }
 

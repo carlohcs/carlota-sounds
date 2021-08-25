@@ -31,7 +31,9 @@ const Home: NextPage = () => {
 
       <main className="h-screen">
         <Logo />
-        <LoadingScreen stage={stage} />
+        <div>
+          WELCOME TO APPLICATION!
+        </div>
       </main>
     </>
   )

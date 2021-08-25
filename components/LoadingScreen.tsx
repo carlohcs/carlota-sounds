@@ -1,13 +1,19 @@
+import dynamic from 'next/dynamic'
 import { H1, P } from './basics'
-// import BodyBackground from '@/components/BodyBackground'
-import { styled } from '../stiches.config'
 import HeadphoneIcon from '@/components/Icons/Headphone/HeadphoneIcon'
 import DandelionIcon from '@/components/Icons/Dandelion/DandelionIcon'
-// import DandelionLineIcon from '@/components/Icons/Dandelion/DandelionLineIcon'
-import { DandelionLineIcon, DandelionLineIconItems } from '@/components/Icons/Dandelion/DandelionLineIcon'
+
+// https://github.com/vercel/next.js/issues/4515#issuecomment-447570395
+// Prevents error like: "Server {className, style} didin`t match with Client"
+const DandelionLineIconItemsNoSSR = dynamic(
+  () => import('@/components/Icons/Dandelion/DandelionLineIcon').then((module) => module.DandelionLineIconItems) as any,
+  {
+    ssr: false,
+  }
+)
 
 type LoadingScreenProps = {
-  stage: string
+  stage?: string
 }
 
 const BodyBackground: React.FC<LoadingScreenProps> = ({ children, stage = 'loading' }) => {
@@ -26,7 +32,7 @@ const BodyBackground: React.FC<LoadingScreenProps> = ({ children, stage = 'loadi
 const LoadingScreen: React.FC<LoadingScreenProps> = ({ stage = 'loading' }) => {
   return (
     <BodyBackground stage={stage}>
-      <div className="h-screen flex flex-initial self-center items-center flex-col justify-center z-10">
+      <div className="w-screen h-screen flex flex-initial self-center items-center flex-col justify-center z-10">
         {stage === 'loading' ? (
           <>
             <div className="z-20 flex flex-col items-center space-y-6">
@@ -40,7 +46,7 @@ const LoadingScreen: React.FC<LoadingScreenProps> = ({ stage = 'loading' }) => {
             </div>
             <div className="hidden lg:block z-10">
               <DandelionIcon />
-              <DandelionLineIconItems />
+              <DandelionLineIconItemsNoSSR />
             </div>
           </>
         ) : (
