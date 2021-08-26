@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react'
+import { useState } from 'react'
 import type { NextPage } from 'next'
 import Head from 'next/head'
 import Logo from '@/components/Logo/Logo'
@@ -6,29 +6,22 @@ import Canvas from '@/components/Canvas/Canvas'
 import ToggleMenu from '@/components/Header/ToggleMenu'
 import Menu from '@/components/Header/Menu'
 
-// https://css-tricks.com/scale-svg/
-// const Main = styled('div', {})
-
 const Home: NextPage = () => {
   // https://dev.to/gabrielrufino/react-hook-usestate-in-typescript-4mn6
   // const [stage, setStage] = useState<string>('loading')
 
   const [closed, setClosed] = useState(true)
-  const [initialized, setInitialized] = useState(false)
-  // initialized
-  const currentClassName = `animate ${closed ? 'slide-out-right' : 'slide-in-right'}`
+  const [firstCall, setFirstCall] = useState(false)
+  const currentClassName = `${firstCall ? 'animate' : ''} ${!closed ? 'slide-out-right' : 'slide-in-right'}`
 
   const handleToggle = (isClosed: boolean) => {
-    // if (!isClosed) {
-    setInitialized(true)
-    // }
+    if (!firstCall) {
+      setFirstCall(true)
+    }
 
     setClosed(isClosed)
   }
 
-  // flex absolute z-30 top-1 right-1
-  // translate-x-full
-  // , animationPlayState: initialized ? 'running' : 'paused' 
   return (
     <>
       <Head>
@@ -53,8 +46,8 @@ const Home: NextPage = () => {
           </div>
 
           <div
-            className={`w-full h-full absolute p-nano bg-black ${currentClassName} z-20`}
-            style={{ willChange: 'transform' }}
+            className={`w-full h-full absolute p-nano bg-black z-20 ${currentClassName}`}
+            style={{ willChange: 'transform', transform: 'translateX(100%)' }}
           >
             <Menu />
           </div>

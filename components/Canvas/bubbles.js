@@ -1,4 +1,16 @@
 const run = (canvas) => {
+  const getDimensions = () => ({
+    w: window.document.body.clientWidth,
+    h: window.document.body.clientHeight,
+  })
+
+  const handleResize = () => {
+    canvas.width = getDimensions().w
+    canvas.height = getDimensions().h
+  }
+
+  window.addEventListener('resize', handleResize)
+
   const ctx = canvas.getContext('2d')
   const game = { req: false, score: 0 }
   const bubble = {

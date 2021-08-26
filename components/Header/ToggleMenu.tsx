@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react'
+import { useState } from 'react'
 
 type ToggleMenuProps = {
   handleToggle: (closed: boolean) => void
@@ -7,12 +7,13 @@ type ToggleMenuProps = {
 const ToggleMenu = ({ handleToggle }: ToggleMenuProps) => {
   const [closed, setClosed] = useState(true)
 
-  useEffect(() => {
-    handleToggle(closed)
-  }, [handleToggle, closed])
-
   return (
-    <div onClick={() => setClosed(!closed)}>
+    <div
+      onClick={() => {
+        setClosed(!closed)
+        handleToggle(!closed)
+      }}
+    >
       {closed ? 'OPEN' : 'CLOSE'}
     </div>
   )
