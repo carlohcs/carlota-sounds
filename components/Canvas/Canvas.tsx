@@ -7,7 +7,6 @@ const getDimensions = () => ({
 })
 
 const setBackground = (node: HTMLCanvasElement) => {
-  console.log('INNER HTML: ', node)
   run(node)
 }
 
@@ -17,11 +16,11 @@ const Canvas = () => {
       setBackground(node)
     }
   }, [])
-
+  // w-full h-full
   return (
-    <>
+    <div className="">
       <canvas id="canvas" width={getDimensions().w} height={getDimensions().h} ref={containerElementRef} />
-    </>
+    </div>
   )
 }
 

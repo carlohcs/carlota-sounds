@@ -15,6 +15,8 @@ type Props = {
   handleLoad: (loaded: boolean) => void
 }
 
+const loadingTime = 5000
+
 // https://www.carlrippon.com/react-children-with-typescript/
 export const Splash = ({ children, handleLoad }: Props) => {
   const [loading, setLoading] = useState(true)
@@ -26,7 +28,7 @@ export const Splash = ({ children, handleLoad }: Props) => {
         setLoading(false)
         handleLoad(true)
       }
-    }, 10000)
+    }, loadingTime)
   }, [loading, handleLoad])
 
   // return !loading ? children : <LoadingScreen stage="loading" />

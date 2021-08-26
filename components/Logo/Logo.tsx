@@ -11,14 +11,14 @@ import SVG from '@/components/SVG/SVG'
 
 // console.log(LogoFile)
 
-const LogoContainer = styled('div', {
-  alignSelf: 'flex-start',
-  position: 'absolute',
-  padding: '0 $nano',
-  '&:hover': {
-    cursor: 'pointer',
-  },
-})
+// const LogoContainer = styled('div', {
+//   alignSelf: 'flex-start',
+//   position: 'absolute',
+//   padding: '0 $nano',
+//   '&:hover': {
+//     cursor: 'pointer',
+//   },
+// })
 
 // https://css-tricks.com/using-requestanimationframe-with-react-hooks/
 
@@ -32,9 +32,9 @@ const Logo: React.FC = () => {
   }
 
   return (
-    <LogoContainer onMouseEnter={() => handleLogoHover(true)} onMouseLeave={() => handleLogoHover(false)}>
+    <div onMouseEnter={() => handleLogoHover(true)} onMouseLeave={() => handleLogoHover(false)}>
       <SVG src="/carlota-sounds-6.svg" className={`logo ${shouldAnimate ? 'in' : ''}`} />
-    </LogoContainer>
+    </div>
   )
 }
 

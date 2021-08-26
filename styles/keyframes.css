@@ -55,6 +55,32 @@
   }
 }
 
+@keyframes slideInRight {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(100%);
+  }
+}
+
+@keyframes slideOutRight {
+  from {
+    transform: translateX(100%);
+  }
+  to {
+    transform: translateX(0);
+  }
+}
+
+.cs-translate-x-full {
+  /* transform: translateX(-100vh); */
+  /* top: 0; */
+  /* right: 100%; */
+  /* right: -100%; */
+  /* right: -100%; */
+}
+
 .animate {
   &.fade-in-infinite {
     opacity: 0;
@@ -68,6 +94,34 @@
 
   &.fade-in {
     animation: fadeIn 5s 1 linear;
+  }
+
+  &.slide-out-right {
+    /* animation: slideOutRight 2s ease-in-out forwards; */
+    animation-delay: 0;
+    animation-direction: normal;
+    animation-duration: 2s;
+    animation-fill-mode: forwards;
+    animation-iteration-count: 1;
+    animation-name: slideOutRight;
+    animation-play-state: running;
+    animation-timing-function: ease-in;
+    /* right: -100%;
+    transition: right ease-in 1s; */
+  }
+
+  &.slide-in-right {
+    /* animation: slideInRight 2s ease-in-out forwards; */
+    animation-delay: 0;
+    animation-direction: normal;
+    animation-duration: 2s;
+    animation-fill-mode: forwards;
+    animation-iteration-count: 1;
+    animation-name: slideInRight;
+    animation-play-state: running;
+    animation-timing-function: ease-in;
+    /* right: 0;
+    transition: right ease-in 1s; */
   }
 
   &.rotate-stroke {
