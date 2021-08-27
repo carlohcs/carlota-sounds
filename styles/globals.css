@@ -68,3 +68,30 @@ svg {
 /* @import url('../styles/Logo.module.css'); */
 
 @import url('../styles/keyframes.css');
+
+/* Toggle menu */
+.cs-toggle-menu {
+  &:before {
+    animation: rotate45Out 1s ease forwards;
+  }
+
+  &:after {
+    animation: rotate135Out 1s ease forwards;    
+  }
+}
+
+.cs-toggle-menu--open {
+  .cs-toggle-menu {
+    border-color: transparent;
+
+    &:before {
+      animation: rotate45In 1s ease forwards;
+    }
+
+    &:after {
+      animation: rotate135In 1s ease forwards;
+      /* transform: rotate(135deg); */
+      top: 50%;
+    }
+  }
+}

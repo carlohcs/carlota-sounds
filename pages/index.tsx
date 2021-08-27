@@ -35,7 +35,7 @@ const Home: NextPage = () => {
           <div className="cursor-pointer">
             <Logo />
           </div>
-          <div className="flex justify-between self-center cursor-pointer">
+          <div className="flex justify-center items-center self-center">
             <ToggleMenu handleToggle={handleToggle} />
           </div>
         </header>

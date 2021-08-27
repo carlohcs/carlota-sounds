@@ -73,6 +73,42 @@
   }
 }
 
+@keyframes rotate45In {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(45deg);
+  }
+}
+
+@keyframes rotate135In {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(135deg);
+  }
+}
+
+@keyframes rotate45Out {
+  from {
+    transform: rotate(45deg);
+  }
+  to {
+    transform: rotate(0deg);
+  }
+}
+
+@keyframes rotate135Out {
+  from {
+    transform: rotate(135deg);
+  }
+  to {
+    transform: rotate(0deg);
+  }
+}
+
 .cs-translate-x-full {
   /* transform: translateX(-100vh); */
   /* top: 0; */
@@ -100,12 +136,12 @@
     /* animation: slideOutRight 2s ease-in-out forwards; */
     animation-delay: 0;
     animation-direction: normal;
-    animation-duration: 0.7s;
+    animation-duration: 600ms;
     animation-fill-mode: forwards;
     animation-iteration-count: 1;
     animation-name: slideOutRight;
     animation-play-state: running;
-    animation-timing-function: ease-in;
+    animation-timing-function: linear;
     /* right: -100%;
     transition: right ease-in 1s; */
   }
@@ -114,12 +150,12 @@
     /* animation: slideInRight 2s ease-in-out forwards; */
     animation-delay: 0;
     animation-direction: normal;
-    animation-duration: 0.7s;
+    animation-duration: 1s;
     animation-fill-mode: forwards;
     animation-iteration-count: 1;
     animation-name: slideInRight;
     animation-play-state: running;
-    animation-timing-function: ease-in;
+    animation-timing-function: linear;
     /* right: 0;
     transition: right ease-in 1s; */
   }
