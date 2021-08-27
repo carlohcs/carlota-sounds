@@ -10,12 +10,14 @@ const sounds: Array<any> = [
 
 const Actions = () => {
   // lg:rotate-90 lg:self-start
+  // lg:min-w-min
+  //   lg:max-w-xs
+  //    lg:border-t lg:border-gray-100 lg:border-opacity-25
+  //  lg:translate-x-1/4
+  // lg:rotate-90"
   return (
     <div
-      className="flex flex-row  items-stretch justify-between w-full lg:rotate-90 lg:translate-x-1/4 
-      lg:min-w-min
-    lg:max-w-xs	
-     lg:border-t lg:border-gray-100 lg:border-opacity-25"
+      className="flex flex-row items-stretch justify-between w-full space-x-4"
     >
       <div>SOUNDS</div>
 

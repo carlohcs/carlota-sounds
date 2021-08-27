@@ -44,10 +44,10 @@ const Home: NextPage = () => {
           <div className="absolute z-20">
             <Canvas />
           </div>
-
+          {/* lg:flex-row lg:justify-stretch */}
           <div
-            className={`w-full h-full md:max-w-min absolute p-nano bg-black z-20 ${currentClassName} p-md flex flex-col justify-center items-center lg:flex-row lg:justify-stretch`}
-            style={{ willChange: 'transform', transform: 'translateX(100vw)', right: 0 }}
+            className={`w-full h-full md:max-w-min absolute p-nano bg-black z-20 ${currentClassName} p-md flex flex-col justify-start items-start pt-18`}
+            style={{ willChange: 'transform', transform: 'translateX(100vw)', right: 0, minWidth: '30%' }}
           >
             <Menu />
           </div>

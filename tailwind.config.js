@@ -22,6 +22,8 @@ module.exports = {
       14: '64px',
       15: '72px',
       16: '80px',
+      17: '88px',
+      18: '96px',
       // quarck: '4px', // $2
       // nano: '8px', // $4
       // xxxs: '16px', // $8
