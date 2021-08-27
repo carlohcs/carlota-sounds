@@ -1,40 +1,36 @@
-import React from 'react'
+import { P, Small } from '@/components/basics/Typography/Typography'
 
-interface SoundItemProps {
+type SoundItemProps = {
   id: number
   title: string
   time: string
   album: string
-  key: {}
-  // children: JSX.Element[] | JSX.Element
+  // key: string
 }
 
-// React.ReactElement<SoundItemProps>
-export const SoundItem: React.FC<SoundItemProps> = ({ title, time, album }) => {
+export const SoundItem = ({ title = '', time = '', album = '' }) => {
   return (
-    <>
-      {title}
-      {time}
-      {album}
-    </>
+    <div className="text-left py-sm border-b border-gray-100 border-opacity-25">
+      <P text={title} className="text-lg" />
+      <div>
+        <Small text={time} className="text-xs" />
+      </div>
+
+      {/* {album} */}
+    </div>
   )
 }
 
-// interface SoundItemsProps extends Array<SoundItemProps> {}
-
 type SoundsListProps = {
   sounds: SoundItemProps[]
-  // [index: string]: string
-  // key: number
 }
 
 export const SoundsList = ({ sounds = [] }: SoundsListProps) => {
   return (
-    <>
+    <div className="w-full flex flex-col lg:min-w-full">
       {sounds.map((sound) => (
-        <div key={sound.id}>{sound.title}</div>
-        // <SoundItem /> não funciona: missing {key: number}
+        <SoundItem key={sound.id.toString()} {...sound} />
       ))}
-    </>
+    </div>
   )
 }

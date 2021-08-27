@@ -22,16 +22,22 @@ module.exports = {
       14: '64px',
       15: '72px',
       16: '80px',
-      quarck: '4px', // $2
-      nano: '8px', // $4
-      xxxs: '16px', // $8
-      xxs: '32px', // $10
-      xs: '40px', // $11
-      sm: '48px', // $12
-      md: '56px', // $13
-      lg: '64px', // $14
-      xl: '72px', // $15
-      xxl: '80px', // $16
+      // quarck: '4px', // $2
+      // nano: '8px', // $4
+      // xxxs: '16px', // $8
+      // xxs: '32px', // $10
+      xs: '8px', // $11
+      sm: '16px', // $12
+      md: '24px', // $13
+      lg: '32px', // $14
+      xl: '40px', // $15
+      xxl: '48px', // $16
+      // xs: '40px', // $11
+      // sm: '48px', // $12
+      // md: '56px', // $13
+      // lg: '64px', // $14
+      // xl: '72px', // $15
+      // xxl: '80px', // $16
     },
     fontFamily: {
       default: [

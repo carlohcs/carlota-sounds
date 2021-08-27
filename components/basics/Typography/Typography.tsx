@@ -34,3 +34,7 @@ export const H6: React.FC<BasicElementProps> = ({ text, className }) => {
 export const P: React.FC<BasicElementProps> = ({ text, className }) => {
   return <p className={className}>{text}</p>
 }
+
+export const Small: React.FC<BasicElementProps> = ({ text, className }) => {
+  return <small className={className}>{text}</small>
+}

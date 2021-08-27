@@ -60,17 +60,37 @@
     transform: translateX(0);
   }
   to {
-    transform: translateX(100%);
+    transform: translateX(100vw);
   }
 }
 
 @keyframes slideOutRight {
   from {
-    transform: translateX(100%);
+    transform: translateX(100vw);
   }
   to {
     transform: translateX(0);
   }
+}
+
+@media screen and (min-width: 768px) {
+  /* @keyframes slideInRight {
+    from {
+      transform: translateX(0);
+    }
+    to {
+      transform: translateX(calc(-100vw));
+    }
+  }
+
+  @keyframes slideOutRight {
+    from {
+      transform: translateX(calc(-100vw));
+    }
+    to {
+      transform: translateX(0);
+    }
+  } */
 }
 
 .cs-translate-x-full {
@@ -100,7 +120,7 @@
     /* animation: slideOutRight 2s ease-in-out forwards; */
     animation-delay: 0;
     animation-direction: normal;
-    animation-duration: 2s;
+    animation-duration: 0.7s;
     animation-fill-mode: forwards;
     animation-iteration-count: 1;
     animation-name: slideOutRight;
@@ -114,7 +134,7 @@
     /* animation: slideInRight 2s ease-in-out forwards; */
     animation-delay: 0;
     animation-direction: normal;
-    animation-duration: 2s;
+    animation-duration: 0.7s;
     animation-fill-mode: forwards;
     animation-iteration-count: 1;
     animation-name: slideInRight;

@@ -31,7 +31,7 @@ const Home: NextPage = () => {
       </Head>
 
       <main className="w-screen h-screen relative" style={{ backfaceVisibility: 'hidden' }}>
-        <header className="flex justify-between align-center w-full fixed z-30 p-xxxs">
+        <header className="flex justify-between align-center w-full fixed z-30 p-md">
           <div className="cursor-pointer">
             <Logo />
           </div>
@@ -46,8 +46,8 @@ const Home: NextPage = () => {
           </div>
 
           <div
-            className={`w-full h-full absolute p-nano bg-black z-20 ${currentClassName} p-xxxs flex justify-center items-center`}
-            style={{ willChange: 'transform', transform: 'translateX(100%)' }}
+            className={`w-full h-full md:max-w-min absolute p-nano bg-black z-20 ${currentClassName} p-md flex flex-col justify-center items-center lg:flex-row lg:justify-stretch`}
+            style={{ willChange: 'transform', transform: 'translateX(100vw)', right: 0 }}
           >
             <Menu />
           </div>
