@@ -5,6 +5,7 @@ import Logo from '@/components/Logo/Logo'
 import Canvas from '@/components/Canvas/Canvas'
 import ToggleMenu from '@/components/Header/ToggleMenu'
 import Menu from '@/components/Header/Menu'
+import DandelionIcon from '@/components/Icons/Dandelion/DandelionIcon'
 
 const Home: NextPage = () => {
   // https://dev.to/gabrielrufino/react-hook-usestate-in-typescript-4mn6
@@ -31,7 +32,7 @@ const Home: NextPage = () => {
       </Head>
 
       <main className="w-screen h-screen relative" style={{ backfaceVisibility: 'hidden' }}>
-        <header className="flex justify-between align-center w-full fixed z-30 p-8">
+        <header className="flex justify-between align-center w-full fixed z-50 p-8">
           <div className="cursor-pointer">
             <Logo />
           </div>
@@ -41,15 +42,17 @@ const Home: NextPage = () => {
         </header>
 
         <div className="wrapper relative w-screen h-screen">
-          <div className="absolute z-20">
-            <Canvas />
-          </div>
-          {/* lg:flex-row lg:justify-stretch */}
           <div
-            className={`w-full h-full md:max-w-min absolute p-nano bg-black z-20 ${currentClassName} flex flex-col justify-start items-start p-md lg:px-lg pt-18`}
+            className={`w-full h-full md:max-w-min absolute p-nano bg-black z-40 ${currentClassName} flex flex-col justify-start items-start p-md lg:px-lg pt-18`}
             style={{ willChange: 'transform', transform: 'translateX(100vw)', right: 0, minWidth: '30%' }}
           >
             <Menu />
+          </div>
+          <div className="cs-canvas absolute z-20">
+            <Canvas />
+          </div>
+          <div className="cs-dandelion relative z-30 flex flex-col justify-center items-center h-full">
+            <DandelionIcon className="animate scale-dandelion-out" />
           </div>
         </div>
       </main>

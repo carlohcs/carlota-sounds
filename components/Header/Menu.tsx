@@ -7,7 +7,7 @@ import About from '../About/About'
 const sounds: Array<any> = [
   { id: 1, title: 'Restos do que não aconteceu', time: '02:00', album: 'Single' },
   { id: 2, title: 'Um Fim Ensurdecedor', time: '02:00', album: 'Single' },
-  { id: 3, title: 'Epifania', time: '02:00', album: 'Single' },
+  { id: 3, title: 'Epifania', time: '02:00', album: 'Epifania' },
   { id: 4, title: 'Esperança', time: '02:00', album: 'Esperança' },
 ]
 
@@ -15,7 +15,6 @@ const Actions = () => {
   const activeTabClass = 'font-medium opacity-100 bg-gray-800'
   const [currentActiveTab, setCurrentActiveTab] = useState<number>(0)
   const onSelected = (index: number = 0) => {
-    console.log('selected ', index)
     setCurrentActiveTab(index)
   }
 

@@ -11,9 +11,6 @@ import { keyframes } from '@stitches/react'
 const DandelionIconContainer = styled('div', {
   width: '290px',
   height: '290px',
-  position: 'absolute',
-  left: 0,
-  bottom: 0,
 })
 
 type BasicElementProps = {

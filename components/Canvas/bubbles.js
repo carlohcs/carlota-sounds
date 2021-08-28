@@ -14,7 +14,7 @@ const run = (canvas) => {
   const ctx = canvas.getContext('2d')
   const game = { req: false, score: 0 }
   const bubble = {
-    bubbleCount: 30,
+    bubbleCount: 50,
     bubbles: [],
     speed: 1,
   }
@@ -37,12 +37,13 @@ const run = (canvas) => {
     ctx.beginPath()
 
     // createRadialGradient(x0, y0, r0, x1, y1, r1)
-    const gradient = ctx.createRadialGradient(xPos, yPos - 10, bubbleSize, xPos, yPos, bubbleSize + 10)
-    gradient.addColorStop(0, `rgba(${colors[0]}, ${colors[1]}, ${colors[2]}, .9)`)
-    gradient.addColorStop(1, 'rgba(255, 255, 255, .1)')
+    // const gradient = ctx.createRadialGradient(xPos, yPos - 10, bubbleSize, xPos, yPos, bubbleSize + 10)
+    // gradient.addColorStop(0, `rgba(${colors[0]}, ${colors[1]}, ${colors[2]}, .9)`)
+    // gradient.addColorStop(1, 'rgba(255, 255, 255, .1)')
 
-    ctx.fillStyle = gradient
-    ctx.strokeStyle = 'rgba(255, 255, 255, .4)'
+    ctx.fillStyle = `rgba(${colors[0]}, ${colors[1]}, ${colors[2]}, .9)`
+    // ctx.strokeStyle = 'rgba(255, 255, 255, .4)'
+    ctx.strokeStyle = 'transparent'
     ctx.arc(xPos, yPos, bubbleSize, 0, Math.PI * 2)
     ctx.fill()
     ctx.stroke()
