@@ -1,5 +1,8 @@
-import { useEffect, useState } from 'react'
+import { useState } from 'react'
+import Tabs from '../Tabs'
+import Tab from '../Tabs/Tab'
 import { SoundsList } from '../Media/Sounds/Sounds'
+import About from '../About/About'
 
 const sounds: Array<any> = [
   { id: 1, title: 'Restos do que não aconteceu', time: '02:00', album: 'Single' },
@@ -9,24 +12,29 @@ const sounds: Array<any> = [
 ]
 
 const Actions = () => {
-  // lg:rotate-90 lg:self-start
-  // lg:min-w-min
-  //   lg:max-w-xs
-  //    lg:border-t lg:border-gray-100 lg:border-opacity-25
-  //  lg:translate-x-1/4
-  // lg:rotate-90"
+  const activeTabClass = 'font-medium opacity-100 bg-gray-800'
+  const [currentActiveTab, setCurrentActiveTab] = useState<number>(0)
+  const onSelected = (index: number = 0) => {
+    console.log('selected ', index)
+    setCurrentActiveTab(index)
+  }
+
   return (
-    <div
-      className="flex flex-row items-stretch justify-between w-full space-x-4"
+    <Tabs
+      className="flex flex-row items-stretch justify-between w-full"
+      tabTitleClassName="p-8 transition duration-1000 ease-in-out opacity-60 hover:bg-gray-800 rounded-full hover:animate-pulse hover:opacity-100 space-x-2 h-32 md:text-lg lg:text-2xl cursor-pointer"
+      onSelected={onSelected}
     >
-      <div>SOUNDS</div>
-
-      <div>ABOUT</div>
-
-      <div>SHARE</div>
-
-      <div>SOCIAL</div>
-    </div>
+      <Tab title="SOUNDS" tabTitleClassName={currentActiveTab === 0 ? activeTabClass : ''}>
+        <SoundsList sounds={sounds} />
+      </Tab>
+      <Tab title="ABOUT" tabTitleClassName={currentActiveTab === 1 ? activeTabClass : ''}>
+        <About />
+      </Tab>
+      <Tab title="SHARE" tabTitleClassName={currentActiveTab === 2 ? activeTabClass : ''}>
+        SHARE
+      </Tab>
+    </Tabs>
   )
 }
 
@@ -34,7 +42,6 @@ const Menu = () => {
   return (
     <>
       <Actions />
-      <SoundsList sounds={sounds} />
     </>
   )
 }
