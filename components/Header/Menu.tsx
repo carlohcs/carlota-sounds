@@ -3,16 +3,12 @@ import Tabs from '../Tabs'
 import Tab from '../Tabs/Tab'
 import { SoundsList } from '../Media/Sounds/Sounds'
 import About from '../About/About'
+import { data as sounds } from '../../public/sounds/sounds.json'
 
-const sounds: Array<any> = [
-  { id: 1, title: 'Restos do que não aconteceu', time: '02:00', album: 'Single' },
-  { id: 2, title: 'Um Fim Ensurdecedor', time: '02:00', album: 'Single' },
-  { id: 3, title: 'Epifania', time: '02:00', album: 'Epifania' },
-  { id: 4, title: 'Esperança', time: '02:00', album: 'Esperança' },
-]
+// const { sounds }: Array<{ id: number; title: string; time: string; album: string }> = carlotaSounds
 
 const Actions = () => {
-  const activeTabClass = 'font-medium opacity-100 bg-gray-800'
+  const activeTabClass = 'font-medium bg-gray-800 transition-colors !opacity-100'
   const [currentActiveTab, setCurrentActiveTab] = useState<number>(0)
   const onSelected = (index: number = 0) => {
     setCurrentActiveTab(index)

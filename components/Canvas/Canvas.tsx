@@ -1,25 +1,29 @@
 import { useCallback } from 'react'
-import { run } from './bubbles'
 
 const getDimensions = () => ({
   w: window.document.body.clientWidth,
   h: window.document.body.clientHeight,
 })
 
-const setBackground = (node: HTMLCanvasElement) => {
-  run(node)
+type CanvasProps = {
+  canvasCallback?: (node: HTMLCanvasElement) => void
 }
 
-const Canvas = () => {
-  const containerElementRef = useCallback((node: any) => {
-    if (node) {
-      setBackground(node)
-    }
-  }, [])
-  // w-full h-full
+const Canvas = ({ canvasCallback }: CanvasProps) => {
+  const containerElementRef = useCallback(
+    (node: any) => {
+      if (node) {
+        if (canvasCallback) {
+          canvasCallback(node)
+        }
+      }
+    },
+    [canvasCallback]
+  )
+
   return (
     <div className="">
-      <canvas id="canvas" width={getDimensions().w} height={getDimensions().h} ref={containerElementRef} />
+      <canvas width={getDimensions().w} height={getDimensions().h} ref={containerElementRef} />
     </div>
   )
 }

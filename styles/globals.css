@@ -76,7 +76,7 @@ svg {
   }
 
   &:after {
-    animation: rotate135Out 1s ease forwards;    
+    animation: rotate135Out 1s ease forwards;
   }
 }
 
@@ -93,5 +93,24 @@ svg {
       /* transform: rotate(135deg); */
       top: 50%;
     }
+  }
+}
+
+.cs-player {
+  min-width: 270px;
+
+  &__actions {
+    /* &__play {
+      background-image: url('/icons/player/play.svg');
+    }
+
+    &__prev,
+    &__next {
+      background-image: url('/icons/player/prev-next.svg');
+    }
+
+    &__prev {
+      transform: rotate(180deg);
+    } */
   }
 }

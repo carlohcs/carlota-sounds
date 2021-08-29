@@ -1,33 +1,42 @@
 import { P, Small } from '@/components/basics/Typography/Typography'
+import { useGlobalState } from '@/components/GlobalState'
 
 type SoundItemProps = {
   id: number
   title: string
   time: string
   album: string
+  index: number
+  isActive?: boolean
   // key: string
 }
 
-export const SoundItem = ({ title = '', time = '', album = '' }) => {
+export const SoundItem = ({ id = 0, title = '', time = '', album = '', index = 0, isActive = false }) => {
+  const [currentSoundIndex, setCurrentSoundIndex] = useGlobalState('currentSoundIndex')
+
   const onClick = (/*evt: Event*/) => {
-    const classes = ['background-album', 'background-epifania']
-    const $bg = document.querySelector<HTMLElement>('.cs-app-background')
+    setCurrentSoundIndex(index)
 
-    const currentClasses = ['background-album', `background-${album.toLowerCase()}`]
+    // const classes = ['background-album', 'background-epifania', 'background-restos-do-que-nao-aconteceu']
+    // const $bg = document.querySelector<HTMLElement>('.cs-app-background')
 
-    if ($bg) {
-      $bg.classList.remove(...classes)
-      $bg.classList.add(...currentClasses)
-    }
+    // const currentClasses = ['background-album', `background-${album.toLowerCase()}`]
+
+    // if ($bg) {
+    //   $bg.classList.remove(...classes)
+    //   $bg.classList.add(...currentClasses)
+    // }
   }
 
   return (
     <div
-      className="text-left py-sm border-b border-gray-100 border-opacity-25 cursor-pointer"
+      className={`text-left py-sm border-b border-gray-100 border-opacity-25 cursor-pointer ${
+        isActive ? 'text-yellow-500 transition-colors' : ''
+      }`}
       onClick={onClick}
       data-album={album}
     >
-      <P text={title} className="text-lg" />
+      <P text={title} className={`text-lg ${isActive ? 'font-medium' : ''}`} />
       <div>
         <Small text={time} className="text-xs" />
       </div>
@@ -42,10 +51,12 @@ type SoundsListProps = {
 }
 
 export const SoundsList = ({ sounds = [] }: SoundsListProps) => {
+  const [currentSoundIndex, setCurrentSoundIndex] = useGlobalState('currentSoundIndex')
+
   return (
     <div className="w-full flex flex-col lg:min-w-full">
-      {sounds.map((sound) => (
-        <SoundItem key={sound.id.toString()} {...sound} />
+      {sounds.map((sound, index) => (
+        <SoundItem key={sound.id.toString()} {...sound} index={index} isActive={currentSoundIndex === index} />
       ))}
     </div>
   )

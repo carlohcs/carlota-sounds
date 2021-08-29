@@ -1,29 +1,11 @@
 const plugin = require('tailwindcss/plugin')
 
-
 module.exports = {
   purge: ['./pages/**/*.{js,ts,jsx,tsx}', './components/**/*.{js,ts,jsx,tsx}'],
   mode: 'jit',
   darkMode: false, // or 'media' or 'class'
   theme: {
     spacing: {
-      1: '2px',
-      2: '4px',
-      4: '8px',
-      5: '10px',
-      6: '12px',
-      7: '14px',
-      8: '16px',
-      9: '24px',
-      10: '32px',
-      11: '40px',
-      12: '48px',
-      13: '56px',
-      14: '64px',
-      15: '72px',
-      16: '80px',
-      17: '88px',
-      18: '96px',
       // quarck: '4px', // $2
       // nano: '8px', // $4
       // xxxs: '16px', // $8
@@ -34,6 +16,8 @@ module.exports = {
       lg: '32px', // $14
       xl: '40px', // $15
       xxl: '48px', // $16
+      '1xxl': '56px', // $16
+      '2xxl': '96px', // $16
       // xs: '40px', // $11
       // sm: '48px', // $12
       // md: '56px', // $13
@@ -63,19 +47,39 @@ module.exports = {
         'Cantarell',
       ],
     },
-    extend: {},
+    extend: {
+      spacing: {
+        1: '2px',
+        2: '4px',
+        4: '8px',
+        5: '10px',
+        6: '12px',
+        7: '14px',
+        8: '16px',
+        9: '24px',
+        10: '32px',
+        11: '40px',
+        12: '48px',
+        13: '56px',
+        14: '64px',
+        15: '72px',
+        16: '80px',
+        17: '88px',
+        18: '96px',
+      },
+    },
   },
   variants: {
     extend: {},
   },
   plugins: [
-    plugin(function({ addBase, theme }) {
+    plugin(function ({ addBase, theme }) {
       addBase({
-        'body': { fontFamily: theme('fontFamily.default') },
-        'h1': { fontFamily: theme('fontFamily.medium') },
-        'h2': { fontFamily: theme('fontFamily.medium') },
-        'h3': { fontFamily: theme('fontSize.medium') },
+        body: { fontFamily: theme('fontFamily.default') },
+        h1: { fontFamily: theme('fontFamily.medium') },
+        h2: { fontFamily: theme('fontFamily.medium') },
+        h3: { fontFamily: theme('fontSize.medium') },
       })
-    })
-  ]
+    }),
+  ],
 }
