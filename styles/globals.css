@@ -97,9 +97,8 @@ svg {
 }
 
 .cs-player {
-  min-width: 270px;
-
   &__actions {
+    width: 270px;
     /* &__play {
       background-image: url('/icons/player/play.svg');
     }
@@ -112,5 +111,22 @@ svg {
     &__prev {
       transform: rotate(180deg);
     } */
+
+    &__next,
+    &__prev {
+      circle:last-of-type {
+        stroke: transparent !important;
+      }
+    }
+
+    &__mute {
+      circle:first-of-type {
+        stroke: transparent !important;
+      }
+    }
   }
+}
+
+.cs-wrapper__menu {
+  box-shadow: inset 0 0 2000px rgba(155, 155, 155, .1);
 }

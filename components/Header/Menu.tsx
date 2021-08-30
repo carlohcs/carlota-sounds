@@ -3,7 +3,7 @@ import Tabs from '../Tabs'
 import Tab from '../Tabs/Tab'
 import { SoundsList } from '../Media/Sounds/Sounds'
 import About from '../About/About'
-import { data as sounds } from '../../public/sounds/sounds.json'
+import sounds from '../../public/sounds/sounds.json'
 
 // const { sounds }: Array<{ id: number; title: string; time: string; album: string }> = carlotaSounds
 
@@ -21,7 +21,7 @@ const Actions = () => {
       onSelected={onSelected}
     >
       <Tab title="SOUNDS" tabTitleClassName={currentActiveTab === 0 ? activeTabClass : ''}>
-        <SoundsList sounds={sounds} />
+        <SoundsList sounds={sounds.data} />
       </Tab>
       <Tab title="ABOUT" tabTitleClassName={currentActiveTab === 1 ? activeTabClass : ''}>
         <About />

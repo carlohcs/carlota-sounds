@@ -21,7 +21,7 @@ const Tabs: React.FC<Props> = ({ children, className, tabTitleClassName, onSelec
 
   return (
     <div className="w-full h-full">
-      <ul className={className}>
+      <ul className={`${className} px-md`}>
         {children.map((item, index) => (
           <TabTitle
             key={index}

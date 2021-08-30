@@ -7,7 +7,11 @@ type Props = {
 }
 
 const Tab: React.FC<Props> = ({ children, className = '' }) => {
-  return <div className={`w-full h-full ${className}`}>{children}</div>
+  return (
+    <div className={`w-full h-full ${className}`} style={{ overflowY: 'auto', maxHeight: 'calc(100% - 50px - 20px)' }}>
+      {children}
+    </div>
+  )
 }
 
 export default Tab

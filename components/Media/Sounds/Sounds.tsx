@@ -6,7 +6,7 @@ type SoundItemProps = {
   title: string
   time: string
   album: string
-  index: number
+  index?: number
   isActive?: boolean
   // key: string
 }
@@ -30,7 +30,7 @@ export const SoundItem = ({ id = 0, title = '', time = '', album = '', index = 0
 
   return (
     <div
-      className={`text-left py-sm border-b border-gray-100 border-opacity-25 cursor-pointer ${
+      className={`text-left p-md border-b border-gray-100 border-opacity-25 cursor-pointer hover:animate-pulse hover:bg-gray-800 ${
         isActive ? 'text-yellow-500 transition-colors' : ''
       }`}
       onClick={onClick}

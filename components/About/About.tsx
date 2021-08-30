@@ -3,7 +3,7 @@ import Image from 'next/image'
 
 const About = () => {
   return (
-    <div className="flex flex-col w-full h-full space-y-6 text-left">
+    <div className="flex flex-col w-full h-full space-y-6 text-left p-md">
       <div className="flex flex-row w-full">
         <Image
           src="/carlohcs.jpeg"

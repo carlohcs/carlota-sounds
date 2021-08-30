@@ -5,6 +5,7 @@ import sounds from '../../public/sounds/sounds.json'
 const initialState = {
   currentSoundIndex: 0,
   isPlaying: false,
+  isMuted: false,
   // animation: 0
 }
 
@@ -14,11 +15,14 @@ const ACTIONS = {
   NEXT: 'next',
   PREV: 'prev',
   PLAY_SOUND: 'play_sound',
+  MUTE: 'mute',
+  UNMUTE: 'unmute',
 }
 
 type StateProps = {
   currentSoundIndex: number
   isPlaying: boolean
+  isMuted: boolean
 }
 
 type ActionProps = {
@@ -44,6 +48,10 @@ const reducer = (state: StateProps, action: ActionProps) => {
       return { ...state, currentSoundIndex: currentSoundIndex - 1 < 0 ? totalSounds : currentSoundIndex - 1 }
     case ACTIONS.PLAY_SOUND:
       return { ...state, currentSoundIndex: action.value }
+    case ACTIONS.MUTE:
+      return { ...state, isMuted: true }
+    case ACTIONS.UNMUTE:
+      return { ...state, isMuted: false }
     default:
       return state
   }

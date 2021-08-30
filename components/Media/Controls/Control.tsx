@@ -18,6 +18,7 @@ function prop<T, K extends keyof T>(obj: T, key: K) {
 
 export const Control = ({ elementName }: ControlProps) => {
   const [isPlaying, setIsPlaying] = useGlobalState('isPlaying')
+  const [isMuted, setIsMuted] = useGlobalState('isMuted')
 
   let currentConfig: any
 
@@ -25,20 +26,30 @@ export const Control = ({ elementName }: ControlProps) => {
     prev: {
       file: 'prev-next.svg',
       className: 'rotate-180',
+      title: 'Previous',
       fn: () => {
         dispatch({ type: ACTIONS.PREV })
       },
     },
     next: {
       file: 'prev-next.svg',
+      title: 'Next',
       fn: () => {
         dispatch({ type: ACTIONS.NEXT })
       },
     },
     play: {
       file: isPlaying ? 'pause.svg' : 'play.svg',
+      title: isPlaying ? 'Play' : 'Pause',
       fn: () => {
         dispatch({ type: isPlaying ? ACTIONS.PAUSE : ACTIONS.PLAY })
+      },
+    },
+    mute: {
+      file: isMuted ? 'muted.svg' : 'unmuted.svg',
+      title: isMuted ? 'Unmute' : 'Mute',
+      fn: () => {
+        dispatch({ type: isMuted ? ACTIONS.UNMUTE : ACTIONS.MUTE })
       },
     },
   }
@@ -51,8 +62,9 @@ export const Control = ({ elementName }: ControlProps) => {
 
   return (
     <div
-      className={`cs-player__actions__${elementName} cursor-pointer hover:bg-gray-400 hover:transition-colors rounded-full ${currentConfig.className}`}
+      className={`cs-player__actions__${elementName} cursor-pointer hover:bg-gray-900 hover:animate-pulse hover:transition-colors rounded-full ${currentConfig.className}`}
       onClick={currentConfig.fn}
+      title={`${currentConfig.title ? currentConfig.title : elementName}`}
     >
       <SVG src={`/icons/player/${currentConfig.file}`} />
     </div>

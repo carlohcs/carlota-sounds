@@ -9,7 +9,7 @@ import DandelionIcon from '@/components/Icons/Dandelion/DandelionIcon'
 import { run as runBubles } from '@/components/Canvas/bubbles'
 // import { run as runPixelRainbow } from '@/components/Canvas/PixelRainbow'
 import { run as runParticleSmoke } from '@/components/Canvas/ParticleSmoke'
-import { Play, Next, Prev } from '@/components/Media/Controls'
+import { Play, Next, Prev, Mute } from '@/components/Media/Controls'
 import sounds from '../public/sounds/sounds.json'
 import { useGlobalState } from '@/components/GlobalState'
 import { H1 } from '@/components/basics'
@@ -41,8 +41,8 @@ const Home: NextPage = () => {
         <link rel="icon" href="/favicon.ico" />
       </Head>
 
-      <main className="w-screen h-screen relative" style={{ backfaceVisibility: 'hidden' }}>
-        <header className="flex justify-between align-center w-full fixed z-50 p-8">
+      <main className="w-screen h-screen relative">
+        <header className="flex justify-between items-center w-full fixed z-50 p-8">
           <div className="cursor-pointer">
             <Logo />
           </div>
@@ -51,9 +51,9 @@ const Home: NextPage = () => {
           </div>
         </header>
 
-        <div className="wrapper relative w-screen h-screen">
+        <div className="wrapper relative w-full h-full flex justify-center items-center">
           <div
-            className={`w-full h-full md:max-w-min absolute p-nano bg-black z-40 ${currentClassName} flex flex-col justify-start items-start p-md lg:px-lg pt-18`}
+            className={`cs-wrapper__menu w-full h-full md:max-w-min absolute z-40 flex flex-col justify-start items-start pt-18 backdrop-blur-md bg-gray-900 bg-opacity-20 ${currentClassName}`}
             style={{ willChange: 'transform', transform: 'translateX(100vw)', right: 0, minWidth: '30%' }}
           >
             <Menu />
@@ -62,28 +62,36 @@ const Home: NextPage = () => {
           <div className="cs-canvas absolute z-20">
             <Canvas canvasCallback={runBubles} />
           </div>
-          <div className="relative z-30 flex flex-col justify-center items-center h-full">
+          <div className="w-full h-full absolute z-30 flex justify-center items-center">
             <div className="cs-dandelion">
               <DandelionIcon className="animate scale-dandelion-out" />
             </div>
-            <div>
-              <H1 text={currentSound ? currentSound.title : ''} />
-            </div>
-            <div className="cs-player p-8">
-              <div className="cs-player__actions w-full flex flex-row justify-between items-center">
-                <div className="cs-player__actions__prev w-14 h-14">
-                  <Prev />
-                </div>
-                <div className="w-16 h-16">
-                  <Play />
-                </div>
-                <div className="w-14 h-14">
-                  <Next />
-                </div>
+          </div>
+
+          <div className="cs-player absolute z-30 flex flex-col justify-center items-center px-8 self-end mb-10 md:mb-16">
+            <H1 className="text-xl md:text-3xl mb-10 drop-shadow-2xl" text={currentSound ? currentSound.title : ''} />
+            <div className="cs-player__actions w-full flex flex-row justify-between items-center">
+              <div className="cs-player__actions__prev w-14 h-14">
+                <Prev />
+              </div>
+              <div className="w-16 h-16">
+                <Play />
+              </div>
+              <div className="w-14 h-14">
+                <Next />
               </div>
             </div>
           </div>
         </div>
+
+        <footer className="hidden md:flex absolute bottom-1 flex flex-row justify-between items-center w-full absolute p-8">
+          <div className="z-30">
+            <div className="cs-player__actions__mute w-14 h-14">
+              <Mute />
+            </div>
+          </div>
+          <div className="z-20">VEJA NO SPOTIFY</div>
+        </footer>
       </main>
     </>
   )
