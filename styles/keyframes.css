@@ -7,6 +7,18 @@
   }
 }
 
+@keyframes fadeInMiddle {
+  from {
+    opacity: 1;
+  }
+  50% {
+    opacity: .7;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
 @keyframes wiggleWiggle {
   20%,
   100% {
@@ -44,7 +56,7 @@
 }
 
 @keyframes loadingBackground {
-  0% {
+  /* 0% {
     background-position: 0, 82% 0%;
   }
   50% {
@@ -52,6 +64,16 @@
   }
   100% {
     background-position: 0, 82% 0%;
+  } */
+
+  0% {
+    background-position: 0, 0 50%;
+  }
+  50% {
+    background-position: 0, 100% 50%;
+  }
+  100% {
+    background-position: 0, 0 50%;
   }
 }
 
@@ -114,7 +136,7 @@
     transform: scale(0);
   }
   50% {
-    transform: scale(3);
+    transform: scale(2.5);
     opacity: 0.5 !important;
   }
   100% {
@@ -184,12 +206,12 @@
   }
 
   &.scale-dandelion-out {
-    animation-name: scaleDandelionOut;
-    animation-duration: 3s;
+    animation: scaleDandelionOut 3s ease-in-out 1, fadeInMiddle 3s ease-in 3s infinite alternate;
+    /* animation-duration: 3s;
     animation-timing-function: ease-in-out;
     animation-delay: 0s;
     animation-iteration-count: 1;
-    animation-direction: normal;
+    animation-direction: normal; */
   }
 
   &.loading-background {
@@ -206,10 +228,10 @@
     /* This is mostly intended for prototyping; please download the pattern and re-host for production environments. Thank you! */
     background-image: url('/carbon-fibre-v2.png'),
       linear-gradient(
-        45deg,
+        -45deg,
         #b7094cff,
         #a01a58ff,
-        #892b64ff,
+        /* #892b64ff, */
         #723c70ff,
         #5c4d7dff,
         #455e89ff,
@@ -217,10 +239,10 @@
       );
     /* This is mostly intended for prototyping; please download the pattern and re-host for production environments. Thank you! */
 
-    animation: loadingBackground 15s linear infinite;
+    animation: loadingBackground 13s linear infinite;
   }
 
-  &.loaded-background {
+  &.loaded-background:not(.playing) {
     animation-iteration-count: 1 !important;
     animation-fill-mode: forwards !important;
   }
@@ -230,7 +252,7 @@
     background-color: #004f8c;
     background-image: url('/carbon-fibre-v2.png'), url('/albums/epifania.jpg'),
       linear-gradient(
-        45deg,
+        -45deg,
         #b7094cff,
         #a01a58ff,
         #892b64ff,

@@ -13,6 +13,7 @@ import { Play, Next, Prev, Mute } from '@/components/Media/Controls'
 import sounds from '../public/sounds/sounds.json'
 import { useGlobalState } from '@/components/GlobalState'
 import { H1 } from '@/components/basics'
+import VideoBackground from '@/components/Background/VideoBackground'
 
 const Home: NextPage = () => {
   // https://dev.to/gabrielrufino/react-hook-usestate-in-typescript-4mn6
@@ -58,6 +59,10 @@ const Home: NextPage = () => {
           >
             <Menu />
           </div>
+          <div className="absolute z-20 w-full h-full">
+            {/* <VideoBackground /> */}
+          </div>
+
           <div className="cs-canvas absolute z-20">{/* <Canvas canvasCallback={runParticleSmoke} /> */}</div>
           <div className="cs-canvas absolute z-20">
             <Canvas canvasCallback={runBubles} />

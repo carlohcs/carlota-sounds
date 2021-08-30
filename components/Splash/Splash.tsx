@@ -15,7 +15,7 @@ type Props = {
   handleLoad: (loaded: boolean) => void
 }
 
-const loadingTime = 5000
+const loadingTime = 7000
 
 // https://www.carlrippon.com/react-children-with-typescript/
 export const Splash = ({ children, handleLoad }: Props) => {

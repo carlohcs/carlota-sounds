@@ -14,7 +14,7 @@ const run = (canvas) => {
   const ctx = canvas.getContext('2d')
   const game = { req: false, score: 0 }
   const bubble = {
-    bubbleCount: 50,
+    bubbleCount: getDimensions().w <= 758 ? 10 : 50,
     bubbles: [],
     speed: 1,
   }
