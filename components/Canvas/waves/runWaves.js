@@ -1,2 +1,17 @@
+const run = (canvas) => {
+  window.canvasOptions = {
+  	autoClear: true,
+  	autoCompensate: false,
+  	autoPushPop: true,
+  	canvas: canvas,
+  	centered: true,
+  	width: null,
+  	height: null
+  };
 
-'https://cdnjs.cloudflare.com/ajax/libs/simplex-noise/2.4.0/simplex-noise.js'
+  require('./waves')
+}
+
+module.exports = {
+  run,
+}

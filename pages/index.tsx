@@ -8,7 +8,8 @@ import Menu from '@/components/Header/Menu'
 import DandelionIcon from '@/components/Icons/Dandelion/DandelionIcon'
 import { run as runBubles } from '@/components/Canvas/bubbles'
 // import { run as runPixelRainbow } from '@/components/Canvas/PixelRainbow'
-import { run as runParticleSmoke } from '@/components/Canvas/ParticleSmoke'
+// import { run as runParticleSmoke } from '@/components/Canvas/ParticleSmoke'
+import { run as runWaves } from '@/components/Canvas/waves/runWaves'
 import { Play, Next, Prev, Mute } from '@/components/Media/Controls'
 import sounds from '../public/sounds/sounds.json'
 import { useGlobalState } from '@/components/GlobalState'
@@ -59,11 +60,13 @@ const Home: NextPage = () => {
           >
             <Menu />
           </div>
-          <div className="absolute z-20 w-full h-full">
-            {/* <VideoBackground /> */}
+          {/* <div className="absolute z-20 w-full h-full">{<VideoBackground />}</div> */}
+
+          {/* <div className="cs-canvas absolute z-20"><Canvas canvasCallback={runParticleSmoke} /></div> */}
+          <div className="cs-canvas absolute z-20 cs-waves">
+            <Canvas canvasCallback={runWaves} />
           </div>
 
-          <div className="cs-canvas absolute z-20">{/* <Canvas canvasCallback={runParticleSmoke} /> */}</div>
           <div className="cs-canvas absolute z-20">
             <Canvas canvasCallback={runBubles} />
           </div>
