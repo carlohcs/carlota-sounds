@@ -15,6 +15,7 @@ import sounds from '../public/sounds/sounds.json'
 import { useGlobalState } from '@/components/GlobalState'
 import { H1 } from '@/components/basics'
 import VideoBackground from '@/components/Background/VideoBackground'
+import ImageBackground from '@/components/Background/ImageBackground'
 
 const Home: NextPage = () => {
   // https://dev.to/gabrielrufino/react-hook-usestate-in-typescript-4mn6
@@ -23,6 +24,12 @@ const Home: NextPage = () => {
   const [closed, setClosed] = useState(true)
   const [firstCall, setFirstCall] = useState(false)
   const [currentSoundIndex, setCurrentSoundIndex] = useGlobalState('currentSoundIndex')
+
+  // VIEWS
+  const [waves, setWaves] = useGlobalState('waves')
+  const [bubbles, setBubbles] = useGlobalState('bubbles')
+  const [background, setBackground] = useGlobalState('background')
+
   const currentClassName = `${firstCall ? 'animate' : ''} ${!closed ? 'slide-out-right' : 'slide-in-right'}`
 
   const currentSound = sounds.data.find((item, index) => currentSoundIndex === index)
@@ -63,13 +70,29 @@ const Home: NextPage = () => {
           {/* <div className="absolute z-20 w-full h-full">{<VideoBackground />}</div> */}
 
           {/* <div className="cs-canvas absolute z-20"><Canvas canvasCallback={runParticleSmoke} /></div> */}
-          <div className="cs-canvas absolute z-20 cs-waves">
-            <Canvas canvasCallback={runWaves} />
-          </div>
+          {background ? (
+            <div className="absolute z-20 cs-image w-full h-full">
+              <ImageBackground imageName="abstract-calm10.gif" />
+            </div>
+          ) : (
+            ''
+          )}
 
-          <div className="cs-canvas absolute z-20">
-            <Canvas canvasCallback={runBubles} />
-          </div>
+          {waves ? (
+            <div className="cs-canvas absolute z-20 cs-waves">
+              <Canvas canvasCallback={runWaves} />
+            </div>
+          ) : (
+            ''
+          )}
+
+          {bubbles ? (
+            <div className="cs-canvas absolute z-20 cs-bubbles">
+              <Canvas canvasCallback={runBubles} />
+            </div>
+          ) : (
+            ''
+          )}
           <div className="w-full h-full absolute z-30 flex justify-center items-center">
             <div className="cs-dandelion">
               <DandelionIcon className="animate scale-dandelion-out" />
@@ -98,7 +121,33 @@ const Home: NextPage = () => {
               <Mute />
             </div>
           </div>
-          <div className="z-20">VEJA NO SPOTIFY</div>
+          <div className="z-30 text-base max-w-sm text-right">
+            <div>
+              <label>
+                <input type="checkbox" />
+                Waves
+              </label>
+              <label>
+                <input type="checkbox" />
+                Bubbles
+              </label>
+              <label>
+                <input type="checkbox" />
+                Background
+              </label>
+            </div>
+            <div>
+              Availabe on{' '}
+              <a href="https://open.spotify.com/artist/4Kv6CaJSSTkaD9QHgjvrIn" className="underline">
+                Spotify
+              </a>
+              , <a>Deezer</a>,{' '}
+              <a href="https://www.youtube.com/c/CarlosHenriqueCarvalhodeSantana/videos" className="underline">
+                Youtube
+              </a>{' '}
+              and all streaming platform.
+            </div>
+          </div>
         </footer>
       </main>
     </>

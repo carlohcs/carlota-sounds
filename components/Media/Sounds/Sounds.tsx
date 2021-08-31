@@ -31,7 +31,7 @@ export const SoundItem = ({ id = 0, title = '', time = '', album = '', index = 0
   return (
     <div
       className={`text-left p-md border-b border-gray-100 border-opacity-25 cursor-pointer hover:animate-pulse hover:bg-gray-800 transition duration-200 ease-in ${
-        isActive ? 'text-yellow-500 transition-colors !bg-gray-800' : ''
+        isActive ? 'text-yellow-500 transition-colors !bg-gray-800 !bg-opacity-75' : ''
       }`}
       onClick={onClick}
       data-album={album}

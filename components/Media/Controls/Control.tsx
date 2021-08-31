@@ -40,13 +40,15 @@ export const Control = ({ elementName }: ControlProps) => {
     },
     play: {
       file: isPlaying ? 'pause.svg' : 'play.svg',
-      title: isPlaying ? 'Play' : 'Pause',
+      className: isPlaying ? '' : 'bg-gray-800 animate-pulse',
+      title: isPlaying ? 'Pause' : 'Play',
       fn: () => {
         dispatch({ type: isPlaying ? ACTIONS.PAUSE : ACTIONS.PLAY })
       },
     },
     mute: {
       file: isMuted ? 'muted.svg' : 'unmuted.svg',
+      className: isMuted ? 'bg-gray-800 animate-pulse' : '',
       title: isMuted ? 'Unmute' : 'Mute',
       fn: () => {
         dispatch({ type: isMuted ? ACTIONS.UNMUTE : ACTIONS.MUTE })

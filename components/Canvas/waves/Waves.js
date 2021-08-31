@@ -157,7 +157,7 @@ let canvas =
   window.canvasOptions && window.canvasOptions.canvas instanceof HTMLCanvasElement
     ? window.canvasOptions.canvas
     : document.getElementById('canvas')
-console.log('canvas: ', canvas)
+
 if (canvas === null) {
   canvas = document.createElement('canvas')
   canvas.id = 'canvas'
@@ -325,6 +325,7 @@ innerRun()
 function _draw(timestamp) {
   frameCount++
   canvasFrameRate = 1000.0 / (timestamp - _lastCanvasTime)
+  
   if (!_lastCanvasTime) {
     _lastCanvasTime = timestamp
   }
@@ -336,7 +337,7 @@ function _draw(timestamp) {
     _canvasOptions.centered && (_canvasCurrentlyCentered = true) && translateCenter()
     _canvasOptions.autoCompensate && compensateCanvas()
   }
-  console.log('draw' in window)
+  
   'draw' in window && window.draw(timestamp)
   _canvasOptions.autoPushPop && pop()
   _canvasCurrentlyCentered = false
@@ -2284,7 +2285,8 @@ window.draw = (e) => {
   grad.addColorStop(map(t, 0, 1, ONE, TWO_THIRDS), colorA)
   ctx.globalAlpha = map(cos(time), -1, 1, 0.15, 0.3)
   background(grad)
-  ctx.globalAlpha = .05
+  // ctx.globalAlpha = .05 // Ideal para nenhuma imagem junto
+  ctx.globalAlpha = 0.3 // ideal junto de imagem
   // ctx.globalAlpha = 1
   beginPath()
   for (let j = 0; j < yCount; j++) {
@@ -2300,7 +2302,8 @@ window.draw = (e) => {
     time += timeStep
   }
 
-  compositeOperation(compOper.lighter)
+  // compositeOperation(compOper.lighter)
+  compositeOperation(compOper.darken)
   ctx.filter = 'blur(10px)'
   stroke(grad, 5)
   ctx.filter = 'blur(5px)'
