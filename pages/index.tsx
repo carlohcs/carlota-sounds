@@ -16,6 +16,7 @@ import { useGlobalState } from '@/components/GlobalState'
 import { H1 } from '@/components/basics'
 import VideoBackground from '@/components/Background/VideoBackground'
 import ImageBackground from '@/components/Background/ImageBackground'
+import ExperienceMenu from '@/components/Footer/ExperienceToggleMenu'
 
 const Home: NextPage = () => {
   // https://dev.to/gabrielrufino/react-hook-usestate-in-typescript-4mn6
@@ -98,6 +99,20 @@ const Home: NextPage = () => {
               <DandelionIcon className="animate scale-dandelion-out" />
             </div>
           </div>
+          <div className="hidden lg:block absolute inset-y-1/2 right-8 p-8 z-30 text-left opacity-10 hover:opacity-100 transition-opacity">
+            <div
+              className="text-base space-y-6"
+              style={
+                {
+                  // writingMode: 'vertical-rl',
+                  // textOrientation: 'upright',
+                }
+              }
+            >
+              Try it!
+              <ExperienceMenu />
+            </div>
+          </div>
 
           <div className="cs-player absolute z-30 flex flex-col justify-center items-center px-8 self-end mb-10 md:mb-16">
             <H1 className="text-xl md:text-3xl mb-10 drop-shadow-2xl" text={currentSound ? currentSound.title : ''} />
@@ -115,27 +130,13 @@ const Home: NextPage = () => {
           </div>
         </div>
 
-        <footer className="hidden md:flex absolute bottom-1 flex flex-row justify-between items-center w-full absolute p-8">
+        <footer className="hidden lg:flex absolute bottom-1 flex flex-row justify-between items-center w-full absolute md:px-8 xl:p-8">
           <div className="z-30">
             <div className="cs-player__actions__mute w-14 h-14">
               <Mute />
             </div>
           </div>
-          <div className="z-30 text-base max-w-sm text-right">
-            <div>
-              <label>
-                <input type="checkbox" />
-                Waves
-              </label>
-              <label>
-                <input type="checkbox" />
-                Bubbles
-              </label>
-              <label>
-                <input type="checkbox" />
-                Background
-              </label>
-            </div>
+          <div className="z-30 text-base max-w-lg opacity-50 hover:opacity-100 transition-opacity">
             <div>
               Availabe on{' '}
               <a href="https://open.spotify.com/artist/4Kv6CaJSSTkaD9QHgjvrIn" className="underline">
