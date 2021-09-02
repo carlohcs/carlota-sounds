@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 import type { NextPage } from 'next'
 import Head from 'next/head'
 import Logo from '@/components/Logo/Logo'
@@ -43,6 +43,25 @@ const Home: NextPage = () => {
     setClosed(isClosed)
   }
 
+  const calcTabWidth = () => {
+    const windowWidth: number = document.body.clientWidth
+
+    if (windowWidth > 1024) {
+      return window.innerWidth / 3
+    } else if (windowWidth >= 768) {
+      return window.innerWidth / 2
+    }
+
+    return 'inherit'
+  }
+  const [tabWidth, setTabWidth] = useState<number | string>(calcTabWidth())
+
+  useEffect(() => {
+    window.addEventListener('resize', () => {
+      setTabWidth(calcTabWidth())
+    })
+  }, [setTabWidth])
+
   return (
     <>
       <Head>
@@ -63,8 +82,13 @@ const Home: NextPage = () => {
 
         <div className="wrapper relative w-full h-full flex justify-center items-center">
           <div
-            className={`cs-wrapper__menu w-full h-full md:max-w-min absolute z-40 flex flex-col justify-start items-start pt-18 backdrop-blur-md bg-gray-900 bg-opacity-20 ${currentClassName}`}
-            style={{ willChange: 'transform', transform: 'translateX(100vw)', right: 0, minWidth: '30%' }}
+            className={`cs-wrapper__menu w-full h-full absolute z-40 flex flex-col justify-start items-start pt-18 backdrop-blur-md bg-gray-900 bg-opacity-20 ${currentClassName}`}
+            style={{
+              willChange: 'transform',
+              transform: 'translateX(100vw)',
+              right: 0,
+              width: tabWidth,
+            }}
           >
             <Menu />
           </div>

@@ -1,7 +1,7 @@
 import { useState } from 'react'
 import Tabs from '../Tabs'
 import Tab from '../Tabs/Tab'
-import { SoundsList } from '../Media/Sounds/Sounds'
+import { SoundsList } from '../Media/Sounds'
 import About from '../About/About'
 import sounds from '../../public/sounds/sounds.json'
 
@@ -21,6 +21,15 @@ const Actions = () => {
       onSelected={onSelected}
     >
       <Tab title="SOUNDS" tabTitleClassName={currentActiveTab === 0 ? activeTabClass : ''}>
+        <div
+          className="absolute w-full z-30"
+          style={{
+            height: '1px',
+            bottom: 0,
+            boxShadow: 'rgb(111 111 111 / 70%) 20px 0px 20px 11px',
+            display: 'block',
+          }}
+        />
         <SoundsList sounds={sounds.data} />
       </Tab>
       <Tab title="ABOUT" tabTitleClassName={currentActiveTab === 1 ? activeTabClass : ''}>

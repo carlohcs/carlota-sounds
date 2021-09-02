@@ -1,8 +1,61 @@
 {
   "data": [
-    { "id": 1, "title": "Restos do que não aconteceu", "time": "02:00", "album": "restos-do-que-nao-aconteceu" },
-    { "id": 2, "title": "Um Fim Ensurdecedor", "time": "02:00", "album": "Single" },
-    { "id": 3, "title": "Epifania", "time": "02:00", "album": "Epifania" },
-    { "id": 4, "title": "Esperança", "time": "02:00", "album": "Esperança" }
+    {
+      "id": 1,
+      "title": "Esperança",
+      "time": "01:59",
+      "album": "Propósitos Inacabados",
+      "albumImage": "propositos-inacabados.jpg"
+    },
+    {
+      "id": 2,
+      "title": "Passos de um solitário",
+      "time": "02:39",
+      "album": "Propósitos Inacabados",
+      "albumImage": "propositos-inacabados.jpg"
+    },
+    {
+      "id": 3,
+      "title": "O sonho de Cmaj7",
+      "time": "02:00",
+      "album": "O sonho de Cmaj7",
+      "albumImage": false
+    },
+    {
+      "id": 4,
+      "title": "Restos do que não aconteceu",
+      "time": "01:59",
+      "album": "Restos do que não aconteceu",
+      "albumImage": "restos-do-que-nao-aconteceu.jpg"
+    },
+    {
+      "id": 5,
+      "title": "Um fim ensurdecedor",
+      "time": "01:50",
+      "album": "Um fim ensurdecedor",
+      "albumImage": "um-fim-ensurdecedor.jpg"
+    },
+    { "id": 6, "title": "Epifania", "time": "03:36", "album": "Epifania", "albumImage": "epifania.jpg" },
+    {
+      "id": 7,
+      "title": "Greensleeves - Cover - Feat. J. Williams Diniz",
+      "time": "02:00",
+      "album": false,
+      "albumImage": false
+    },
+    {
+      "id": 8,
+      "title": "Stay Home, Stay Safe - Feat. Nathany Mendonça",
+      "time": "02:00",
+      "album": false,
+      "albumImage": false
+    },
+    {
+      "id": 9,
+      "title": "Além da varanda - Feat. Nathany Mendonça",
+      "time": "02:00",
+      "album": false,
+      "albumImage": false
+    }
   ]
 }

@@ -89,4 +89,4 @@ const reducer = (state: StateProps, action: ActionProps) => {
 
 const { dispatch, useGlobalState } = createStore(reducer, initialState)
 
-export { dispatch, useGlobalState, ACTIONS }
+export { dispatch, useGlobalState, ACTIONS, sounds }

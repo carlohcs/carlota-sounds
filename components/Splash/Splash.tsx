@@ -40,7 +40,7 @@ export const Splash = ({ children, handleLoad }: Props) => {
         addEndListener={(node: HTMLElement, done: any) => {
           node.addEventListener('transitionend', done, false)
         }}
-        classNames="fade"
+        classNames="loading-transition"
       >
         <div>{!loading ? children : <LoadingScreen stage="loading" />}</div>
       </CSSTransition>

@@ -12,7 +12,7 @@
     opacity: 1;
   }
   50% {
-    opacity: .7;
+    opacity: 0.7;
   }
   to {
     opacity: 1;
@@ -231,8 +231,7 @@
         -45deg,
         #b7094cff,
         #a01a58ff,
-        /* #892b64ff, */
-        #723c70ff,
+        /* #892b64ff, */ #723c70ff,
         #5c4d7dff,
         #455e89ff,
         #2e6f95ff /* #1780a1ff, */ /* #0091adff */
@@ -336,20 +335,41 @@
 }
 
 /* Transition between components */
-.fade-enter {
-  opacity: 0;
+.loading-transition {
+  &-enter {
+    opacity: 0;
+  }
+  &-exit {
+    opacity: 1;
+  }
+  &-enter-active {
+    opacity: 1;
+  }
+  &-exit-active {
+    opacity: 0;
+  }
+  &-enter-active,
+  &-exit-active {
+    /* transition: opacity 500ms; */
+    transition: opacity 2s;
+  }
 }
-.fade-exit {
-  opacity: 1;
-}
-.fade-enter-active {
-  opacity: 1;
-}
-.fade-exit-active {
-  opacity: 0;
-}
-.fade-enter-active,
-.fade-exit-active {
-  /* transition: opacity 500ms; */
-  transition: opacity 2s;
+
+.tab-transition {
+  &-enter {
+    opacity: 0;
+  }
+  &-exit {
+    opacity: 1;
+  }
+  &-enter-active {
+    opacity: 1;
+  }
+  &-exit-active {
+    opacity: 0;
+  }
+  &-enter-active,
+  &-exit-active {
+    transition: opacity 300ms;
+  }
 }

@@ -1,4 +1,5 @@
 import { useGlobalState } from '@/components/GlobalState'
+import { getPropValue } from '@/components/commons'
 
 const items = [
   {
@@ -31,12 +32,6 @@ const ExperienceMenu = () => {
     },
   }
 
-  const getValue = (key: string) => {
-    const definedKey = key.toLocaleLowerCase() as keyof typeof itemsMethods
-
-    return itemsMethods[definedKey]
-  }
-
   return (
     <>
       {items.map((item, index) => (
@@ -45,8 +40,8 @@ const ExperienceMenu = () => {
             id={`experience-menu-${item.name}`}
             className="cs-checkbox"
             type="checkbox"
-            defaultChecked={getValue(item.name).value}
-            onChange={() => getValue(item.name).set(!getValue(item.name).value)}
+            defaultChecked={getPropValue(item.name, itemsMethods).value}
+            onChange={() => getPropValue(item.name, itemsMethods).set(!getPropValue(item.name, itemsMethods).value)}
           />
           <label htmlFor={`experience-menu-${item.name}`}>{item.name}</label>
         </div>

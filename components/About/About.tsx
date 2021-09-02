@@ -3,8 +3,8 @@ import Image from 'next/image'
 
 const About = () => {
   return (
-    <div className="flex flex-col w-full h-full space-y-6 text-left p-md">
-      <div className="flex flex-row w-full">
+    <div className="flex flex-col min-w-full w-full h-full space-y-6 text-left p-md">
+      <div className="w-full flex flex-row">
         <Image
           src="/carlohcs.jpeg"
           alt="Carlos Henrique Carvalho de Santana"
@@ -18,7 +18,7 @@ const About = () => {
           <Small text="See" className="text-sm" />
         </div>
       </div>
-      <div className="h-full">
+      <div className="w-full h-full">
         <div className="flex flex-col space-y-6">
           <P
             text="Brazilian producer and artist, Carlota Sounds is the product of the author’s intimate expression. It is a job in which he deepest feelings are explored: from loneliness, euphoria to the widest reflections. 

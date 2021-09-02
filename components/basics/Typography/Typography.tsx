@@ -5,6 +5,7 @@ import React from 'react'
 type BasicElementProps = {
   text: string
   className?: string
+  style?: object
 }
 
 export const H1: React.FC<BasicElementProps> = ({ text, className }) => {
@@ -31,8 +32,12 @@ export const H6: React.FC<BasicElementProps> = ({ text, className }) => {
   return <h6 className={className}>{text}</h6>
 }
 
-export const P: React.FC<BasicElementProps> = ({ text, className }) => {
-  return <p className={className}>{text}</p>
+export const P: React.FC<BasicElementProps> = ({ text, className, style }) => {
+  return (
+    <p className={className} style={style}>
+      {text}
+    </p>
+  )
 }
 
 export const Small: React.FC<BasicElementProps> = ({ text, className }) => {

@@ -1,5 +1,6 @@
 import React, { ReactElement, useState } from 'react'
 import TabTitle from './TabTitle'
+import { SwitchTransition, CSSTransition } from 'react-transition-group'
 
 type Props = {
   className?: string
@@ -32,7 +33,19 @@ const Tabs: React.FC<Props> = ({ children, className, tabTitleClassName, onSelec
           />
         ))}
       </ul>
-      <div className="pt-sm h-full">{children[selectedTab]}</div>
+      <div className="w-full h-full pt-sm">
+        <SwitchTransition mode="out-in">
+          <CSSTransition
+            key={selectedTab}
+            addEndListener={(node: HTMLElement, done: any) => {
+              node.addEventListener('transitionend', done, false)
+            }}
+            classNames="tab-transition"
+          >
+            <div className="w-full h-full">{children[selectedTab]}</div>
+          </CSSTransition>
+        </SwitchTransition>
+      </div>
     </div>
   )
 }
