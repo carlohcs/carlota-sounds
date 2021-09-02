@@ -10,10 +10,9 @@ import { run as runBubles } from '@/components/Canvas/bubbles'
 // import { run as runPixelRainbow } from '@/components/Canvas/PixelRainbow'
 // import { run as runParticleSmoke } from '@/components/Canvas/ParticleSmoke'
 import { run as runWaves } from '@/components/Canvas/waves/runWaves'
-import { Play, Next, Prev, Mute } from '@/components/Media/Controls'
-import sounds from '../public/sounds/sounds.json'
+import { Player, Mute } from '@/components/Media/Player'
 import { useGlobalState } from '@/components/GlobalState'
-import { H1 } from '@/components/basics'
+
 import VideoBackground from '@/components/Background/VideoBackground'
 import ImageBackground from '@/components/Background/ImageBackground'
 import ExperienceMenu from '@/components/Footer/ExperienceToggleMenu'
@@ -24,7 +23,6 @@ const Home: NextPage = () => {
 
   const [closed, setClosed] = useState(true)
   const [firstCall, setFirstCall] = useState(false)
-  const [currentSoundIndex, setCurrentSoundIndex] = useGlobalState('currentSoundIndex')
 
   // VIEWS
   const [waves, setWaves] = useGlobalState('waves')
@@ -32,8 +30,6 @@ const Home: NextPage = () => {
   const [background, setBackground] = useGlobalState('background')
 
   const currentClassName = `${firstCall ? 'animate' : ''} ${!closed ? 'slide-out-right' : 'slide-in-right'}`
-
-  const currentSound = sounds.data.find((item, index) => currentSoundIndex === index)
 
   const handleToggle = (isClosed: boolean) => {
     if (!firstCall) {
@@ -139,18 +135,7 @@ const Home: NextPage = () => {
           </div>
 
           <div className="cs-player absolute z-30 flex flex-col justify-center items-center px-8 self-end mb-10 md:mb-16">
-            <H1 className="text-xl md:text-3xl mb-10 drop-shadow-2xl" text={currentSound ? currentSound.title : ''} />
-            <div className="cs-player__actions w-full flex flex-row justify-between items-center">
-              <div className="cs-player__actions__prev w-14 h-14">
-                <Prev />
-              </div>
-              <div className="w-16 h-16">
-                <Play />
-              </div>
-              <div className="w-14 h-14">
-                <Next />
-              </div>
-            </div>
+            <Player />
           </div>
         </div>
 
