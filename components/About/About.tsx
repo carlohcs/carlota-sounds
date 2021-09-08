@@ -1,5 +1,7 @@
+import configs from '@/etc/configs'
 import { P, Small, H3 } from '../basics'
 import Image from 'next/image'
+import { CSIconList } from '../Icons/CSIcon'
 
 const About = () => {
   return (
@@ -19,15 +21,30 @@ const About = () => {
         </div>
       </div>
       <div className="w-full h-full">
-        <div className="flex flex-col space-y-6">
-          <P
-            text="Brazilian producer and artist, Carlota Sounds is the product of the author’s intimate expression. It is a job in which he deepest feelings are explored: from loneliness, euphoria to the widest reflections. 
+        <div className="flex flex-col justify-between h-full">
+          <div>
+            <P
+              text="Brazilian producer and artist, Carlota Sounds is the product of the author’s intimate expression. It is a job in which he deepest feelings are explored: from loneliness, euphoria to the widest reflections. 
 The songs are based on the exploration of musical instruments, using the voices as support."
-            className="lg:text-lg"
-          />
-          <P text="May the reflection of these be with you." className="lg:text-lg" />
-          <H3 text="LISTEN AT" />
-          <H3 text="FOLLOW AT" />
+              className="text-lg my-xs"
+            />
+            <P text="May the reflection of these be with you." className="text-lg mb-md" />
+          </div>
+
+          <div>
+            <H3 text="LISTEN AT" className="font-medium text-lg my-xs" />
+            <CSIconList items={configs.listenAt} />
+          </div>
+
+          <div>
+            <H3 text="FOLLOW AT" className="font-medium text-lg my-xs" />
+            <CSIconList items={configs.followAt} />
+          </div>
+
+          <div>
+            <H3 text="SHARE AT" className="font-medium text-lg my-xs" />
+            <CSIconList items={configs.shareAt} />
+          </div>
         </div>
       </div>
     </div>

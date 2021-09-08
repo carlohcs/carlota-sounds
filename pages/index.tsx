@@ -16,6 +16,7 @@ import { useGlobalState } from '@/components/GlobalState'
 import VideoBackground from '@/components/Background/VideoBackground'
 import ImageBackground from '@/components/Background/ImageBackground'
 import ExperienceMenu from '@/components/Footer/ExperienceToggleMenu'
+import { Footer } from '@/components/Footer'
 
 const Home: NextPage = () => {
   // https://dev.to/gabrielrufino/react-hook-usestate-in-typescript-4mn6
@@ -146,17 +147,7 @@ const Home: NextPage = () => {
             </div>
           </div>
           <div className="z-30 text-base max-w-lg opacity-50 hover:opacity-100 transition-opacity">
-            <div>
-              Availabe on{' '}
-              <a href="https://open.spotify.com/artist/4Kv6CaJSSTkaD9QHgjvrIn" className="underline">
-                Spotify
-              </a>
-              , <a>Deezer</a>,{' '}
-              <a href="https://www.youtube.com/c/CarlosHenriqueCarvalhodeSantana/videos" className="underline">
-                Youtube
-              </a>{' '}
-              and all streaming platform.
-            </div>
+            <Footer />
           </div>
         </footer>
       </main>

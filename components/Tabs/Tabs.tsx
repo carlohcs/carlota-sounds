@@ -22,7 +22,7 @@ const Tabs: React.FC<Props> = ({ children, className, tabTitleClassName, onSelec
 
   return (
     <div className="w-full h-full">
-      <ul className={`${className} px-md`}>
+      <ul className={`${className}`}>
         {children.map((item, index) => (
           <TabTitle
             key={index}
@@ -37,9 +37,9 @@ const Tabs: React.FC<Props> = ({ children, className, tabTitleClassName, onSelec
         <SwitchTransition mode="out-in">
           <CSSTransition
             key={selectedTab}
-            // addEndListener={(node: HTMLElement, done: any) => {
-            //   node.addEventListener('transitionend', done, false)
-            // }}
+            addEndListener={(node: HTMLElement, done: any) => {
+              node.addEventListener('transitionend', done, false)
+            }}
             classNames="tab-transition"
           >
             <div className="w-full h-full">{children[selectedTab]}</div>
