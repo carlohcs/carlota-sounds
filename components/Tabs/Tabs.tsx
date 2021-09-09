@@ -33,7 +33,7 @@ const Tabs: React.FC<Props> = ({ children, className, tabTitleClassName, onSelec
           />
         ))}
       </ul>
-      <div className="w-full h-full pt-sm">
+      <div className="w-full h-full">
         <SwitchTransition mode="out-in">
           <CSSTransition
             key={selectedTab}

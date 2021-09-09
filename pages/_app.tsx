@@ -1,4 +1,4 @@
-import '../styles/globals.css'
+import '@/styles/globals.css'
 import '@/components/Logo/Logo.css'
 import '@/components/basics/Typography/Typography.css'
 import React, { useEffect, useState } from 'react'
@@ -9,6 +9,10 @@ import BodyBackground from '@/components/BodyBackground'
 // https://www.reddit.com/r/nextjs/comments/nqjs8r/full_page_loading_splash_screen_with_nextjs_and/
 function MyApp({ Component, pageProps }: AppProps) {
   const [loaded, setLoaded] = useState(false)
+
+  if (process.browser) {
+    require('@/components/commons/polyfills')
+  }
 
   const handleLoaded = (loaded: boolean) => {
     setLoaded(loaded)

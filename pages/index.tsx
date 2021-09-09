@@ -67,7 +67,7 @@ const Home: NextPage = () => {
         <link rel="icon" href="/favicon.ico" />
       </Head>
 
-      <main className="w-screen h-screen relative">
+      <main className="w-screen h-screen relative overflow-hidden">
         <header className="flex justify-between items-center w-full fixed z-50 p-8">
           <div className="cursor-pointer">
             <Logo />

@@ -1,4 +1,4 @@
-import { useGlobalState } from '@/components/GlobalState'
+import { dispatch, useGlobalState, ACTIONS } from '@/components/GlobalState'
 import { P, Small } from '@/components/basics/Typography/Typography'
 import { SoundAlbum } from '@/components/Media/Sounds'
 
@@ -10,6 +10,7 @@ export type SoundItemProps = {
   albumImage: string | boolean
   index?: number
   isActive?: boolean
+  className?: string
   // key: string
 }
 
@@ -21,11 +22,10 @@ const SoundItem = ({
   albumImage = '',
   index = 0,
   isActive = false,
+  className = '',
 }: SoundItemProps) => {
-  const [currentSoundIndex, setCurrentSoundIndex] = useGlobalState('currentSoundIndex')
-
   const onClick = (/*evt: Event*/) => {
-    setCurrentSoundIndex(index)
+    dispatch({ type: ACTIONS.PLAY_SOUND, value: index })
 
     // const classes = ['background-album', 'background-epifania', 'background-restos-do-que-nao-aconteceu']
     // const $bg = document.querySelector<HTMLElement>('.cs-app-background')
@@ -44,7 +44,7 @@ const SoundItem = ({
     <div
       className={`max-w-full relative text-left p-md border-b border-gray-100 border-opacity-25 cursor-pointer hover:animate-pulse hover:bg-gray-800 transition duration-200 ease-in flex flex-row ${
         isActive ? 'text-yellow-500 transition-colors !bg-gray-800 !bg-opacity-75' : ''
-      }`}
+      } ${className}`}
       onClick={onClick}
       data-album={album}
     >

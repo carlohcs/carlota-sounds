@@ -59,11 +59,16 @@ const reducer = (state: StateProps, action: ActionProps) => {
       return {
         ...state,
         currentSoundIndex: currentSoundIndex + 1 > totalSounds ? 0 : currentSoundIndex + 1,
+        isPlaying: true,
       }
     case ACTIONS.PREV:
-      return { ...state, currentSoundIndex: currentSoundIndex - 1 < 0 ? totalSounds : currentSoundIndex - 1 }
+      return {
+        ...state,
+        currentSoundIndex: currentSoundIndex - 1 < 0 ? totalSounds : currentSoundIndex - 1,
+        isPlaying: true,
+      }
     case ACTIONS.PLAY_SOUND:
-      return { ...state, currentSoundIndex: action.value }
+      return { ...state, currentSoundIndex: action.value, isPlaying: true }
     case ACTIONS.MUTE:
       return { ...state, isMuted: true }
     case ACTIONS.UNMUTE:
