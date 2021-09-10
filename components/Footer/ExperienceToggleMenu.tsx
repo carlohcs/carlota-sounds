@@ -2,9 +2,9 @@ import { useGlobalState } from '@/components/GlobalState'
 import { getPropValue } from '@/components/commons'
 
 const items = [
-  {
-    name: 'Waves',
-  },
+  // {
+  //   name: 'Waves',
+  // },
   {
     name: 'Bubbles',
   },

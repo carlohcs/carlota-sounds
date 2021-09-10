@@ -15,9 +15,11 @@ const About = () => {
           className="rounded-full"
         />
         <div className="flex flex-col w-full h-full justify-center pl-sm">
-          <P text="Hi!" className="lg:text-lg mb-2xl" />
-          <P text="I do other things too :)" className="lg:text-lg" />
-          <Small text="See" className="text-sm" />
+          <P text="Welcome! I'm Carlos Henrique!" className="lg:text-lg mb-2xl" />
+          <P text="I do other things too." className="lg:text-lg" />
+          <a href="https://carlohcs.me" target="_blank" className="underline hover:animate-pulse" rel="noreferrer">
+            <Small text="-> See" className="text-sm" />
+          </a>
         </div>
       </div>
       <div className="w-full h-full">

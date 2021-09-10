@@ -236,7 +236,6 @@
         #455e89ff,
         #2e6f95ff /* #1780a1ff, */ /* #0091adff */
       );
-    /* This is mostly intended for prototyping; please download the pattern and re-host for production environments. Thank you! */
 
     animation: loadingBackground 13s linear infinite;
   }
@@ -246,7 +245,7 @@
     animation-fill-mode: forwards !important;
   }
 
-  &.background-album.background-epifania {
+  /* &.background-album.background-epifania {
     background-size: auto, cover, 400% 400%;
     background-color: #004f8c;
     background-image: url('/carbon-fibre-v2.png'), url('/albums/epifania.jpg'),
@@ -258,10 +257,9 @@
         #723c70ff,
         #5c4d7dff,
         #455e89ff,
-        #2e6f95ff /* #1780a1ff, */ /* #0091adff */
+        #2e6f95ff
       );
 
-    /* animation: loadingBackground 15s linear infinite; */
   }
 
   &.background-album.background-restos-do-que-nao-aconteceu {
@@ -276,11 +274,9 @@
         #723c70ff,
         #5c4d7dff,
         #455e89ff,
-        #2e6f95ff /* #1780a1ff, */ /* #0091adff */
+        #2e6f95ff
       );
-
-    /* animation: loadingBackground 15s linear infinite; */
-  }
+  } */
 }
 
 .scale path {
@@ -335,7 +331,9 @@
 }
 
 /* Transition between components */
-.loading-transition {
+.loading-transition,
+.tab-transition,
+.image-transition {
   &-enter {
     opacity: 0;
   }
@@ -348,6 +346,9 @@
   &-exit-active {
     opacity: 0;
   }
+}
+
+.loading-transition {
   &-enter-active,
   &-exit-active {
     /* transition: opacity 500ms; */
@@ -356,20 +357,15 @@
 }
 
 .tab-transition {
-  &-enter {
-    opacity: 0;
-  }
-  &-exit {
-    opacity: 1;
-  }
-  &-enter-active {
-    opacity: 1;
-  }
-  &-exit-active {
-    opacity: 0;
-  }
   &-enter-active,
   &-exit-active {
     transition: opacity 200ms;
+  }
+}
+
+.image-transition {
+  &-enter-active,
+  &-exit-active {
+    transition: opacity 700ms;
   }
 }

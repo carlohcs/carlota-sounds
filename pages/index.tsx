@@ -1,4 +1,5 @@
 import { useEffect, useState } from 'react'
+import useInterval from '@/hooks/useInterval.hook'
 import type { NextPage } from 'next'
 import Head from 'next/head'
 import Logo from '@/components/Logo/Logo'
@@ -17,6 +18,7 @@ import { dispatch, useGlobalState, ACTIONS } from '@/components/GlobalState'
 import ImageBackground from '@/components/Background/ImageBackground'
 import ExperienceMenu from '@/components/Footer/ExperienceToggleMenu'
 import { Footer } from '@/components/Footer'
+import { SwitchTransition, CSSTransition } from 'react-transition-group'
 
 const Home: NextPage = () => {
   // https://dev.to/gabrielrufino/react-hook-usestate-in-typescript-4mn6
@@ -36,25 +38,17 @@ const Home: NextPage = () => {
   const [waves] = useGlobalState('waves')
   const [bubbles] = useGlobalState('bubbles')
   const [background] = useGlobalState('background')
+  const [isPlaying] = useGlobalState('isPlaying')
 
   const currentClassName = `${firstCall ? 'animate' : ''} ${menuOpened ? 'slide-out-right' : 'slide-in-right'}`
-
 
   const calcTabWidth = () => {
     const windowWidth: number = document.body.clientWidth
 
     if (windowWidth > 1024) {
-      // let currentCalc = window.innerWidth / 3
-
-      // prevent to have a excessive column width
-      // if (currentCalc > 560) {
-      //   currentCalc = 560
-      // }
-
-      // return currentCalc
       return 560
     } else if (windowWidth >= 768) {
-      return window.innerWidth / 2
+      return 384
     }
 
     return 'inherit'
@@ -66,6 +60,28 @@ const Home: NextPage = () => {
       setTabWidth(calcTabWidth())
     })
   }, [setTabWidth])
+
+  const [backgroundImageName, setBackgroundImageName] = useState('abstract-calm10.gif')
+  const [backgroundImageCounter, setBackgroundImageCounter] = useState(1)
+  const totalBackgroundImages = 12
+  const backgroundDelay = 20000
+
+  useEffect(() => {
+    if (isPlaying) {
+      setBackgroundImageName(`abstract-calm${backgroundImageCounter}.gif`)
+    }
+  }, [backgroundImageCounter, isPlaying])
+
+  useInterval(() => {
+    let currentCounter = Math.round(Math.random() * totalBackgroundImages)
+
+    if (currentCounter === 0) {
+      currentCounter = Math.round(Math.random() * totalBackgroundImages)
+    }
+
+    // backgroundImageCounter >= totalBackgroundImages
+    setBackgroundImageCounter(currentCounter)
+  }, backgroundDelay)
 
   return (
     <>
@@ -100,10 +116,21 @@ const Home: NextPage = () => {
           {/* <div className="absolute z-20 w-full h-full">{<VideoBackground />}</div> */}
 
           {/* <div className="cs-canvas absolute z-20"><Canvas canvasCallback={runParticleSmoke} /></div> */}
+          {/* isPlaying */}
           {background ? (
-            <div className="absolute z-20 cs-image w-full h-full">
-              <ImageBackground imageName="abstract-calm10.gif" />
-            </div>
+            <SwitchTransition mode="out-in">
+              <CSSTransition
+                key={backgroundImageCounter}
+                addEndListener={(node: HTMLElement, done: any) => {
+                  node.addEventListener('transitionend', done, false)
+                }}
+                classNames="image-transition"
+              >
+                <div className="cs-background-image absolute z-20 cs-image w-full h-full">
+                  <ImageBackground imageName={backgroundImageName} />
+                </div>
+              </CSSTransition>
+            </SwitchTransition>
           ) : (
             ''
           )}
@@ -129,15 +156,7 @@ const Home: NextPage = () => {
             </div>
           </div>
           <div className="hidden lg:block absolute inset-y-1/2 right-8 p-8 z-30 text-left opacity-40 hover:opacity-100 transition-opacity">
-            <div
-              className="text-base space-y-6"
-              style={
-                {
-                  // writingMode: 'vertical-rl',
-                  // textOrientation: 'upright',
-                }
-              }
-            >
+            <div className="text-base space-y-6">
               Try it!
               <ExperienceMenu />
             </div>
