@@ -21,7 +21,7 @@ const About = () => {
         </div>
       </div>
       <div className="w-full h-full">
-        <div className="flex flex-col justify-between h-full">
+        <div className="flex flex-col divide-y divide-gray-500 h-full">
           <div>
             <P
               text="Brazilian producer and artist, Carlota Sounds is the product of the author’s intimate expression. It is a job in which he deepest feelings are explored: from loneliness, euphoria to the widest reflections. 
@@ -32,18 +32,18 @@ The songs are based on the exploration of musical instruments, using the voices 
           </div>
 
           <div>
-            <H3 text="LISTEN AT" className="font-medium text-lg my-xs" />
-            <CSIconList items={configs.listenAt} />
+            <H3 text="LISTEN AT" className="font-medium text-lg mb-xs mt-sm" />
+            <CSIconList itemsClassName="text-gray-300 hover:text-white transition-colors" items={configs.listenAt} />
           </div>
 
           <div>
-            <H3 text="FOLLOW AT" className="font-medium text-lg my-xs" />
-            <CSIconList items={configs.followAt} />
+            <H3 text="FOLLOW AT" className="font-medium text-lg mb-xs mt-sm" />
+            <CSIconList itemsClassName="text-gray-300 hover:text-white transition-colors" items={configs.followAt} />
           </div>
 
           <div>
-            <H3 text="SHARE AT" className="font-medium text-lg my-xs" />
-            <CSIconList items={configs.shareAt} />
+            <H3 text="SHARE AT" className="font-medium text-lg mb-xs mt-sm" />
+            <CSIconList itemsClassName="text-gray-300 hover:text-white transition-colors" items={configs.shareAt} />
           </div>
         </div>
       </div>

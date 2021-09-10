@@ -7,10 +7,13 @@ const AvailableOn = () => {
       {configs.listenAt.map((listenAt, index) => {
         return (
           <>
-            <a href={listenAt.url} className="underline" key={index} target="_blank" rel="noreferrer">
-              {listenAt.name}
-            </a>
-            {index < configs.listenAt.length - 1 ? ', ' : ''}
+            <div key={index} className="inline-block mr-1">
+              <a href={listenAt.url} className="underline" target="_blank" rel="noreferrer">
+                {listenAt.name}
+              </a>
+              {index < configs.listenAt.length - 1 ? ', ' : ''}
+            </div>
+            {index === configs.listenAt.length - 2 ? <br /> : ''}
           </>
         )
       })}{' '}

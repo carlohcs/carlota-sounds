@@ -42,7 +42,7 @@ export const Splash = ({ children, handleLoad }: Props) => {
         }}
         classNames="loading-transition"
       >
-        <div>{!loading ? children : <LoadingScreen stage="loading" />}</div>
+        <div className="overflow-hidden">{!loading ? children : <LoadingScreen stage="loading" />}</div>
       </CSSTransition>
     </SwitchTransition>
   )

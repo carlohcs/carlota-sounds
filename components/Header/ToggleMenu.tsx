@@ -1,20 +1,15 @@
-import { useState } from 'react'
+import { dispatch, useGlobalState, ACTIONS } from '@/components/GlobalState'
 
-type ToggleMenuProps = {
-  handleToggle: (closed: boolean) => void
-}
-
-const ToggleMenu = ({ handleToggle }: ToggleMenuProps) => {
-  const [closed, setClosed] = useState(true)
+const ToggleMenu = () => {
+  const [menuOpened] = useGlobalState('menuOpened')
 
   return (
     <div
-      onClick={() => {
-        setClosed(!closed)
-        handleToggle(!closed)
-      }}
-      className={`${closed ? '' : 'cs-toggle-menu--open'} p-sm opacity-60 hover:opacity-100 hover:bg-gray-800 hover:animate-pulse rounded-full cursor-pointer`}
-      title={closed ? 'Open' : 'Close'}
+      onClick={() => dispatch({ type: !menuOpened ? ACTIONS.MENU_OPEN : ACTIONS.MENU_CLOSE })}
+      className={`${
+        menuOpened ? 'cs-toggle-menu--open' : ''
+      } p-sm opacity-60 hover:opacity-100 hover:bg-gray-800 hover:animate-pulse rounded-full cursor-pointer`}
+      title={!menuOpened ? 'Open' : 'Close'}
     >
       <div
         className="cs-toggle-menu w-9 h-9 relative outline-none border-t-2 border-white

@@ -3,31 +3,31 @@
     {
       "id": 1,
       "title": "Esperança",
-      "file": "01-Esperanca.flac",
-      "time": "01:59",
+      "file": "01-Esperanca.ogg",
+      "time": "01:57",
       "album": "Propósitos Inacabados",
       "albumImage": "propositos-inacabados.jpg"
     },
     {
       "id": 2,
       "title": "Passos de um solitário",
-      "file": "02-Passos-de-um-solitario.flac",
-      "time": "02:39",
+      "file": "02-Passos-de-um-solitario.ogg",
+      "time": "02:33",
       "album": "Propósitos Inacabados",
       "albumImage": "propositos-inacabados.jpg"
     },
     {
       "id": 3,
       "title": "O sonho de Cmaj7",
-      "file": "05-O-sonho-de-Cmajor7.wav",
-      "time": "02:00",
+      "file": "05-O-sonho-de-Cmajor7.ogg",
+      "time": "01:01",
       "album": "O sonho de Cmaj7",
       "albumImage": false
     },
     {
       "id": 4,
       "title": "Restos do que não aconteceu",
-      "file": "08-Restos-do-que-nao-aconteceu.wav",
+      "file": "08-Restos-do-que-nao-aconteceu-low.ogg",
       "time": "01:59",
       "album": "Restos do que não aconteceu",
       "albumImage": "restos-do-que-nao-aconteceu.jpg"
@@ -35,7 +35,7 @@
     {
       "id": 5,
       "title": "Um fim ensurdecedor",
-      "file": "06-Um-fim-ensurdecedor-low.flac",
+      "file": "06-Um-fim-ensurdecedor-low.ogg",
       "time": "01:50",
       "album": "Um fim ensurdecedor",
       "albumImage": "um-fim-ensurdecedor.jpg"
@@ -43,7 +43,7 @@
     {
       "id": 6,
       "title": "Epifania",
-      "file": "09-epifania-low.flac",
+      "file": "09-epifania-low.ogg",
       "time": "03:36",
       "album": "Epifania",
       "albumImage": "epifania.jpg"
@@ -51,24 +51,24 @@
     {
       "id": 7,
       "title": "Greensleeves - Cover - Feat. J. Williams Diniz",
-      "file": "07-Greensleeves-low.flac",
-      "time": "02:00",
+      "file": "07-Greensleeves-low.ogg",
+      "time": "01:38",
       "album": false,
       "albumImage": false
     },
     {
       "id": 8,
       "title": "Stay Home, Stay Safe - Feat. Nathany Mendonça",
-      "file": "03-Stay-home-stay-safe-low.flac",
-      "time": "02:00",
+      "file": "03-Stay-home-stay-safe-low.ogg",
+      "time": "02:56",
       "album": false,
       "albumImage": false
     },
     {
       "id": 9,
       "title": "Além da varanda - Feat. Nathany Mendonça",
-      "file": "04-Alem-da-varanda-Nathany.wav",
-      "time": "02:00",
+      "file": "04-Alem-da-varanda-Nathany.ogg",
+      "time": "00:53",
       "album": false,
       "albumImage": false
     }

@@ -8,7 +8,8 @@ type SoundsListProps = {
 }
 
 const SoundsList = ({ sounds = [] }: SoundsListProps) => {
-  const [currentSoundIndex, setCurrentSoundIndex] = useGlobalState('currentSoundIndex')
+  const [currentSoundIndex] = useGlobalState('currentSoundIndex')
+  const [menuOpened] = useGlobalState('menuOpened')
   const [wasLoaded, setWasLoaded] = useState(false)
 
   useEffect(() => {
@@ -21,14 +22,22 @@ const SoundsList = ({ sounds = [] }: SoundsListProps) => {
     // https://stackoverflow.com/questions/11039885/scrollintoview-causing-the-whole-page-to-move
     if (currentSoundItem) {
       if (wasLoaded) {
-        currentSoundItem.scrollIntoView({
-          behavior: 'smooth',
-          block: 'nearest',
-          // inline: 'start',
-        })
+        // Prevent weird bug:
+        // Menu closed
+        // user play a song
+        // occours: menu is opened and the screen move to left
+        if (menuOpened) {
+          setTimeout(() => {
+            currentSoundItem.scrollIntoView({
+              behavior: 'smooth',
+              block: 'nearest',
+              // inline: 'start',
+            })
+          }, 1000)
+        }
       }
     }
-  }, [currentSoundIndex, wasLoaded])
+  }, [currentSoundIndex, wasLoaded, menuOpened])
 
   return (
     <div className="w-full flex flex-col relative">

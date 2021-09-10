@@ -40,7 +40,7 @@ const Control = ({ elementName }: ControlProps) => {
     },
     play: {
       file: isPlaying ? 'pause.svg' : 'play.svg',
-      className: isPlaying ? '' : 'bg-gray-800 animate-pulse',
+      className: `bg-gray-800 ${isPlaying ? '' : 'animate-pulse'}`,
       title: isPlaying ? 'Pause' : 'Play',
       fn: () => {
         dispatch({ type: isPlaying ? ACTIONS.PAUSE : ACTIONS.PLAY })

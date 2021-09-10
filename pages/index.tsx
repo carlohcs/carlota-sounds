@@ -11,9 +11,9 @@ import { run as runBubles } from '@/components/Canvas/bubbles'
 // import { run as runParticleSmoke } from '@/components/Canvas/ParticleSmoke'
 import { run as runWaves } from '@/components/Canvas/waves/runWaves'
 import { Player, Mute } from '@/components/Media/Player'
-import { useGlobalState } from '@/components/GlobalState'
+import { dispatch, useGlobalState, ACTIONS } from '@/components/GlobalState'
 
-import VideoBackground from '@/components/Background/VideoBackground'
+// import VideoBackground from '@/components/Background/VideoBackground'
 import ImageBackground from '@/components/Background/ImageBackground'
 import ExperienceMenu from '@/components/Footer/ExperienceToggleMenu'
 import { Footer } from '@/components/Footer'
@@ -22,29 +22,37 @@ const Home: NextPage = () => {
   // https://dev.to/gabrielrufino/react-hook-usestate-in-typescript-4mn6
   // const [stage, setStage] = useState<string>('loading')
 
-  const [closed, setClosed] = useState(true)
+  // const [closed, setClosed] = useState(true)
+  const [menuOpened] = useGlobalState('menuOpened')
   const [firstCall, setFirstCall] = useState(false)
 
-  // VIEWS
-  const [waves, setWaves] = useGlobalState('waves')
-  const [bubbles, setBubbles] = useGlobalState('bubbles')
-  const [background, setBackground] = useGlobalState('background')
-
-  const currentClassName = `${firstCall ? 'animate' : ''} ${!closed ? 'slide-out-right' : 'slide-in-right'}`
-
-  const handleToggle = (isClosed: boolean) => {
-    if (!firstCall) {
+  useEffect(() => {
+    if (menuOpened && !firstCall) {
       setFirstCall(true)
     }
+  }, [menuOpened, firstCall])
 
-    setClosed(isClosed)
-  }
+  // VIEWS
+  const [waves] = useGlobalState('waves')
+  const [bubbles] = useGlobalState('bubbles')
+  const [background] = useGlobalState('background')
+
+  const currentClassName = `${firstCall ? 'animate' : ''} ${menuOpened ? 'slide-out-right' : 'slide-in-right'}`
+
 
   const calcTabWidth = () => {
     const windowWidth: number = document.body.clientWidth
 
     if (windowWidth > 1024) {
-      return window.innerWidth / 3
+      // let currentCalc = window.innerWidth / 3
+
+      // prevent to have a excessive column width
+      // if (currentCalc > 560) {
+      //   currentCalc = 560
+      // }
+
+      // return currentCalc
+      return 560
     } else if (windowWidth >= 768) {
       return window.innerWidth / 2
     }
@@ -73,13 +81,13 @@ const Home: NextPage = () => {
             <Logo />
           </div>
           <div className="flex justify-center items-center self-center">
-            <ToggleMenu handleToggle={handleToggle} />
+            <ToggleMenu />
           </div>
         </header>
 
-        <div className="wrapper relative w-full h-full flex justify-center items-center">
+        <div className="wrapper relative w-screen h-screen flex justify-center items-center overflow-hidden">
           <div
-            className={`cs-wrapper__menu w-full h-full absolute z-40 flex flex-col justify-start items-start pt-18 backdrop-blur-md bg-gray-900 bg-opacity-20 ${currentClassName}`}
+            className={`cs-wrapper__menu w-screen h-screen absolute z-40 flex flex-col justify-start items-start pt-18 backdrop-blur-md bg-gray-900 bg-opacity-20 ${currentClassName}`}
             style={{
               willChange: 'transform',
               transform: 'translateX(100vw)',
@@ -120,7 +128,7 @@ const Home: NextPage = () => {
               <DandelionIcon className="animate scale-dandelion-out" />
             </div>
           </div>
-          <div className="hidden lg:block absolute inset-y-1/2 right-8 p-8 z-30 text-left opacity-10 hover:opacity-100 transition-opacity">
+          <div className="hidden lg:block absolute inset-y-1/2 right-8 p-8 z-30 text-left opacity-40 hover:opacity-100 transition-opacity">
             <div
               className="text-base space-y-6"
               style={
@@ -146,7 +154,7 @@ const Home: NextPage = () => {
               <Mute />
             </div>
           </div>
-          <div className="z-30 text-base max-w-lg opacity-50 hover:opacity-100 transition-opacity">
+          <div className="z-30 text-base max-w-lg pr-sm text-right opacity-50 hover:opacity-100 transition-opacity">
             <Footer />
           </div>
         </footer>
