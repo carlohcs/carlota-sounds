@@ -16,8 +16,40 @@ export function convertToReducedTime(time: number) {
   if (hrs > 0) {
     ret += '' + hrs + ':' + (mins < 10 ? '0' : '')
   }
-  ret += '' + mins + ':' + (secs < 10 ? '0' : '')
+  ret += '' + (mins < 10 ? `0${mins}` : mins) + ':' + (secs < 10 ? '0' : '')
   ret += '' + secs
 
   return ret
+}
+
+// https://codepen.io/rebosante/pen/eENYBv
+//t = current time
+//b = start value
+//c = change in value
+//d = duration
+const easeInOutQuad = function (t: number, b: number, c: number, d: number) {
+  t /= d / 2
+  if (t < 1) return (c / 2) * t * t + b
+  t--
+  return (-c / 2) * (t * (t - 2) - 1) + b
+}
+
+export function scrollTo(element: HTMLElement, to: number, duration: number) {
+  var start = element.scrollTop,
+    change = to - start,
+    currentTime = 0,
+    increment = 20
+
+  var animateScroll = function () {
+    currentTime += increment
+    var val = easeInOutQuad(currentTime, start, change, duration)
+
+    element.scrollTop = val
+
+    if (currentTime < duration) {
+      setTimeout(animateScroll, increment)
+    }
+  }
+
+  animateScroll()
 }

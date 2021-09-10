@@ -54,60 +54,6 @@ type ActionProps = {
   value?: any
 }
 
-// const reducer = (state: StateProps, action: ActionProps) => {
-//   const { currentSoundIndex } = state
-//   const totalSounds = sounds.data.length - 1
-
-//   // console.log('chaging to: ', action)
-
-//   switch (action.type) {
-//     case ACTIONS.PLAY:
-//       return { ...state, isPlaying: true }
-//     case ACTIONS.PAUSE:
-//       return { ...state, isPlaying: false }
-//     case ACTIONS.NEXT:
-//       return {
-//         ...state,
-//         currentSoundIndex: currentSoundIndex + 1 > totalSounds ? 0 : currentSoundIndex + 1,
-//         isPlaying: true,
-//       }
-//     case ACTIONS.PREV:
-//       return {
-//         ...state,
-//         currentSoundIndex: currentSoundIndex - 1 < 0 ? totalSounds : currentSoundIndex - 1,
-//         isPlaying: true,
-//       }
-//     case ACTIONS.PLAY_SOUND:
-//       return { ...state, currentSoundIndex: action.value, isPlaying: true }
-//     case ACTIONS.MUTE:
-//       return { ...state, isMuted: true }
-//     case ACTIONS.UNMUTE:
-//       return { ...state, isMuted: false }
-//     case ACTIONS.PLAYING_PROGRESS:
-//       return { ...state, playingProgress: action.value }
-
-//     // VIEW
-//     case ACTIONS.WAVES_ON:
-//       return { ...state, waves: true }
-//     case ACTIONS.WAVES_OFF:
-//       return { ...state, waves: false }
-//     case ACTIONS.BUBBLES_ON:
-//       return { ...state, bubbles: true }
-//     case ACTIONS.BUBBLES_OFF:
-//       return { ...state, bubbles: false }
-//     case ACTIONS.BACKGROUND_ON:
-//       return { ...state, background: true }
-//     case ACTIONS.BACKGROUND_OFF:
-//       return { ...state, background: false }
-//     case ACTIONS.MENU_OPEN:
-//       return { ...state, menuOpened: true }
-//     case ACTIONS.MENU_CLOSE:
-//       return { ...state, menuOpened: false }
-//     default:
-//       return state
-//   }
-// }
-
 const reducer = (state: StateProps, action: ActionProps) =>
   produce(state, (draft) => {
     const { currentSoundIndex } = state

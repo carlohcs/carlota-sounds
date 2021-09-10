@@ -27,6 +27,7 @@ html,
 body {
   font-family: 'Milliard ExtraLight', -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen, Ubuntu, Cantarell,
     Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
+  scroll-behavior: smooth;
 }
 
 html,
@@ -157,7 +158,7 @@ svg {
 
   /* // Box hover */
   &:hover + label:before {
-    background: rgba(31, 41, 55, .7);
+    background: rgba(31, 41, 55, 0.7);
   }
 
   /* // Box focus */
@@ -167,7 +168,7 @@ svg {
 
   /* // Box checked */
   &:checked + label:before {
-    background: rgba(31, 41, 55, .7);
+    background: rgba(31, 41, 55, 0.7);
   }
 
   /* // Disabled state label. */

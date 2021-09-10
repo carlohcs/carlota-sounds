@@ -66,15 +66,22 @@ const SoundItem = ({
             isCurrentlyPlayingActive ? 'font-medium' : ''
           }`}
         />
-        <Small
-          text={album}
-          className={`text-xs block text-gray-300 transition-colors ${!isCurrentlyPlayingActive ? '' : ''}`}
-        />
+        <Small text={album} className={`text-xs block text-gray-300 transition-colors`} />
 
-        <Small
-          text={isCurrentlyPlayingActive ? `${convertToReducedTime(playingProgress)} / ${time}` : time}
-          className={`text-xs block text-gray-300 transition-colors ${!isCurrentlyPlayingActive ? '' : ''}`}
-        />
+        <div className="flex justify-between max-w-min">
+          {isCurrentlyPlayingActive ? (
+            <>
+              <Small
+                text={convertToReducedTime(playingProgress)}
+                className={`text-xs block text-gray-300 transition-colors w-lg`}
+              />
+              <Small text="/" className={`text-xs block text-gray-300 transition-colors w-6 text-center`} />
+              <Small text={time} className={'text-xs block text-gray-300 transition-colors'} />
+            </>
+          ) : (
+            <Small text={time} className={'text-xs block text-gray-300 transition-colors'} />
+          )}
+        </div>
       </div>
     </div>
   )

@@ -154,7 +154,7 @@ const Home: NextPage = () => {
               <Mute />
             </div>
           </div>
-          <div className="z-30 text-base max-w-lg pr-sm text-right opacity-50 hover:opacity-100 transition-opacity">
+          <div className="z-30 text-base max-w-md pr-sm text-right opacity-50 hover:opacity-100 transition-opacity">
             <Footer />
           </div>
         </footer>

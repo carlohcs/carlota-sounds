@@ -2,6 +2,7 @@ import { useGlobalState } from '@/components/GlobalState'
 import { SoundItem } from '@/components/Media/Sounds'
 import SoundItemProps from '@/components/Media/Sounds/SoundItem'
 import { useEffect, useState } from 'react'
+import { scrollTo } from '@/components/commons'
 
 type SoundsListProps = {
   sounds: SoundItemProps[]
@@ -13,7 +14,7 @@ const SoundsList = ({ sounds = [] }: SoundsListProps) => {
   const [wasLoaded, setWasLoaded] = useState(false)
 
   useEffect(() => {
-    const currentSoundItem = document.querySelector(`.cs-sound-${currentSoundIndex}`)
+    const currentSoundItem = document.querySelector(`.cs-sound-${currentSoundIndex}`) as HTMLElement
 
     if (currentSoundIndex !== 0 && !wasLoaded) {
       setWasLoaded(true)
@@ -28,12 +29,23 @@ const SoundsList = ({ sounds = [] }: SoundsListProps) => {
         // occours: menu is opened and the screen move to left
         if (menuOpened) {
           setTimeout(() => {
-            currentSoundItem.scrollIntoView({
-              behavior: 'smooth',
-              block: 'nearest',
-              // inline: 'start',
-            })
-          }, 1000)
+            const tabContainer = document.querySelector('.cs-tab-container') as HTMLElement
+            // const soundItemOffset = tabContainer.offsetTop - currentSoundItem.offsetTop
+            const soundItemOffset = currentSoundItem.offsetTop
+            // let currentPosition = 0
+
+            // currentSoundItem.scrollIntoView({
+            //   behavior: 'smooth',
+            //   block: 'nearest',
+            //   // inline: 'start',
+            // })
+            // for (let index = 0; index < soundItemOffset; index++) {
+            //   let runScroll = () => {
+            //     tabContainer.scrollTop = currentPosition++
+            //   }
+            //   window.requestAnimationFrame(runScroll)
+            scrollTo(tabContainer, soundItemOffset, 600)
+          }, 50)
         }
       }
     }

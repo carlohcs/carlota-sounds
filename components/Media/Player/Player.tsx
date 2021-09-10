@@ -20,20 +20,14 @@ const Player = () => {
       let audioElement = reactAudioPlayerRef.current.audioEl.current
 
       if (audioElement) {
+        // dispatch({ type: ACTIONS.PLAYING_PROGRESS, value: 0 })
+
         if (isPlaying) {
           audioElement.play()
-
-          // let playedSeconds = audioElement.duration / audioElement.currentTime
-
-          // dispatch({ type: ACTIONS.PLAYING_PROGRESS, value: playedSeconds })
         } else {
           audioElement.pause()
         }
-
-        // console.log(audioElement)
       }
-
-      // reactAudioPlayerRef.current.audioEl.play()
     }
   }, [isPlaying])
 
@@ -51,12 +45,15 @@ const Player = () => {
         // onPause={(data) => console.log('paused', data)}
         // onSeeked={(data) => console.log('onSeeked', data)}
         listenInterval={1000}
+        onLoadedMetadata={() => dispatch({ type: ACTIONS.PLAYING_PROGRESS, value: 0 })}
         onListen={(listened) => {
           if (reactAudioPlayerRef && reactAudioPlayerRef.current) {
             let audioElement = reactAudioPlayerRef.current.audioEl.current
 
             if (audioElement) {
+              // if (parseInt(listened.toFixed(2)) > 0) {
               dispatch({ type: ACTIONS.PLAYING_PROGRESS, value: listened })
+              // }
             }
           }
         }}
