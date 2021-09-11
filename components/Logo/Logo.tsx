@@ -1,5 +1,4 @@
 import React, { useState } from 'react'
-import { styled } from 'stiches.config'
 import SVG from '@/components/SVG/SVG'
 
 // import useRAF from '@/hooks/raf.hook'
@@ -10,15 +9,6 @@ import SVG from '@/components/SVG/SVG'
 // https://github.com/jmdisuanco/jm-react-anime
 
 // console.log(LogoFile)
-
-// const LogoContainer = styled('div', {
-//   alignSelf: 'flex-start',
-//   position: 'absolute',
-//   padding: '0 $nano',
-//   '&:hover': {
-//     cursor: 'pointer',
-//   },
-// })
 
 // https://css-tricks.com/using-requestanimationframe-with-react-hooks/
 

@@ -7,9 +7,11 @@ const items = [
   // },
   {
     name: 'Bubbles',
+    label: 'Dandelion balls',
   },
   {
     name: 'Background',
+    label: 'Random background',
   },
 ]
 
@@ -43,7 +45,7 @@ const ExperienceMenu = () => {
             defaultChecked={getPropValue(item.name, itemsMethods).value}
             onChange={() => getPropValue(item.name, itemsMethods).set(!getPropValue(item.name, itemsMethods).value)}
           />
-          <label htmlFor={`experience-menu-${item.name}`}>{item.name}</label>
+          <label htmlFor={`experience-menu-${item.name}`}>{item.label}</label>
         </div>
       ))}
     </>

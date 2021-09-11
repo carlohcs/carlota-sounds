@@ -53,3 +53,7 @@ export function scrollTo(element: HTMLElement, to: number, duration: number) {
 
   animateScroll()
 }
+
+export function createMarkup(html: string) {
+  return { __html: html }
+}

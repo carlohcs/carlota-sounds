@@ -12,7 +12,7 @@ import { run as runBubles } from '@/components/Canvas/bubbles'
 // import { run as runParticleSmoke } from '@/components/Canvas/ParticleSmoke'
 import { run as runWaves } from '@/components/Canvas/waves/runWaves'
 import { Player, Mute } from '@/components/Media/Player'
-import { dispatch, useGlobalState, ACTIONS } from '@/components/GlobalState'
+import { dispatch, useGlobalState, ACTIONS, sounds } from '@/components/GlobalState'
 
 // import VideoBackground from '@/components/Background/VideoBackground'
 import ImageBackground from '@/components/Background/ImageBackground'
@@ -39,6 +39,7 @@ const Home: NextPage = () => {
   const [bubbles] = useGlobalState('bubbles')
   const [background] = useGlobalState('background')
   const [isPlaying] = useGlobalState('isPlaying')
+  const [currentSoundIndex] = useGlobalState('currentSoundIndex')
 
   const currentClassName = `${firstCall ? 'animate' : ''} ${menuOpened ? 'slide-out-right' : 'slide-in-right'}`
 
@@ -63,24 +64,30 @@ const Home: NextPage = () => {
 
   const [backgroundImageName, setBackgroundImageName] = useState('abstract-calm10.gif')
   const [backgroundImageCounter, setBackgroundImageCounter] = useState(1)
-  const totalBackgroundImages = 12
+  const totalBackgroundImages = 21
   const backgroundDelay = 20000
 
   useEffect(() => {
     if (isPlaying) {
-      setBackgroundImageName(`abstract-calm${backgroundImageCounter}.gif`)
+      if (background) {
+        setBackgroundImageName(`abstract-calm${backgroundImageCounter}.gif`)
+      } else {
+        setBackgroundImageName(sounds.data[currentSoundIndex].backgroundImage)
+      }
     }
-  }, [backgroundImageCounter, isPlaying])
+  }, [backgroundImageCounter, isPlaying, currentSoundIndex, background])
 
   useInterval(() => {
-    let currentCounter = Math.round(Math.random() * totalBackgroundImages)
+    if (background) {
+      let currentCounter = Math.round(Math.random() * totalBackgroundImages)
 
-    if (currentCounter === 0) {
-      currentCounter = Math.round(Math.random() * totalBackgroundImages)
+      if (currentCounter === 0) {
+        currentCounter = Math.round(Math.random() * totalBackgroundImages)
+      }
+
+      // backgroundImageCounter >= totalBackgroundImages
+      setBackgroundImageCounter(currentCounter)
     }
-
-    // backgroundImageCounter >= totalBackgroundImages
-    setBackgroundImageCounter(currentCounter)
   }, backgroundDelay)
 
   return (
@@ -93,7 +100,7 @@ const Home: NextPage = () => {
 
       <main className="w-screen h-screen relative overflow-hidden">
         <header className="flex justify-between items-center w-full fixed z-50 p-8">
-          <div className="cursor-pointer">
+          <div className="cs-logo">
             <Logo />
           </div>
           <div className="flex justify-center items-center self-center">
@@ -117,23 +124,20 @@ const Home: NextPage = () => {
 
           {/* <div className="cs-canvas absolute z-20"><Canvas canvasCallback={runParticleSmoke} /></div> */}
           {/* isPlaying */}
-          {background ? (
-            <SwitchTransition mode="out-in">
-              <CSSTransition
-                key={backgroundImageCounter}
-                addEndListener={(node: HTMLElement, done: any) => {
-                  node.addEventListener('transitionend', done, false)
-                }}
-                classNames="image-transition"
-              >
-                <div className="cs-background-image absolute z-20 cs-image w-full h-full">
-                  <ImageBackground imageName={backgroundImageName} />
-                </div>
-              </CSSTransition>
-            </SwitchTransition>
-          ) : (
-            ''
-          )}
+
+          <SwitchTransition mode="out-in">
+            <CSSTransition
+              key={backgroundImageName}
+              addEndListener={(node: HTMLElement, done: any) => {
+                node.addEventListener('transitionend', done, false)
+              }}
+              classNames="image-transition"
+            >
+              <div className="cs-background-image absolute z-20 cs-image w-full h-full">
+                <ImageBackground imageName={backgroundImageName} />
+              </div>
+            </CSSTransition>
+          </SwitchTransition>
 
           {waves ? (
             <div className="cs-canvas absolute z-20 cs-waves">
@@ -157,7 +161,7 @@ const Home: NextPage = () => {
           </div>
           <div className="hidden lg:block absolute inset-y-1/2 right-8 p-8 z-30 text-left opacity-40 hover:opacity-100 transition-opacity">
             <div className="text-base space-y-6">
-              Try it!
+              Improve your experience!
               <ExperienceMenu />
             </div>
           </div>

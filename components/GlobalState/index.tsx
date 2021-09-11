@@ -12,7 +12,7 @@ const initialState = {
   isMuted: false,
   waves: false,
   bubbles: true,
-  background: true,
+  background: false,
   psicodelic: false,
   menuOpened: false,
   // animation: 0

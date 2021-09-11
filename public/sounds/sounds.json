@@ -6,7 +6,8 @@
       "file": "01-Esperanca.ogg",
       "time": "01:57",
       "album": "Propósitos Inacabados",
-      "albumImage": "propositos-inacabados.jpg"
+      "albumImage": "propositos-inacabados.jpg",
+      "backgroundImage": "abstract-calm21.gif"
     },
     {
       "id": 2,
@@ -14,7 +15,8 @@
       "file": "02-Passos-de-um-solitario.ogg",
       "time": "02:33",
       "album": "Propósitos Inacabados",
-      "albumImage": "propositos-inacabados.jpg"
+      "albumImage": "propositos-inacabados.jpg",
+      "backgroundImage": "abstract-calm7.gif"
     },
     {
       "id": 3,
@@ -22,7 +24,8 @@
       "file": "05-O-sonho-de-Cmajor7.ogg",
       "time": "01:01",
       "album": "O sonho de Cmaj7",
-      "albumImage": false
+      "albumImage": false,
+      "backgroundImage": "abstract-calm5.gif"
     },
     {
       "id": 4,
@@ -30,7 +33,8 @@
       "file": "08-Restos-do-que-nao-aconteceu-low.ogg",
       "time": "01:58",
       "album": "Restos do que não aconteceu",
-      "albumImage": "restos-do-que-nao-aconteceu.jpg"
+      "albumImage": "restos-do-que-nao-aconteceu.jpg",
+      "backgroundImage": "abstract-calm3.gif"
     },
     {
       "id": 5,
@@ -38,7 +42,8 @@
       "file": "06-Um-fim-ensurdecedor-low.ogg",
       "time": "01:50",
       "album": "Um fim ensurdecedor",
-      "albumImage": "um-fim-ensurdecedor.jpg"
+      "albumImage": "um-fim-ensurdecedor.jpg",
+      "backgroundImage": "abstract-calm15.gif"
     },
     {
       "id": 6,
@@ -46,7 +51,8 @@
       "file": "09-epifania-low.ogg",
       "time": "03:36",
       "album": "Epifania",
-      "albumImage": "epifania.jpg"
+      "albumImage": "epifania.jpg",
+      "backgroundImage": "abstract-calm18.gif"
     },
     {
       "id": 7,
@@ -54,7 +60,8 @@
       "file": "07-Greensleeves-low.ogg",
       "time": "01:38",
       "album": false,
-      "albumImage": false
+      "albumImage": false,
+      "backgroundImage": "abstract-calm8.gif"
     },
     {
       "id": 8,
@@ -62,7 +69,8 @@
       "file": "03-Stay-home-stay-safe-low.ogg",
       "time": "02:56",
       "album": false,
-      "albumImage": false
+      "albumImage": false,
+      "backgroundImage": "abstract-calm10.gif"
     },
     {
       "id": 9,
@@ -70,7 +78,35 @@
       "file": "04-Alem-da-varanda-Nathany.ogg",
       "time": "00:53",
       "album": false,
-      "albumImage": false
+      "albumImage": false,
+      "backgroundImage": "abstract-calm10.gif"
+    },
+    {
+      "id": 10,
+      "title": "Searching - Cover - Joe Satriani",
+      "file": "10-Searching-satriani.ogg",
+      "time": "02:23",
+      "album": false,
+      "albumImage": false,
+      "backgroundImage": "person3.gif"
+    },
+    {
+      "id": 11,
+      "title": "Runaway - Cover - Sarcastic Sounds",
+      "file": "11-Runaway-cover.ogg",
+      "time": "02:12",
+      "album": false,
+      "albumImage": false,
+      "backgroundImage": "abstract-calm19.gif"
+    },
+    {
+      "id": 12,
+      "title": "Endless Refuge",
+      "file": "12-Endless-refuge-low.ogg",
+      "time": "02:58",
+      "album": "Endless Refuge",
+      "albumImage": false,
+      "backgroundImage": "abstract-calm9.gif"
     }
   ]
 }

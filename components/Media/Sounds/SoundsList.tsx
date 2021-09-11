@@ -2,7 +2,8 @@ import { useGlobalState } from '@/components/GlobalState'
 import { SoundItem } from '@/components/Media/Sounds'
 import SoundItemProps from '@/components/Media/Sounds/SoundItem'
 import { useEffect, useState } from 'react'
-import { scrollTo } from '@/components/commons'
+import { scrollTo, createMarkup } from '@/components/commons'
+import { Small } from '@/components/basics/Typography/Typography'
 
 type SoundsListProps = {
   sounds: SoundItemProps[]
@@ -63,6 +64,10 @@ const SoundsList = ({ sounds = [] }: SoundsListProps) => {
             className={`cs-sound-${index}`}
           />
         ))}
+        <div className="max-w-full text-center p-sm">
+          <Small text="More coming soon" className="text-base" />
+          <span dangerouslySetInnerHTML={createMarkup('&#129310;')} />
+        </div>
       </div>
     </div>
   )
