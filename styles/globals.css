@@ -2,6 +2,8 @@
 @tailwind components;
 @tailwind utilities;
 
+@import url('@/styles/keyframes.css');
+
 /* @import url('normalize.css'); */
 /* @import url('../public/fonts/milliard/style.css'); */
 
@@ -66,10 +68,6 @@ svg {
   height: 100%;
 }
 
-/* @import url('../styles/Logo.module.css'); */
-
-@import url('../styles/keyframes.css');
-
 /* Toggle menu */
 .cs-toggle-menu {
   &:before {
@@ -100,18 +98,6 @@ svg {
 .cs-player {
   &__actions {
     width: 270px;
-    /* &__play {
-      background-image: url('/icons/player/play.svg');
-    }
-
-    &__prev,
-    &__next {
-      background-image: url('/icons/player/prev-next.svg');
-    }
-
-    &__prev {
-      transform: rotate(180deg);
-    } */
 
     &__next,
     &__prev {

@@ -36,18 +36,23 @@ const ExperienceMenu = () => {
 
   return (
     <>
-      {items.map((item, index) => (
-        <div key={index}>
-          <input
-            id={`experience-menu-${item.name}`}
-            className="cs-checkbox"
-            type="checkbox"
-            defaultChecked={getPropValue(item.name, itemsMethods).value}
-            onChange={() => getPropValue(item.name, itemsMethods).set(!getPropValue(item.name, itemsMethods).value)}
-          />
-          <label htmlFor={`experience-menu-${item.name}`}>{item.label}</label>
-        </div>
-      ))}
+      {items.map((item, index) => {
+        // https://stackoverflow.com/a/45017155
+        const defaultChecked = (getPropValue(item.name, itemsMethods) as any).value
+
+        return (
+          <div key={index}>
+            <input
+              id={`experience-menu-${item.name}`}
+              className="cs-checkbox"
+              type="checkbox"
+              defaultChecked={defaultChecked}
+              onChange={() => (getPropValue(item.name, itemsMethods) as any).set(!defaultChecked)}
+            />
+            <label htmlFor={`experience-menu-${item.name}`}>{item.label}</label>
+          </div>
+        )
+      })}
     </>
   )
 }

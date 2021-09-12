@@ -1,7 +1,7 @@
 import CSIcon from '@/components/Icons/CSIcon/CSIcon'
 
 type CSIconListProps = {
-  items: []
+  items: { name: string; url: string; icon: string }[]
   itemsClassName?: string
 }
 

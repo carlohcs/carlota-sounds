@@ -1,6 +1,6 @@
 import { useGlobalState } from '@/components/GlobalState'
 import { SoundItem } from '@/components/Media/Sounds'
-import SoundItemProps from '@/components/Media/Sounds/SoundItem'
+import { SoundItemProps } from '@/components/Media/Sounds/SoundItem'
 import { useEffect, useState } from 'react'
 import { scrollTo, createMarkup } from '@/components/commons'
 import { Small } from '@/components/basics/Typography/Typography'
@@ -56,13 +56,7 @@ const SoundsList = ({ sounds = [] }: SoundsListProps) => {
     <div className="w-full flex flex-col relative">
       <div className="w-full flex flex-col lg:min-w-full">
         {sounds.map((sound, index) => (
-          <SoundItem
-            key={sound.id.toString()}
-            {...sound}
-            index={index}
-            isActive={currentSoundIndex === index}
-            className={`cs-sound-${index}`}
-          />
+          <SoundItem key={index.toString()} {...sound} index={index} className={`cs-sound-${index}`} />
         ))}
         <div className="max-w-full text-center p-sm">
           <Small text="More coming soon" className="text-base" />

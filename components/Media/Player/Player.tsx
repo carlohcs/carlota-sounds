@@ -12,7 +12,7 @@ const Player = () => {
   const [isMuted] = useGlobalState('isMuted')
 
   const currentSound = sounds.data.find((item, index) => currentSoundIndex === index)
-  const fileToPlay = `/sounds/files/${currentSound.file}`
+  const fileToPlay = `/sounds/files/${currentSound?.file}`
   const reactAudioPlayerRef = useRef<null | ReactAudioPlayer>(null)
 
   useEffect(() => {

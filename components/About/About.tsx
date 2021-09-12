@@ -1,7 +1,7 @@
 import configs from '@/etc/configs'
 import { P, Small, H3 } from '../basics'
 import Image from 'next/image'
-import { CSIconList } from '../Icons/CSIcon'
+import { CSIconList } from '@/components/Icons/CSIcon'
 
 const About = () => {
   return (

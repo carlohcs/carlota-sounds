@@ -1,8 +1,10 @@
 import { useEffect, useRef } from 'react'
 
+type RandomFunction = () => any
+
 // FROM: https://stackoverflow.com/a/53395342
-function useInterval(callback: any, delay: number) {
-  const savedCallback = useRef()
+function useInterval(callback: RandomFunction = () => {}, delay: number) {
+  const savedCallback = useRef<any>()
 
   // Remember the latest callback.
   useEffect(() => {

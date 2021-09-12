@@ -2,7 +2,6 @@ import React from 'react'
 import SVG from '@/components/SVG/SVG'
 import { styled } from 'stiches.config'
 import { keyframes } from '@stitches/react'
-import dynamic from 'next/dynamic'
 
 const changeColor = () => {
   const colours = ['#B962D6', '#DC5CBA', '#DC4972']

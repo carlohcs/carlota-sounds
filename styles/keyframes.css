@@ -145,13 +145,7 @@
   }
 }
 
-.cs-translate-x-full {
-  /* transform: translateX(-100vh); */
-  /* top: 0; */
-  /* right: 100%; */
-  /* right: -100%; */
-  /* right: -100%; */
-}
+
 
 .animate {
   &.fade-in-infinite {

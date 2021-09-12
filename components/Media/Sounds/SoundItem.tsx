@@ -5,18 +5,16 @@ import Image from 'next/image'
 import { convertToReducedTime } from '@/components/commons'
 
 export type SoundItemProps = {
-  id: number
+  id?: number
   title: string
   time: string
-  album: string
-  albumImage: string | boolean
+  album?: string | boolean
+  albumImage?: string | boolean
   index?: number
   className?: string
-  // key: string
 }
 
 const SoundItem = ({
-  id = 0,
   title = '',
   time = '',
   album = '',
@@ -66,7 +64,7 @@ const SoundItem = ({
             isCurrentlyPlayingActive ? 'font-medium' : ''
           }`}
         />
-        <Small text={album} className={`text-xs block text-gray-300 transition-colors`} />
+        {album ? <Small text={album.toString()} className={`text-xs block text-gray-300 transition-colors`} /> : ''}
 
         <div className="flex justify-between max-w-min">
           {isCurrentlyPlayingActive ? (

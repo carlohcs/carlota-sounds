@@ -1,37 +1,22 @@
 import React from 'react'
 import SVG from '@/components/SVG/SVG'
 import style from '@/components/Icons/Headphone/Headphone.module.css'
-import { styled } from 'stiches.config'
-import { keyframes } from '@stitches/react'
 
 // https://github.com/typescript-cheatsheets/react#reacttypescript-cheatsheets
 
-const circleDegre = 740.6618840103296
+// const circleDegre = 740.6618840103296
 
-const strokeDashOffsetCircular = keyframes({
-  from: {
-    strokeDashoffset: circleDegre,
-    // strokeDasharray: ,
-  },
-  to: {
-    strokeDashoffset: 0,
-    // strokeDasharray: ,
-  },
-})
+// const strokeDashOffsetCircular = keyframes({
+//   from: {
+//     strokeDashoffset: circleDegre,
+//   },
+//   to: {
+//     strokeDashoffset: 0,
+//   },
+// })
 
 // https://www.carlrippon.com/react-children-with-typescript/
 // https://css-tricks.com/almanac/properties/s/stroke-dashoffset/
-const HeadphoneIconContainer = styled('div', {
-  width: '140px',
-  height: '140px',
-  'circle:nth-of-type(2)': {
-    /* calculate using: (2 * PI * R) */
-    // circleDegre
-    strokeDashoffset: circleDegre,
-    strokeDasharray: circleDegre,
-    animation: `${strokeDashOffsetCircular} 2s linear alternate infinite`,
-  },
-})
 
 const HeadphoneIcon = () => {
   // https://medium.com/@teh_builder/ref-objects-inside-useeffect-hooks-eb7c15198780
@@ -46,9 +31,11 @@ const HeadphoneIcon = () => {
   //  ref={containerElementRef}
 
   return (
-    <HeadphoneIconContainer>
-      <SVG src="/headphone.svg" className={`${style.icon} ${style.headphone}`} />
-    </HeadphoneIconContainer>
+    // <HeadphoneIconContainer>
+    <div className={`${style.headphoneContainer}`}>
+      <SVG src="/headphone.svg" className={`${style.iconHeadphone} cs-iconHeadphone`} />
+    </div>
+    // </HeadphoneIconContainer>
   )
 }
 

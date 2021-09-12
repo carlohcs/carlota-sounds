@@ -1,18 +1,35 @@
 @import url('../../../styles/keyframes.css');
 
-.icon {
-  &.headphone {
-    path {
-      fill: #fff;
-    }
+/* https://gravitydept.com/blog/keyframe-animations-in-css-modules */
+@keyframes strokeDashOffsetCircularHeadphone {
+  from {
+    stroke-dashoffset: 740;
+  }
 
-    circle:nth-of-type(1) {
-      /* stroke: #8f8f8f !important; */
-      stroke: transparent !important;
-    }
+  to {
+    stroke-dashoffset: 0;
+  }
+}
 
-    circle:nth-of-type(2) {
-      stroke: #fff !important;
-    }
+.headphoneContainer {
+  width: 140px;
+  height: 140px;
+}
+
+.iconHeadphone {
+  path {
+    fill: #fff;
+  }
+
+  circle:nth-of-type(1) {
+    /* stroke: #8f8f8f !important; */
+    stroke: transparent !important;
+  }
+
+  circle:nth-of-type(2) {
+    stroke: #fff !important;
+    stroke-dashoffset: 740;
+    stroke-dasharray: 740;
+    animation: strokeDashOffsetCircularHeadphone 2s linear alternate infinite;
   }
 }

@@ -36,7 +36,7 @@ export const Splash = ({ children, handleLoad }: Props) => {
   return (
     <SwitchTransition mode="out-in">
       <CSSTransition
-        key={loading}
+        key={loading.toString()}
         addEndListener={(node: HTMLElement, done: any) => {
           node.addEventListener('transitionend', done, false)
         }}

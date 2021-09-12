@@ -3,7 +3,6 @@ const defaultPlugins = {
     tailwindcss: {},
     autoprefixer: {},
     'postcss-nested': {},
-    'postcss-nested': {},
   },
 }
 
@@ -16,6 +15,7 @@ const productionPlugins = {
     stage: 3,
     features: {
       'custom-properties': false,
+      'nesting-rules': true
     },
   },
 }

@@ -1,14 +1,14 @@
 import Image from 'next/image'
 
 type SoundAlbumProps = {
-  image: string
-  name: string
+  image: string | boolean
+  name: string | boolean
 }
 
 const SoundAlbum = ({ image, name }: SoundAlbumProps) => {
-  const finalImage: string = image ? image : 'unknown.jpg'
-  const finalName: string = name ? name : 'Unknown'
-  // w-full h-full
+  const finalImage: string | boolean = image ? image : 'unknown.jpg'
+  const finalName: string | boolean = name ? name : 'Unknown'
+
   return (
     <>
       <Image
