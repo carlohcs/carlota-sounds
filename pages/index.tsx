@@ -10,7 +10,7 @@ import DandelionIcon from '@/components/Icons/Dandelion/DandelionIcon'
 import { run as runBubles } from '@/components/Canvas/bubbles'
 // import { run as runPixelRainbow } from '@/components/Canvas/PixelRainbow'
 // import { run as runParticleSmoke } from '@/components/Canvas/ParticleSmoke'
-import { run as runWaves } from '@/components/Canvas/waves/runWaves'
+// import { run as runWaves } from '@/components/Canvas/waves/runWaves'
 import { Player, Mute } from '@/components/Media/Player'
 import { dispatch, useGlobalState, ACTIONS, sounds } from '@/components/GlobalState'
 
@@ -139,13 +139,13 @@ const Home: NextPage = () => {
             </CSSTransition>
           </SwitchTransition>
 
-          {waves ? (
+          {/* {waves ? (
             <div className="cs-canvas absolute z-20 cs-waves">
               <Canvas canvasCallback={runWaves} />
             </div>
           ) : (
             ''
-          )}
+          )} */}
 
           {bubbles ? (
             <div className="cs-canvas absolute z-20 cs-bubbles">
