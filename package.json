@@ -1,6 +1,6 @@
 {
   "name": "carlota-sounds",
-  "version": "1.1.0",
+  "version": "1.2.0",
   "private": false,
   "scripts": {
     "dev": "next dev",
@@ -11,7 +11,7 @@
   "dependencies": {
     "@stitches/react": "^0.2.5",
     "immer": "^9.0.6",
-    "next": "11.1.0",
+    "next": "^11.1.1",
     "normalize.css": "^8.0.1",
     "react": "17.0.2",
     "react-audio-player": "^0.17.0",
