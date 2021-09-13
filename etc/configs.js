@@ -32,10 +32,10 @@ const configs = {
     },
     { property: 'og:locale', content: 'en_US' },
     { property: 'og:type', content: 'article' },
-    { property: 'twitter:card', content: 'summary' },
+    { property: 'twitter:card', content: 'summary_large_image' },
     { property: 'twitter:site', content: '@carlohcs' },
     { property: 'twitter:creator', content: '@carlohcs' },
-    { property: 'twitter:image', content: '/share/twitter-card.png' },
+    { property: 'twitter:image', content: `${host}/share/twitter-card.png` },
     {
       name: 'keywords',
       content:
