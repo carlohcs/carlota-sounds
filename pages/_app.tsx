@@ -35,7 +35,7 @@ function MyApp({ Component, pageProps }: AppProps) {
   // }, [router.events])
 
   useEffect(() => {
-    if (isProduction && process.browser) {
+    if (isProduction) {
       gtag.pageview(new URL(window.location.href))
     }
   }, [])

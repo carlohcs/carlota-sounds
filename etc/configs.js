@@ -35,7 +35,7 @@ const configs = {
     { property: 'twitter:card', content: 'summary' },
     { property: 'twitter:site', content: '@carlohcs' },
     { property: 'twitter:creator', content: '@carlohcs' },
-    { property: 'twitter:image', content: '/share/default.png' },
+    { property: 'twitter:image', content: '/share/twitter-card.png' },
     {
       name: 'keywords',
       content:
