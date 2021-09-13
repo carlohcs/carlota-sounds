@@ -30,7 +30,7 @@ const About = () => {
 The songs are based on the exploration of musical instruments, using the voices as support."
               className="text-lg my-xs"
             />
-            <P text="May the reflection of these be with you." className="text-lg mb-md" />
+            <P text="May the reflection of these sounds be with you." className="text-lg mb-md" />
           </div>
 
           <div>

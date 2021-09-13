@@ -1,6 +1,6 @@
 {
   "name": "carlota-sounds",
-  "version": "1.0.0",
+  "version": "1.1.0",
   "private": false,
   "scripts": {
     "dev": "next dev",
@@ -24,6 +24,7 @@
   },
   "devDependencies": {
     "@svgr/webpack": "^5.5.0",
+    "@types/gtag.js": "0.0.7",
     "@types/react": "17.0.18",
     "@types/react-transition-group": "^4.4.2",
     "autoprefixer": "^10.3.2",

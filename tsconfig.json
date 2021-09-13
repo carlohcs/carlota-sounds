@@ -18,7 +18,8 @@
       "@/etc/*": ["etc/*"],
       "@/hooks/*": ["hooks/*"],
       "@/components/*": ["components/*"],
-      "@/styles/*": ["styles/*"]
+      "@/styles/*": ["styles/*"],
+      "@/libs/*": ["libs/*"]
     }
   },
   "include": ["next-env.d.ts", "custom.d.ts", "**/*.ts", "**/*.tsx", "stiches.config"],

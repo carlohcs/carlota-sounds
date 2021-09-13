@@ -25,7 +25,7 @@ const LoadingScreen: React.FC<{ stage: string }> = ({ stage = 'loading' }) => {
               text="Here the deepest feeling are explored: from loneliness, euphoria to the widest reflections."
               className="text-lg max-w-lg"
             />
-            <P text="May the reflection of these be with you." className="text-lg max-w-lg" />
+            <P text="May the reflection of these sounds be with you." className="text-lg max-w-lg" />
           </div>
           <div className="hidden lg:block z-10">
             <DandelionIcon className="left-1 bottom-1 absolute" />

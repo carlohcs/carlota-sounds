@@ -1,7 +1,6 @@
 import { useEffect, useState } from 'react'
 import useInterval from '@/hooks/useInterval.hook'
 import type { NextPage } from 'next'
-import Head from 'next/head'
 import Logo from '@/components/Logo/Logo'
 import Canvas from '@/components/Canvas/Canvas'
 import ToggleMenu from '@/components/Header/ToggleMenu'
@@ -92,12 +91,6 @@ const Home: NextPage = () => {
 
   return (
     <>
-      <Head>
-        <title>Carlota Sounds</title>
-        <meta name="description" content="" />
-        <link rel="icon" href="/favicon.ico" />
-      </Head>
-
       <main className="w-screen h-screen relative overflow-hidden">
         <header className="flex justify-between items-center w-full fixed z-50 p-8">
           <div className="cs-logo">

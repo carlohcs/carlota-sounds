@@ -1,9 +1,9 @@
 {
   "extends": [
     "next/core-web-vitals",
-    "plugin:css-modules/recommended",
-    "plugin:postcss-modules/recommended",
+    // "plugin:css-modules/recommended",
+    // "plugin:postcss-modules/recommended",
     "prettier"
   ],
-  "plugins": ["css-modules"]
+  // "plugins": ["css-modules"]
 }
