@@ -12,16 +12,27 @@ const Player = () => {
   const [isMuted] = useGlobalState('isMuted')
 
   const currentSound = sounds.data.find((item, index) => currentSoundIndex === index)
-  const fileToPlay = `/sounds/files/${currentSound?.file}`
+  let pathFileToPlay = '/sounds/files/'
+  const fileToPlay = currentSound?.file
   const reactAudioPlayerRef = useRef<null | ReactAudioPlayer>(null)
+
+  // When a source changes, the player doesn't update
+  // it's necessary call "audio.load" to load the current audio
+  useEffect(() => {
+    if (reactAudioPlayerRef && reactAudioPlayerRef.current) {
+      let audioElement = reactAudioPlayerRef.current.audioEl.current
+
+      if (audioElement) {
+        audioElement.load()
+      }
+    }
+  }, [currentSoundIndex])
 
   useEffect(() => {
     if (reactAudioPlayerRef && reactAudioPlayerRef.current) {
       let audioElement = reactAudioPlayerRef.current.audioEl.current
 
       if (audioElement) {
-        // dispatch({ type: ACTIONS.PLAYING_PROGRESS, value: 0 })
-
         if (isPlaying) {
           audioElement.play()
         } else {
@@ -31,12 +42,30 @@ const Player = () => {
     }
   }, [isPlaying])
 
+  const AudioSources = () => {
+    return (
+      <>
+        {[
+          { extension: 'ogg', type: 'application/ogg' },
+          { extension: 'mp3', type: 'audio/mpeg' },
+        ].map((curExtension, key) => (
+          <source
+            src={`${pathFileToPlay}/${curExtension.extension}/${fileToPlay}.${curExtension.extension}`}
+            type={curExtension.type}
+            key={key}
+          />
+        ))}
+      </>
+    )
+  }
+
   return (
     <>
       <ReactAudioPlayer
         ref={reactAudioPlayerRef}
         className="react-player"
-        src={fileToPlay}
+        preload="none"
+        // src={fileToPlay}
         autoPlay={isPlaying}
         // loop={true}
         muted={isMuted}
@@ -45,6 +74,7 @@ const Player = () => {
         // onPause={(data) => console.log('paused', data)}
         // onSeeked={(data) => console.log('onSeeked', data)}
         listenInterval={1000}
+        onAbort={(data) => console.log(data)}
         onLoadedMetadata={() => dispatch({ type: ACTIONS.PLAYING_PROGRESS, value: 0 })}
         onListen={(listened) => {
           if (reactAudioPlayerRef && reactAudioPlayerRef.current) {
@@ -57,11 +87,14 @@ const Player = () => {
             }
           }
         }}
+        // children={audioSources}
         onEnded={() => dispatch({ type: ACTIONS.NEXT })}
-      />
+      >
+        <AudioSources />
+      </ReactAudioPlayer>
       <H1 className="text-xl md:text-3xl mb-10 drop-shadow-2xl" text={currentSound ? currentSound.title : ''} />
       <div className="cs-player__actions w-full flex flex-row justify-between items-center">
-        <div className="cs-player__actions__prev w-14 h-14">
+        <div className="w-14 h-14">
           <Prev />
         </div>
         <div className="w-16 h-16">

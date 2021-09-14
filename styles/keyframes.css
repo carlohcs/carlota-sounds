@@ -162,6 +162,10 @@
     animation: fadeIn 5s 1 linear;
   }
 
+  &.fade-in-2s {
+    animation: fadeIn 2s 1 linear;
+  }
+
   &.slide-out-right {
     /* animation: slideOutRight 2s ease-in-out forwards; */
     animation-delay: 0;

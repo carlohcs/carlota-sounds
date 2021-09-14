@@ -1,5 +1,6 @@
 import SVG from '@/components/SVG/SVG'
 import { dispatch, useGlobalState, ACTIONS } from '@/components/GlobalState'
+import { snakeCase } from '@/components/commons'
 
 type ControlProps = {
   elementName: string
@@ -64,6 +65,8 @@ const Control = ({ elementName }: ControlProps) => {
 
   return (
     <div
+      data-gtm-event="click"
+      id={`player-${snakeCase(elementName)}`}
       className={`cs-player__actions__${elementName} cursor-pointer hover:bg-gray-900 hover:animate-pulse hover:transition-colors rounded-full ${currentConfig.className}`}
       onClick={currentConfig.fn}
       title={`${currentConfig.title ? currentConfig.title : elementName}`}

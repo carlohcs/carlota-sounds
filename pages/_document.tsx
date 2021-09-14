@@ -11,7 +11,7 @@ export default class MyDocument extends Document {
       <Html lang="en">
         <Head>
           <>
-            <title>Carlota Sounds - A reflection of sounds.</title>
+            <title>Carlota Sounds - A reflection of sounds</title>
             {configs.meta.map((meta, index) => (
               <meta {...meta} key={index} />
             ))}

@@ -5,6 +5,8 @@ const ToggleMenu = () => {
 
   return (
     <div
+      data-gtm-event="click"
+      id="menu-toggle"
       onClick={() => dispatch({ type: !menuOpened ? ACTIONS.MENU_OPEN : ACTIONS.MENU_CLOSE })}
       className={`${
         menuOpened ? 'cs-toggle-menu--open' : ''

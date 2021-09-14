@@ -1,5 +1,7 @@
+import configs from '@/etc/configs'
+
 // FROM: https://stackoverflow.com/a/65081431
-export const GA_TRACKING_ID = 'G-Y3RZ09PXYR'
+export const GA_TRACKING_ID = configs.metrics.GA
 
 // https://developers.google.com/analytics/devguides/collection/gtagjs/pages
 export const pageview = (url: URL): void => {

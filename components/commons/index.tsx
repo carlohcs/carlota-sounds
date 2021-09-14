@@ -57,3 +57,32 @@ export function scrollTo(element: HTMLElement, to: number, duration: number) {
 export function createMarkup(html: string) {
   return { __html: html }
 }
+
+/**
+ * Normalize string to a normal text
+ * In: Textão com vários acentos
+ * Out: Textao com varios acentos
+ *
+ * @param   {String} str String to be normalized
+ * @returns {String}
+ */
+export function toNormalString(str: string): string {
+  str = str.normalize('NFD').replace(/[\u0300-\u036f]/g, '')
+  str = str.replace(/[\.,_-]/gim, '')
+
+  return str.trim()
+}
+
+/**
+ * Transform "A simple text" to "a-simple-text"
+ *
+ * @param {String} str String to be "snaked"
+ * @returns {String}
+ */
+export function snakeCase(str: string): string {
+  str = toNormalString(str)
+  str = str.replace(/[\s]+/gim, '-')
+  str = str.toLocaleLowerCase()
+
+  return str.trim()
+}

@@ -1,4 +1,5 @@
-import React, { useCallback } from 'react'
+import { snakeCase } from '../commons'
+import { useCallback } from 'react'
 
 type Props = {
   className?: string
@@ -13,7 +14,7 @@ const TabTitle: React.FC<Props> = ({ title, setSelectedTab, index, className }) 
   }, [setSelectedTab, index])
 
   return (
-    <li className={className} onClick={onClick}>
+    <li className={className} onClick={onClick} data-gtm-event="click" id={`tab-${snakeCase(title)}`}>
       {title}
     </li>
   )

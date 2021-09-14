@@ -2,7 +2,7 @@ import { dispatch, useGlobalState, ACTIONS } from '@/components/GlobalState'
 import { P, Small } from '@/components/basics/Typography/Typography'
 import { SoundAlbum } from '@/components/Media/Sounds'
 import Image from 'next/image'
-import { convertToReducedTime } from '@/components/commons'
+import { convertToReducedTime, snakeCase } from '@/components/commons'
 
 export type SoundItemProps = {
   id?: number
@@ -41,7 +41,9 @@ const SoundItem = ({
   // truncate
   return (
     <div
-      className={`max-w-full relative text-left p-md border-b border-gray-100 border-opacity-25 cursor-pointer hover:animate-pulse hover:bg-gray-800 transition duration-200 ease-in flex flex-row ${
+      data-gtm-event="click"
+      id={`sound-${snakeCase(title)}`}
+      className={`cs-sound-item max-w-full relative text-left p-md border-b border-gray-100 border-opacity-25 cursor-pointer hover:animate-pulse hover:bg-gray-800 transition duration-200 ease-in flex flex-row ${
         isActive ? 'transition-colors !bg-gray-800 !bg-opacity-75' : ''
       } ${className}`}
       onClick={() => dispatch({ type: ACTIONS.PLAY_SOUND, value: index })}

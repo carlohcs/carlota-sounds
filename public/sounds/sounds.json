@@ -3,7 +3,7 @@
     {
       "id": 1,
       "title": "Esperança",
-      "file": "01-Esperanca.ogg",
+      "file": "01-Esperanca",
       "time": "01:57",
       "album": "Propósitos Inacabados",
       "albumImage": "propositos-inacabados.jpg",
@@ -12,7 +12,7 @@
     {
       "id": 2,
       "title": "Passos de um solitário",
-      "file": "02-Passos-de-um-solitario.ogg",
+      "file": "02-Passos-de-um-solitario",
       "time": "02:33",
       "album": "Propósitos Inacabados",
       "albumImage": "propositos-inacabados.jpg",
@@ -21,7 +21,7 @@
     {
       "id": 3,
       "title": "O sonho de Cmaj7",
-      "file": "05-O-sonho-de-Cmajor7.ogg",
+      "file": "05-O-sonho-de-Cmajor7",
       "time": "01:01",
       "album": "O sonho de Cmaj7",
       "albumImage": false,
@@ -30,7 +30,7 @@
     {
       "id": 4,
       "title": "Restos do que não aconteceu",
-      "file": "08-Restos-do-que-nao-aconteceu-low.ogg",
+      "file": "08-Restos-do-que-nao-aconteceu-low",
       "time": "01:58",
       "album": "Restos do que não aconteceu",
       "albumImage": "restos-do-que-nao-aconteceu.jpg",
@@ -39,7 +39,7 @@
     {
       "id": 5,
       "title": "Um fim ensurdecedor",
-      "file": "06-Um-fim-ensurdecedor-low.ogg",
+      "file": "06-Um-fim-ensurdecedor-low",
       "time": "01:50",
       "album": "Um fim ensurdecedor",
       "albumImage": "um-fim-ensurdecedor.jpg",
@@ -48,7 +48,7 @@
     {
       "id": 6,
       "title": "Epifania",
-      "file": "09-epifania-low.ogg",
+      "file": "09-epifania-low",
       "time": "03:36",
       "album": "Epifania",
       "albumImage": "epifania.jpg",
@@ -57,7 +57,7 @@
     {
       "id": 7,
       "title": "Greensleeves - Cover - Feat. J. Williams Diniz",
-      "file": "07-Greensleeves-low.ogg",
+      "file": "07-Greensleeves-low",
       "time": "01:38",
       "album": false,
       "albumImage": false,
@@ -66,7 +66,7 @@
     {
       "id": 8,
       "title": "Stay Home, Stay Safe - Feat. Nathany Mendonça",
-      "file": "03-Stay-home-stay-safe-low.ogg",
+      "file": "03-Stay-home-stay-safe-low",
       "time": "02:56",
       "album": false,
       "albumImage": false,
@@ -75,7 +75,7 @@
     {
       "id": 9,
       "title": "Além da varanda - Feat. Nathany Mendonça",
-      "file": "04-Alem-da-varanda-Nathany.ogg",
+      "file": "04-Alem-da-varanda-Nathany",
       "time": "00:53",
       "album": false,
       "albumImage": false,
@@ -84,7 +84,7 @@
     {
       "id": 10,
       "title": "Searching - Cover - Joe Satriani",
-      "file": "10-Searching-satriani.ogg",
+      "file": "10-Searching-satriani",
       "time": "02:23",
       "album": false,
       "albumImage": false,
@@ -93,7 +93,7 @@
     {
       "id": 11,
       "title": "Runaway - Cover - Sarcastic Sounds",
-      "file": "11-Runaway-cover.ogg",
+      "file": "11-Runaway-cover",
       "time": "02:12",
       "album": false,
       "albumImage": false,
@@ -102,7 +102,7 @@
     {
       "id": 12,
       "title": "Endless Refuge",
-      "file": "12-Endless-refuge-low.ogg",
+      "file": "12-Endless-refuge-low",
       "time": "02:58",
       "album": "Endless Refuge",
       "albumImage": false,
