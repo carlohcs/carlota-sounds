@@ -74,7 +74,7 @@ const Player = () => {
         // onPause={(data) => console.log('paused', data)}
         // onSeeked={(data) => console.log('onSeeked', data)}
         listenInterval={1000}
-        onAbort={(data) => console.log(data)}
+        // onAbort={(data) => console.log(data)}
         onLoadedMetadata={() => dispatch({ type: ACTIONS.PLAYING_PROGRESS, value: 0 })}
         onListen={(listened) => {
           if (reactAudioPlayerRef && reactAudioPlayerRef.current) {

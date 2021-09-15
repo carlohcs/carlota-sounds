@@ -35,17 +35,29 @@ The songs are based on the exploration of musical instruments, using the voices 
 
           <div>
             <H3 text="LISTEN AT" className="font-medium text-lg mb-xs mt-sm" />
-            <CSIconList itemsClassName="text-gray-300 hover:text-white transition-colors" items={configs.listenAt} />
+            <CSIconList
+              itemsClassName="text-gray-300 hover:text-white transition-colors"
+              items={configs.listenAt}
+              metricCategory="Listen at"
+            />
           </div>
 
           <div>
             <H3 text="FOLLOW AT" className="font-medium text-lg mb-xs mt-sm" />
-            <CSIconList itemsClassName="text-gray-300 hover:text-white transition-colors" items={configs.followAt} />
+            <CSIconList
+              itemsClassName="text-gray-300 hover:text-white transition-colors"
+              items={configs.followAt}
+              metricCategory="Follow at"
+            />
           </div>
 
           <div>
             <H3 text="SHARE AT" className="font-medium text-lg mb-xs mt-sm" />
-            <CSIconList itemsClassName="text-gray-300 hover:text-white transition-colors" items={configs.shareAt} />
+            <CSIconList
+              itemsClassName="text-gray-300 hover:text-white transition-colors"
+              items={configs.shareAt}
+              metricCategory="Share at"
+            />
           </div>
         </div>
       </div>

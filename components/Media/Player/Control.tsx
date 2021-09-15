@@ -1,9 +1,11 @@
 import SVG from '@/components/SVG/SVG'
-import { dispatch, useGlobalState, ACTIONS } from '@/components/GlobalState'
+import { dispatch, useGlobalState, ACTIONS, sounds } from '@/components/GlobalState'
 import { snakeCase } from '@/components/commons'
+import { event as gtagEvent } from '@/libs/gtag'
 
 type ControlProps = {
   elementName: string
+  className?: string
 }
 
 // type ControlElementsKey = {
@@ -17,9 +19,11 @@ function prop<T, K extends keyof T>(obj: T, key: K) {
   return obj[key]
 }
 
-const Control = ({ elementName }: ControlProps) => {
-  const [isPlaying, setIsPlaying] = useGlobalState('isPlaying')
-  const [isMuted, setIsMuted] = useGlobalState('isMuted')
+const Control = ({ elementName, className }: ControlProps) => {
+  const [isPlaying] = useGlobalState('isPlaying')
+  const [isMuted] = useGlobalState('isMuted')
+  const [currentSoundIndex] = useGlobalState('currentSoundIndex')
+  const currentSound = sounds.data.find((item, index) => currentSoundIndex === index)
 
   let currentConfig: any
 
@@ -65,12 +69,19 @@ const Control = ({ elementName }: ControlProps) => {
 
   return (
     <div
-      data-gtm-event="click"
       id={`player-${snakeCase(elementName)}`}
-      className={`cs-player__actions__${elementName} cursor-pointer hover:bg-gray-900 hover:animate-pulse hover:transition-colors rounded-full ${currentConfig.className}`}
-      onClick={currentConfig.fn}
+      className={`cs-player__actions__${elementName} ${className} cursor-pointer hover:bg-gray-900 hover:animate-pulse hover:transition-colors rounded-full ${currentConfig.className}`}
+      onClick={() => {
+        gtagEvent({
+          category: 'Player',
+          action: currentConfig.title ? currentConfig.title : elementName,
+          label: currentSound?.title,
+        })
+        currentConfig.fn()
+      }}
       title={`${currentConfig.title ? currentConfig.title : elementName}`}
     >
+      <span className="hidden">{elementName}</span>
       <SVG src={`/icons/player/${currentConfig.file}`} />
     </div>
   )

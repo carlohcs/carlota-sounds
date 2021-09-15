@@ -3,6 +3,7 @@ import { P, Small } from '@/components/basics/Typography/Typography'
 import { SoundAlbum } from '@/components/Media/Sounds'
 import Image from 'next/image'
 import { convertToReducedTime, snakeCase } from '@/components/commons'
+import { event as gtagEvent } from '@/libs/gtag'
 
 export type SoundItemProps = {
   id?: number
@@ -27,26 +28,23 @@ const SoundItem = ({
   const [playingProgress] = useGlobalState('playingProgress')
   const isActive = currentSoundIndex === index
   const isCurrentlyPlayingActive = isActive && isPlaying
-  // const onClick = (/*evt: Event*/) => {
-  //   // const classes = ['background-album', 'background-epifania', 'background-restos-do-que-nao-aconteceu']
-  //   // const $bg = document.querySelector<HTMLElement>('.cs-app-background')
-  //   // const currentClasses = ['background-album', `background-${album.toLowerCase()}`]
-  //   // if ($bg) {
-  //   //   $bg.classList.remove(...classes)
-  //   //   $bg.classList.add(...currentClasses)
-  //   // }
-  //   // style={{ boxSizing: 'content-box', width: '100%' }}
-  //   // style={{ maxWidth: 'calc(100% - 20px)' }}
-  // }
-  // truncate
+
   return (
     <div
-      data-gtm-event="click"
       id={`sound-${snakeCase(title)}`}
       className={`cs-sound-item max-w-full relative text-left p-md border-b border-gray-100 border-opacity-25 cursor-pointer hover:animate-pulse hover:bg-gray-800 transition duration-200 ease-in flex flex-row ${
         isActive ? 'transition-colors !bg-gray-800 !bg-opacity-75' : ''
       } ${className}`}
-      onClick={() => dispatch({ type: ACTIONS.PLAY_SOUND, value: index })}
+      onClick={
+        (/* evt */) => {
+          dispatch({ type: ACTIONS.PLAY_SOUND, value: index })
+          gtagEvent({
+            category: 'Sounds',
+            action: 'Clique',
+            label: title,
+          })
+        }
+      }
       data-album={album}
     >
       <div className="flex items-center mr-md w-8 justify-center">

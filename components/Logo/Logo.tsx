@@ -1,5 +1,6 @@
 import React, { useState } from 'react'
 import SVG from '@/components/SVG/SVG'
+import { event as gtagEvent } from '@/libs/gtag'
 
 // import useRAF from '@/hooks/raf.hook'
 // const anime = require('animejs')
@@ -22,7 +23,17 @@ const Logo: React.FC = () => {
   }
 
   return (
-    <div onMouseEnter={() => handleLogoHover(true)} onMouseLeave={() => handleLogoHover(false)}>
+    <div
+      id="logo"
+      onClick={() => {
+        gtagEvent({
+          category: 'Logo',
+          action: 'Clique',
+        })
+      }}
+      onMouseEnter={() => handleLogoHover(true)}
+      onMouseLeave={() => handleLogoHover(false)}
+    >
       <SVG src="/carlota-sounds-6.svg" className={`logo ${shouldAnimate ? 'in' : ''}`} />
     </div>
   )

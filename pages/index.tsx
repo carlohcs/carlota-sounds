@@ -1,4 +1,5 @@
 import { useEffect, useState } from 'react'
+import Head from 'next/head'
 import useInterval from '@/hooks/useInterval.hook'
 import type { NextPage } from 'next'
 import Logo from '@/components/Logo/Logo'
@@ -91,6 +92,11 @@ const Home: NextPage = () => {
 
   return (
     <>
+      <Head>
+        <>
+          <title>A reflection of sounds | Carlota Sounds</title>
+        </>
+      </Head>
       <main className="w-screen h-screen relative overflow-hidden">
         <header className="flex justify-between items-center w-full fixed z-50 p-8">
           <div className="cs-logo">
@@ -165,11 +171,10 @@ const Home: NextPage = () => {
         </div>
 
         <footer className="hidden lg:flex absolute bottom-1 flex flex-row justify-between items-center w-full absolute md:px-8 xl:p-8">
-          <div className="z-30">
-            <div className="cs-player__actions__mute w-14 h-14">
-              <Mute />
-            </div>
+          <div className="cs-cs-player__actions__mute w-14 h-14 z-30">
+            <Mute />
           </div>
+
           <div className="z-30 text-base max-w-md pr-sm text-right opacity-50 hover:opacity-100 transition-opacity">
             <Footer />
           </div>

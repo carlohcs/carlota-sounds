@@ -1,22 +1,22 @@
 import '@/styles/globals.css'
 import '@/components/Logo/Logo.css'
 import '@/components/basics/Typography/Typography.css'
-import React, { useState, useEffect } from 'react'
+import React, { useState } from 'react'
 import type { AppProps } from 'next/app'
 import { Splash } from '@/components/Splash/Splash'
 import BodyBackground from '@/components/BodyBackground'
-// import { useRouter } from 'next/router'
-import * as gtag from '../libs/gtag'
-import TagManager from 'react-gtm-module'
-import configs from '@/etc/configs'
+// import { sentEventByItem } from '@/libs/gtag'
 
-const isProduction = process.env.NODE_ENV === 'production'
+// let clickEvent = (item: Element) => {
+//   return (/* evt */) => {
+//     sentEventByItem(item)
+//   }
+// }
 
 // https://www.reddit.com/r/nextjs/comments/nqjs8r/full_page_loading_splash_screen_with_nextjs_and/
 function MyApp({ Component, pageProps, router }: AppProps) {
-  // const router = useRouter()
   const [loaded, setLoaded] = useState(false)
-  const isPage404 = router.route === '/404'
+  const isErrorPage = router.route === '/404' || router.route === '/500'
 
   if (process.browser) {
     require('@/components/commons/polyfills')
@@ -26,38 +26,36 @@ function MyApp({ Component, pageProps, router }: AppProps) {
     setLoaded(loaded)
   }
 
-  // useEffect(() => {
-  //   const handleRouteChange = (url: URL) => {
-  //     /* invoke analytics function only for production */
-  //     gtag.pageview(url)
+  // const containerElementRef = useCallback(
+  //   (node: any) => {
+  //     if (node && !isErrorPage) {
+  //       const trackElements = document.querySelectorAll('.cs-track-data-click')
 
-  //   }
-  //   router.events.on('routeChangeComplete', handleRouteChange)
-  //   return () => {
-  //     router.events.off('routeChangeComplete', handleRouteChange)
-  //   }
-  // }, [router.events])
+  //       let events: any = []
 
-  useEffect(() => {
-    if (isProduction) {
-      gtag.pageview(new URL(window.location.href))
+  //       trackElements.forEach((item, index) => {
+  //         events[index] = clickEvent(item)
+  //         item.addEventListener('click', events[index])
+  //       })
+  //     }
+  //   },
+  //   [isErrorPage]
+  // )
 
-      const tagManagerArgs = {
-        gtmId: configs.metrics.GTM,
-      }
-
-      TagManager.initialize(tagManagerArgs)
-    }
-  }, [])
-
-  return isPage404 ? (
-    <Component {...pageProps} />
-  ) : (
-    <BodyBackground stage={loaded ? 'loaded' : 'loading'}>
-      <Splash handleLoad={handleLoaded}>
+  return (
+    <>
+      {isErrorPage ? (
         <Component {...pageProps} />
-      </Splash>
-    </BodyBackground>
+      ) : (
+        <BodyBackground stage={loaded ? 'loaded' : 'loading'}>
+          <Splash handleLoad={handleLoaded}>
+            {/* <div ref={containerElementRef}> */}
+            <Component {...pageProps} />
+            {/* </div> */}
+          </Splash>
+        </BodyBackground>
+      )}
+    </>
   )
 }
 export default MyApp

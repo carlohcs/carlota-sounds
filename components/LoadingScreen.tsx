@@ -1,4 +1,5 @@
 import dynamic from 'next/dynamic'
+import Head from 'next/head'
 import { H1, P } from './basics'
 import HeadphoneIcon from '@/components/Icons/Headphone/HeadphoneIcon'
 import DandelionIcon from '@/components/Icons/Dandelion/DandelionIcon'
@@ -18,6 +19,11 @@ const LoadingScreen: React.FC<{ stage: string }> = ({ stage = 'loading' }) => {
     <div className="w-screen h-screen flex flex-initial self-center items-center flex-col justify-center z-10 animate fade-in">
       {stage === 'loading' ? (
         <>
+          <Head>
+            <>
+              <title>Loading... | Carlota Sounds</title>
+            </>
+          </Head>
           <div className="z-20 flex flex-col items-center space-y-6 p-md">
             <HeadphoneIcon />
             <H1 text="Use headphones for the best experience" className="text-3xl font-medium max-w-xl" />

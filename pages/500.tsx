@@ -1,9 +1,9 @@
 import ErrorPage from '@/components/Error/ErrorPage'
 
-export default function Custom404() {
+export default function Custom500() {
   return (
     <>
-      <ErrorPage errorCode={404} />
+      <ErrorPage errorCode={500} />
     </>
   )
 }

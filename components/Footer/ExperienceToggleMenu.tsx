@@ -1,5 +1,6 @@
 import { useGlobalState } from '@/components/GlobalState'
 import { getPropValue } from '@/components/commons'
+import { event as gtagEvent } from '@/libs/gtag'
 
 const items = [
   // {
@@ -47,7 +48,16 @@ const ExperienceMenu = () => {
               className="cs-checkbox"
               type="checkbox"
               defaultChecked={defaultChecked}
-              onChange={() => (getPropValue(item.name, itemsMethods) as any).set(!defaultChecked)}
+              onChange={() => {
+                ;(getPropValue(item.name, itemsMethods) as any).set(!defaultChecked)
+
+                gtagEvent({
+                  category: 'Experience',
+                  action: 'Clique',
+                  label: item.name,
+                  value: !defaultChecked ? 1 : 0,
+                })
+              }}
             />
             <label htmlFor={`experience-menu-${item.name}`}>{item.label}</label>
           </div>

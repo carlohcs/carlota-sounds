@@ -4,6 +4,7 @@ import { SoundItemProps } from '@/components/Media/Sounds/SoundItem'
 import { useEffect, useState } from 'react'
 import { scrollTo, createMarkup } from '@/components/commons'
 import { Small } from '@/components/basics/Typography/Typography'
+import { event as gtagEvent } from '@/libs/gtag'
 
 type SoundsListProps = {
   sounds: SoundItemProps[]
@@ -31,20 +32,7 @@ const SoundsList = ({ sounds = [] }: SoundsListProps) => {
         if (menuOpened) {
           setTimeout(() => {
             const tabContainer = document.querySelector('.cs-tab-container') as HTMLElement
-            // const soundItemOffset = tabContainer.offsetTop - currentSoundItem.offsetTop
             const soundItemOffset = currentSoundItem.offsetTop
-            // let currentPosition = 0
-
-            // currentSoundItem.scrollIntoView({
-            //   behavior: 'smooth',
-            //   block: 'nearest',
-            //   // inline: 'start',
-            // })
-            // for (let index = 0; index < soundItemOffset; index++) {
-            //   let runScroll = () => {
-            //     tabContainer.scrollTop = currentPosition++
-            //   }
-            //   window.requestAnimationFrame(runScroll)
             scrollTo(tabContainer, soundItemOffset, 600)
           }, 50)
         }
@@ -58,7 +46,16 @@ const SoundsList = ({ sounds = [] }: SoundsListProps) => {
         {sounds.map((sound, index) => (
           <SoundItem key={index.toString()} {...sound} index={index} className={`cs-sound-${index}`} />
         ))}
-        <div className="max-w-full text-center p-sm">
+        <div
+          className="max-w-full text-center p-sm"
+          onClick={() => {
+            gtagEvent({
+              category: 'Sounds',
+              action: 'Clique',
+              label: 'Coming soon',
+            })
+          }}
+        >
           <Small text="More coming soon" className="text-base" />
           <span dangerouslySetInnerHTML={createMarkup('&#129310;')} />
         </div>

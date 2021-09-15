@@ -1,8 +1,10 @@
 import CSIcon from '@/components/Icons/CSIcon/CSIcon'
+import { event as gtagEvent } from '@/libs/gtag'
 
 type CSIconListProps = {
   items: { name: string; url: string; icon: string }[]
   itemsClassName?: string
+  metricCategory?: string
 }
 
 type CSItemProps = {
@@ -11,7 +13,7 @@ type CSItemProps = {
   icon: string
 }
 
-const CSIconList = ({ items, itemsClassName }: CSIconListProps) => {
+const CSIconList = ({ items, itemsClassName, metricCategory }: CSIconListProps) => {
   const itemsLength = items.length
 
   return (
@@ -22,7 +24,21 @@ const CSIconList = ({ items, itemsClassName }: CSIconListProps) => {
           key={index}
           style={{ marginRight: index === itemsLength - 1 && itemsLength >= 5 ? 'auto' : '' }}
         >
-          <a href={item.url} className="inline text-xl" target="_blank" rel="noreferrer">
+          <a
+            href={item.url}
+            className="inline text-xl"
+            target="_blank"
+            rel="noreferrer"
+            onClick={() => {
+              if (metricCategory) {
+                gtagEvent({
+                  category: 'About',
+                  action: metricCategory, // Listen at | Share at | Follow at
+                  label: item.name,
+                })
+              }
+            }}
+          >
             <CSIcon iconName={item.icon} /> <span className="ml-2">{item.name}</span>
           </a>
         </div>

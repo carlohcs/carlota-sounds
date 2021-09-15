@@ -2,7 +2,7 @@ const host = 'https://carlota-sounds.art'
 
 const share = {
   url: host,
-  title: 'Carlota Sounds - A reflection of sounds.',
+  title: 'A reflection of sounds | Carlota Sounds',
   description:
     'Brazilian producer and artist, Carlota Sounds is the product of the author’s intimate expression. It is a job in which he deepest feelings are explored: from loneliness, euphoria to the widest reflections. The songs are based on the exploration of musical instruments, using the voices as support. May the reflection of these be with you.',
 }
@@ -105,6 +105,7 @@ const configs = {
       icon: 'youtube',
     },
   ],
+  isProduction: process.env.NODE_ENV === 'production',
 }
 
 export default configs

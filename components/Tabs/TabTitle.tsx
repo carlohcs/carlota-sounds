@@ -1,5 +1,6 @@
 import { snakeCase } from '../commons'
 import { useCallback } from 'react'
+import { event as gtagEvent } from '@/libs/gtag'
 
 type Props = {
   className?: string
@@ -11,10 +12,22 @@ type Props = {
 const TabTitle: React.FC<Props> = ({ title, setSelectedTab, index, className }) => {
   const onClick = useCallback(() => {
     setSelectedTab(index)
-  }, [setSelectedTab, index])
+    gtagEvent({
+      category: 'Menu Tab',
+      action: 'Clique',
+      label: title,
+    })
+  }, [setSelectedTab, index, title])
 
   return (
-    <li className={className} onClick={onClick} data-gtm-event="click" id={`tab-${snakeCase(title)}`}>
+    <li
+      data-gtm-category="Menu Tab"
+      data-gtm-action="Clique"
+      data-gtm-label={title}
+      className={`${className}`}
+      onClick={onClick}
+      id={`tab-${snakeCase(title)}`}
+    >
       {title}
     </li>
   )
