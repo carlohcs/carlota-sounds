@@ -21,7 +21,7 @@ const LoadingScreen: React.FC<{ stage: string }> = ({ stage = 'loading' }) => {
         <>
           <Head>
             <>
-              <title>Loading... | Carlota Sounds</title>
+              <title>Use headphones! | Carlota Sounds</title>
             </>
           </Head>
           <div className="z-20 flex flex-col items-center space-y-6 p-md">

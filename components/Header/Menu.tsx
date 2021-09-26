@@ -1,11 +1,11 @@
+import dynamic from 'next/dynamic'
 import { useState } from 'react'
 import Tabs from '../Tabs'
 import Tab from '../Tabs/Tab'
-import { SoundsList } from '../Media/Sounds'
-import About from '../About/About'
 import sounds from '../../public/sounds/sounds.json'
 
-// const { sounds }: Array<{ id: number; title: string; time: string; album: string }> = carlotaSounds
+const SoundsList = dynamic(() => import('../Media/Sounds/SoundsList'))
+const About = dynamic(() => import('../About/About'))
 
 const Actions = () => {
   const activeTabClass = 'font-medium transition-colors !opacity-100 bg-gradient-to-r from-gray-800'
@@ -13,8 +13,6 @@ const Actions = () => {
   const onSelected = (index: number = 0) => {
     setCurrentActiveTab(index)
   }
-
-  // p-8  
 
   return (
     <>

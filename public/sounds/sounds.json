@@ -24,7 +24,7 @@
       "file": "05-O-sonho-de-Cmajor7",
       "time": "01:01",
       "album": "O sonho de Cmaj7",
-      "albumImage": false,
+      "albumImage": "o-sonho-de-cmaj7.jpg",
       "backgroundImage": "abstract-calm5.gif"
     },
     {
@@ -48,7 +48,7 @@
     {
       "id": 6,
       "title": "Epifania",
-      "file": "09-epifania-low",
+      "file": "09-Epifania-low",
       "time": "03:36",
       "album": "Epifania",
       "albumImage": "epifania.jpg",
@@ -56,11 +56,11 @@
     },
     {
       "id": 7,
-      "title": "Greensleeves - Cover - Feat. J. Williams Diniz",
+      "title": "Greensleeves (Feat. J. Williams Diniz)",
       "file": "07-Greensleeves-low",
       "time": "01:38",
-      "album": false,
-      "albumImage": false,
+      "album": "Greensleeves (Feat. J. Williams Diniz)",
+      "albumImage": "greensleeves.jpg",
       "backgroundImage": "abstract-calm8.gif"
     },
     {
@@ -105,7 +105,7 @@
       "file": "12-Endless-refuge-low",
       "time": "02:58",
       "album": "Endless Refuge",
-      "albumImage": false,
+      "albumImage": "endless-refuge.jpg",
       "backgroundImage": "abstract-calm9.gif"
     }
   ]

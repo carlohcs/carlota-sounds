@@ -1,30 +1,34 @@
 import { useEffect, useState } from 'react'
+import dynamic from 'next/dynamic'
 import Head from 'next/head'
 import useInterval from '@/hooks/useInterval.hook'
 import type { NextPage } from 'next'
 import Logo from '@/components/Logo/Logo'
 import Canvas from '@/components/Canvas/Canvas'
-import ToggleMenu from '@/components/Header/ToggleMenu'
-import Menu from '@/components/Header/Menu'
 import DandelionIcon from '@/components/Icons/Dandelion/DandelionIcon'
 import { run as runBubles } from '@/components/Canvas/bubbles'
+import { useGlobalState, sounds } from '@/components/GlobalState'
+import ImageBackground from '@/components/Background/ImageBackground'
+import { SwitchTransition, CSSTransition } from 'react-transition-group'
+
 // import { run as runPixelRainbow } from '@/components/Canvas/PixelRainbow'
 // import { run as runParticleSmoke } from '@/components/Canvas/ParticleSmoke'
 // import { run as runWaves } from '@/components/Canvas/waves/runWaves'
-import { Player, Mute } from '@/components/Media/Player'
-import { dispatch, useGlobalState, ACTIONS, sounds } from '@/components/GlobalState'
-
 // import VideoBackground from '@/components/Background/VideoBackground'
-import ImageBackground from '@/components/Background/ImageBackground'
-import ExperienceMenu from '@/components/Footer/ExperienceToggleMenu'
-import { Footer } from '@/components/Footer'
-import { SwitchTransition, CSSTransition } from 'react-transition-group'
+
+// Lazy components
+// https://nextjs.org/docs/advanced-features/dynamic-import
+const Player = dynamic(() => import('@/components/Media/Player').then(module => module.Player) as any)
+const Mute = dynamic(() => import('@/components/Media/Player').then(module => module.Mute) as any)
+const Menu = dynamic(() => import('@/components/Header/Menu'))
+const Footer = dynamic(() => import('@/components/Footer/Footer'))
+const ToggleMenu = dynamic(() => import('@/components/Header/ToggleMenu'))
+const ExperienceMenu = dynamic(() => import('@/components/Footer/ExperienceToggleMenu'))
 
 const Home: NextPage = () => {
   // https://dev.to/gabrielrufino/react-hook-usestate-in-typescript-4mn6
   // const [stage, setStage] = useState<string>('loading')
 
-  // const [closed, setClosed] = useState(true)
   const [menuOpened] = useGlobalState('menuOpened')
   const [firstCall, setFirstCall] = useState(false)
 
@@ -109,7 +113,7 @@ const Home: NextPage = () => {
 
         <div className="wrapper relative w-screen h-screen flex justify-center items-center overflow-hidden">
           <div
-            className={`cs-wrapper__menu w-screen h-screen absolute z-40 flex flex-col justify-start items-start pt-18 backdrop-blur-md bg-gray-900 bg-opacity-20 ${currentClassName}`}
+            className={`cs-wrapper__menu w-screen h-screen absolute z-40 flex flex-col justify-start items-start pt-18 backdrop-blur-md bg-black bg-opacity-20 ${currentClassName}`}
             style={{
               willChange: 'transform',
               transform: 'translateX(100vw)',
@@ -165,7 +169,7 @@ const Home: NextPage = () => {
             </div>
           </div>
 
-          <div className="cs-player absolute z-30 flex flex-col justify-center items-center px-8 self-end mb-10 md:mb-16">
+          <div className="cs-player absolute z-30 flex flex-col justify-center items-center px-8 self-end pb-14">
             <Player />
           </div>
         </div>
