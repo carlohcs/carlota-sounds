@@ -8,7 +8,7 @@ import { SoundAlbum } from '.'
 
 describe('SoundAlbum', () => {
   // https://github.com/vercel/next.js/blob/canary/examples/with-jest/__tests__/snapshot.js
-  it('Should render image with a defined alt and a path', () => {
+  it('Should render image with a defined alt and path', () => {
     render(<SoundAlbum image="my-image.png" name="My image" />)
 
     const albumPicture = screen.getByAltText(/picture from album: my image/i)

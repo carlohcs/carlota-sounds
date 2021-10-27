@@ -5,7 +5,7 @@ import { createStore } from 'react-hooks-global-state'
 import { produce } from 'immer'
 import sounds from '../../public/sounds/sounds.json'
 
-const initialState = {
+export const initialState = {
   currentSoundIndex: 0,
   playingProgress: 0,
   isPlaying: false,
@@ -54,7 +54,7 @@ type ActionProps = {
   value?: any
 }
 
-const reducer = (state: StateProps, action: ActionProps) =>
+export const reducer = (state: StateProps, action: ActionProps) =>
   produce(state, (draft) => {
     const { currentSoundIndex } = state
     const totalSounds = sounds.data.length - 1

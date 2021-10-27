@@ -1,7 +1,6 @@
 module.exports = {
   //"\\.(css)$": "jest-css-modules"
   moduleFileExtensions: ['ts', 'tsx', 'js', 'json'],
-  collectCoverage: true,
   // coverageReporters: ['lcov'],
   // coverageDirectory: 'test-coverage',
   collectCoverageFrom: [

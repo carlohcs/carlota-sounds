@@ -32,9 +32,9 @@ const SoundItem = ({
   return (
     <div
       id={`sound-${snakeCase(title)}`}
-      className={`cs-sound-item max-w-full relative text-left p-md border-b border-gray-100 border-opacity-25 cursor-pointer hover:animate-pulse hover:bg-gray-800 transition duration-200 ease-in flex flex-row ${
-        isActive ? 'transition-colors !bg-gray-800 !bg-opacity-75' : ''
-      } ${className}`}
+      className={`cs-sound-item max-w-full relative text-left p-md border-b border-gray-100 border-opacity-25 cursor-pointer hover:animate-pulse hover:bg-gray-800 transition duration-200 ease-in flex flex-row 
+      ${isCurrentlyPlayingActive ? 'cs-sound-item--playing' : ''}
+      ${isActive ? 'transition-colors !bg-gray-800 !bg-opacity-75' : ''} ${className}`}
       onClick={
         (/* evt */) => {
           dispatch({ type: ACTIONS.PLAY_SOUND, value: index })
@@ -49,7 +49,7 @@ const SoundItem = ({
     >
       <div className="flex items-center mr-md w-8 justify-center">
         {isCurrentlyPlayingActive ? (
-          <Image src="/icons/player/waves.gif" alt="Playing music" width={'100%'} height={'100%'} />
+          <Image src="/icons/player/waves.gif" alt={`Playing ${title}`} width={'100%'} height={'100%'} />
         ) : (
           <Small text={(index + 1).toString()} className="text-sm text-gray-400" />
         )}
