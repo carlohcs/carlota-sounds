@@ -1,4 +1,4 @@
-import { Control } from './'
+import { Control } from '..'
 
 type MuteProps = {
   className?: string

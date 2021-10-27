@@ -22,6 +22,6 @@
       "@/libs/*": ["libs/*"]
     }
   },
-  "include": ["next-env.d.ts", "custom.d.ts", "**/*.ts", "**/*.tsx", "stiches.config"],
+  "include": ["next-env.d.ts", "custom.d.ts", "globals.d.ts", "**/*.ts", "**/*.tsx", "stiches.config", "jest.config.js"],
   "exclude": ["node_modules"]
 }

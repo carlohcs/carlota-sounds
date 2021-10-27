@@ -1,4 +1,4 @@
-import { Control } from './'
+import { Control } from '..'
 
 const Next = () => {
   return <Control elementName="next" />

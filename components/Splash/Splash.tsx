@@ -16,7 +16,7 @@ export const Splash = ({ children, handleLoad }: Props) => {
 
   useEffect(() => {
     if (loading && process.browser) {
-      const SoundInstance = require('../Media/Player/Sound').default
+      const SoundInstance = require('../Media/Player/Sound/Sound').default
       const sound = SoundInstance(sounds.data, 0)
       
       sound.expose()

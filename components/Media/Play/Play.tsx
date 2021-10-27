@@ -1,4 +1,4 @@
-import { Control } from './'
+import { Control } from '../Player'
 
 const Play = () => {
   return <Control elementName="play" />
