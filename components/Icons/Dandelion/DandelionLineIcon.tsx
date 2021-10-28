@@ -75,6 +75,7 @@ export const DandelionLineIcon = ({ bottom, left, delay, rotate, color }: Dandel
     // <div
     // w-50 h-50 absolute z-10 left-200 bottom-200
     <DandelionLineIconContainer
+      className="cs-dandelion-line-icon"
       style={{
         left: `${left}px`,
         bottom: `${bottom}px`,

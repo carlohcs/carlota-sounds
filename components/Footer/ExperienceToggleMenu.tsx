@@ -36,7 +36,7 @@ const ExperienceMenu = () => {
   }
 
   return (
-    <>
+    <div className="cs-experience-menu">
       {items.map((item, index) => {
         // https://stackoverflow.com/a/45017155
         const defaultChecked = (getPropValue(item.name, itemsMethods) as any).value
@@ -63,7 +63,7 @@ const ExperienceMenu = () => {
           </div>
         )
       })}
-    </>
+    </div>
   )
 }
 

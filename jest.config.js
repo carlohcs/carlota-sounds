@@ -23,6 +23,7 @@ module.exports = {
     '^@/styles/(.*)$': ['<rootDir>/styles/$1'],
     '^@/libs/(.*)$': ['<rootDir>/libs/$1'],
   },
+  modulePathIgnorePatterns: ["<rootDir>/cypress/"],
   setupFilesAfterEnv: ['<rootDir>/jest.setup.ts'],
   testPathIgnorePatterns: ['<rootDir>/.next/', '<rootDir>/node_modules/'],
 }

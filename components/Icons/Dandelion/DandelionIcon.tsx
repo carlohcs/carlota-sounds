@@ -12,7 +12,7 @@ type BasicElementProps = {
 
 const DandelionIcon: React.FC<BasicElementProps> = ({ className }) => {
   return (
-    <div className={className}>
+    <div className={`cs-dandelion-icon ${className}`}>
       <div className={style.DandelionContainer}>
         <SVG src="/dandelion-0.svg" className={`animate scale ${style.icon} ${style.dandelion}`} />
       </div>

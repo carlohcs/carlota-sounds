@@ -26,7 +26,7 @@ const HeadphoneIcon = ({ blocked, className }: HeadphoneIconProps) => {
 
   return (
     // <HeadphoneIconContainer>
-    <div className={`${className} ${style.headphoneContainer} ${blocked ? style.headphoneContainerBlocked : ''}`}>
+    <div className={`cs-headphone-icon ${className} ${style.headphoneContainer} ${blocked ? style.headphoneContainerBlocked : ''}`}>
       <SVG
         src="/headphone.svg"
         className={`${style.iconHeadphone} ${blocked ? style.iconHeadphoneBlocked : ''} cs-iconHeadphone`}

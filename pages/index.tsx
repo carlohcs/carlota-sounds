@@ -101,7 +101,7 @@ const Home: NextPage = () => {
           <title>A reflection of sounds | Carlota Sounds</title>
         </>
       </Head>
-      <main className="w-screen h-screen relative overflow-hidden">
+      <main className="cs-home-page w-screen h-screen relative overflow-hidden">
         <header className="flex justify-between items-center w-full fixed z-50 p-8">
           <div className="cs-logo">
             <Logo />
